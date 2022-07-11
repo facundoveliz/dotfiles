@@ -1,0 +1,240 @@
+# ================ vars ================
+set $mod Mod4
+set $term kitty
+
+# ================ apps ================
+
+# open applications on specific workspaces
+assign [title="(?i)discord"] → $ws3
+for_window [class="Spotify"] move to workspace $ws4
+
+# open specific applications in floating mode
+for_window [class="(?i)feh"] floating enable, move position center
+for_window [class="(?i)Pavucontrol"] floating enable, move position center
+for_window [class="(?i)Lxappearance"] floating enable, move position center
+for_window [class="Galculator"] floating enable, move position center
+for_window [class="(?i)gcolor3"] floating enable, move position center
+for_window [title="Friends List"] floating enable, move position center
+
+# autostart
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id source ~/.fehbg
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id flameshot
+exec_always --no-startup-id udiskie
+exec_always --no-startup-id clipmenud
+exec_always --no-startup-id dunst
+exec_always --no-startup-id setxkbmap -layout us
+
+# startup programs
+exec --no-startup-id discord
+
+# ================ keybindings ================
+
+# use mouse+$mod to drag floating windows
+floating_modifier $mod
+
+bindsym $mod+Return             exec --no-startup-id $term
+bindsym $mod+c                  exec --no-startup-id google-chrome-stable
+bindsym $mod+Shift+c            exec --no-startup-id google-chrome-stable --incognito
+bindsym $mod+x                  exec --no-startup-id code
+bindsym $mod+F9                 exec --no-startup-id pavucontrol
+bindsym $mod+g                  exec --no-startup-id galculator
+
+# file manager
+bindsym $mod+t                  exec --no-startup-id thunar
+bindsym $mod+Shift+m            exec --no-startup-id thunar /mnt/1TB/Media
+
+# study mode
+bindsym $mod+F7                 exec --no-startup-id google-chrome-stable --new-window "https://www.youtube.com/playlist?list=PLeVkzW0Ql7pXcKkeH-GNP5j2BGuy9eCW6" "https://www.youtube.com/watch?v=4vIQON2fDWM&t=1581s"
+
+# dmenu scripts
+bindsym $mod+d                  exec --no-startup-id dmenu_run
+bindsym $mod+p                  exec --no-startup-id ~/.config/scripts/dmenu-power.sh
+bindsym $mod+Mod1+c            exec --no-startup-id clipmenu -i
+bindsym $mod+F8                 exec --no-startup-id ~/.config/scripts/dmenu-kill.sh
+bindsym $mod+Mod1+e             exec --no-startup-id ~/.config/scripts/dmenu-emoji.sh
+
+# flameshot
+bindsym Print                   exec flameshot gui -s -c -p "/mnt/1TB/Images/Screenshots/"
+bindsym Shift+Print             exec flameshot screen -c -p "/mnt/1TB/Images/Screenshots/"
+
+# copy selection to clipboard with OCR
+bindsym $mod+F10                exec flameshot gui -r -s | tesseract - - -l spa+eng | xclip -selection clipboard
+
+# change keyboard layout
+bindsym $mod+F12                exec --no-startup-id setxkbmap latam
+bindsym $mod+F11                exec --no-startup-id setxkbmap us
+
+# focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# focus on opened window
+focus_on_window_activation focus
+
+# navigate through workspaces
+bindsym Mod1+Tab workspace back_and_forth
+
+# fullscren
+bindsym $mod+f fullscreen toggle
+
+# enter fullscreen mode for the focused container
+bindsym $mod+Shift+f fullscreen disable; floating enable; resize set 640 360; sticky enable; move window to position 1515 20
+
+# change container layout (tabbed, toggle split)
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# resizing
+bindsym $mod+Mod1+Down  resize grow   height 2 px or 2 ppt
+bindsym $mod+Mod1+Up    resize shrink height 2 px or 2 ppt
+bindsym $mod+Mod1+Left  resize grow   width  2 px or 2 ppt
+bindsym $mod+Mod1+Right resize shrink width  2 px or 2 ppt
+
+bindsym $mod+Mod1+j     resize grow   height 2 px or 2 ppt
+bindsym $mod+Mod1+k     resize shrink height 2 px or 2 ppt
+bindsym $mod+Mod1+h     resize grow   width  2 px or 2 ppt
+bindsym $mod+Mod1+l     resize shrink width  2 px or 2 ppt
+
+# kill focused window
+bindsym $mod+q kill
+
+# split
+bindsym $mod+Shift+v split h
+bindsym $mod+v split v
+
+# media player controls
+bindsym XF86AudioPlay           exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause          exec --no-startup-id playerctl play-pause
+bindsym XF86AudioStop           exec --no-startup-id playerctl stop
+bindsym XF86AudioNext           exec --no-startup-id playerctl next
+bindsym XF86AudioPrev           exec --no-startup-id playerctl previous
+
+# ================ workspaces ================
+
+# workspaces names
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+
+# move focused container to workspace
+bindsym $mod+Ctrl+1 move container to workspace $ws1
+bindsym $mod+Ctrl+2 move container to workspace $ws2
+bindsym $mod+Ctrl+3 move container to workspace $ws3
+bindsym $mod+Ctrl+4 move container to workspace $ws4
+bindsym $mod+Ctrl+5 move container to workspace $ws5
+bindsym $mod+Ctrl+6 move container to workspace $ws6
+bindsym $mod+Ctrl+7 move container to workspace $ws7
+bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $mod+Ctrl+9 move container to workspace $ws9
+
+# move to workspace with focused container
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+
+# move workspaces to other windows
+bindsym $mod+Ctrl+Left  move workspace to output left
+bindsym $mod+Ctrl+Up    move workspace to output up
+bindsym $mod+Ctrl+Right move workspace to output right
+bindsym $mod+Ctrl+Down  move workspace to output down
+
+bindsym $mod+Ctrl+l     move workspace to output left
+bindsym $mod+Ctrl+k     move workspace to output up
+bindsym $mod+Ctrl+h     move workspace to output right
+bindsym $mod+Ctrl+j     move workspace to output down
+
+# scratchpad
+bindsym $mod+minus move scratchpad
+bindsym $mod+Shift+minus scratchpad show
+
+# ================ windows ================
+
+# font for window titles.
+font pango:JetBrainsMono Nerd Font 4
+
+# hide window title bar
+for_window [class="^.*"] border pixel 2
+
+# will disable borders when there is only one window in screen
+smart_borders on
+
+# disable borders for some apps
+# for_window [title=" - Google Chrome"] border none
+
+# toggle tiling / floating
+bindsym $mod+s floating toggle; move position center
+
+# reload the configuration file
+bindsym $mod+Shift+z reload
+# restart i3
+bindsym $mod+Shift+r restart
+# exit i3
+bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# ================ styling ================
+
+set $background1 #1a1b26
+set $background2 #28344a
+set $foreground #a9b1d6
+set $red #f7768e
+set $orange #ff9e64
+set $yellow #e0af68
+set $green #9dcd69
+set $blue #7aa2f7
+set $cyan #7dcfff
+set $magenta #bb9af7
+
+# class                 border  bground text    indicator child_border
+client.focused          $magenta $magenta $magenta $magenta   $magenta
+client.focused_inactive $background1 $background1 $background1 $background2   $background2
+client.unfocused        $background1 $background1 $background1 $background2   $background2
+client.urgent           $background1 $background1 $background1 $magenta   $background2
+client.placeholder      $background1 $background1 $background1 $magenta   $background2
+client.background       $background1
+
+# window gaps, the top gaps are dependly of the bar
+gaps inner 8
+gaps bottom 24
