@@ -44,7 +44,14 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- have packer manage itself
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- colorizer
 	use("windwp/nvim-autopairs") -- autoclose
-	use("tpope/vim-surround") -- "surrounds" parentheses, brackets, xml, etc
+	use({
+		"kylechui/nvim-surround",
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	}) -- "surrounds" parentheses, brackets, xml, etc
 	use("mattn/emmet-vim") -- html abbreviations
 	use("nvim-lualine/lualine.nvim") -- status line in the bottom
 	use("akinsho/bufferline.nvim") -- buffer status in the top
