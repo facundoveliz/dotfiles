@@ -237,5 +237,5 @@ client.placeholder      $background1 $background1 $background1 $magenta   $backg
 client.background       $background1
 
 # window gaps, the top gaps are dependly of the bar
-gaps inner 8
-gaps bottom 24
+gaps inner 0
+gaps bottom 20
