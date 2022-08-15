@@ -219,17 +219,16 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # ================ styling ================
-
-set $background1 #1a1b26
-set $background2 #28344a
-set $foreground #a9b1d6
-set $red #f7768e
-set $orange #ff9e64
-set $yellow #e0af68
-set $green #9dcd69
-set $blue #7aa2f7
-set $cyan #7dcfff
-set $magenta #bb9af7
+set $background1 #1d2021
+set $background2 #282828
+set $foreground #ebdbb2
+set $red #fb4934
+set $orange #689d6a
+set $yellow #fabd2f
+set $green #b8bb26
+set $blue #458588
+set $cyan #83a598
+set $magenta #d3869b
 
 # class                 border  bground text    indicator child_border
 client.focused          $magenta $magenta $magenta $magenta   $magenta
