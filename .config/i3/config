@@ -101,6 +101,9 @@ bindsym $mod+f fullscreen toggle
 # enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen disable; floating enable; resize set 640 360; sticky enable; move window to position 1515 20
 
+# enable window sticky, it follows you through all workspaces
+bindsym $mod+Shift+o sticky enable;
+
 # change container layout (tabbed, toggle split)
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
