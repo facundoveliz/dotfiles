@@ -71,8 +71,11 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-#open current location in file manager
+# open current location in file manager
 alias open='xdg-open .'
+
+# fix discord
+alias discord='discord --no-sandbox'
 
 # dirs
 alias rm='rm -i'
