@@ -49,20 +49,20 @@ mouse_left_click = close_current
 mouse_middle_click = do_action
 mouse_right_click = close_all
 
-frame_color = "#689d6a"
-separator_color = "#689d6a"
+frame_color = "#202020"
+separator_color = "#202020"
 
 [base16_low]
     msg_urgency = low
-    background = "#1d2021"
-    foreground = "#ebdbb2"
+    background = "#151515"
+    foreground = "#dedede"
 
 [base16_normal]
     msg_urgency = normal
-    background = "#1d2021"
-    foreground = "#ebdbb2"
+    background = "#151515"
+    foreground = "#dedede"
 
 [base16_critical]
     msg_urgency = critical
-    background = "#1d2021"
-    foreground = "#ebdbb2"
+    background = "#151515"
+    foreground = "#dedede"

@@ -106,6 +106,7 @@ return packer.startup(function(use)
 	use("srcery-colors/srcery-vim")
 	use("nanotech/jellybeans.vim")
 	use("folke/tokyonight.nvim")
+	use("Everblush/everblush.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
