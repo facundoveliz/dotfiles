@@ -23,6 +23,7 @@ declare -a options=(
 "Reboot to Windows"
 "Shutdown"
 "Suspend"
+"Hibernate"
 "Lock screen"
 "Logout"
 "Quit"
@@ -79,6 +80,13 @@ case $choice in
             output "User chose not to suspend." && exit 0
         fi
         ;;
+    'Hibernate')
+      if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
+          systemctl hibernate
+      else
+          output "User chose not to hibernate." && exit 0
+      fi
+      ;;
     'Quit')
         output "Program terminated." && exit 0
     ;;

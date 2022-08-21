@@ -63,8 +63,11 @@ bindkey '^H' backward-kill-word
 
 # ================ aliases ================
 
-# pacman
+# packages
 alias pacman='pacman --color=always'
+# alias update='pacman --color=always'
+# alias p='sudo pacman -S'
+# alias y='yay -S'
 
 # navigation
 alias ..='cd ..'
@@ -83,7 +86,7 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias rmf='rm -rf'
 
-alias ls='exa --color=auto --group-directories-first --icons'
+alias ls='exa --color=auto --group-directories-first'
 alias la='exa -ahl --color=always --git-ignore --group-directories-first --sort extension'
 
 alias h='history'
@@ -111,28 +114,16 @@ alias gaa='git add --all'
 alias gpl='git pull'
 alias gpu='git push -u origin main'
 
-# packages
-alias p='sudo pacman -S'
-alias y='yay -S'
-
-# dotfiles management
-alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias ldots='lazygit --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-
-# compile dmenu
-alias dmake='cd ~/.config/dmenu/ && make && sudo make install'
-
 # ================ functions ================
+
+function pass-copy() {
+  pass -c $1 &&
+  clipdel -d "$(xsel -b)"
+}
 
 # git
 function gra() {
   git remote add origin\
-    https://github.com/facundoveliz/"$1".git
-}
-
-function gcd() {
-  git clone "$1"
-  cd ${1##*/}
 }
 
 function gcm() {
@@ -182,3 +173,5 @@ function torrent() {
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f "/home/facu/.ghcup/env" ] && source "/home/facu/.ghcup/env" # ghcup-env
