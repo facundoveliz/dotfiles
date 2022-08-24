@@ -1,6 +1,11 @@
-setxkbmap -option caps:escape
+#!/bin/sh
+
+export PATH="$HOME/.local/bin:$PATH" &
+setxkbmap -layout us &
+setxkbmap -option caps:escape &
+flameshot &
+udiskie &
 xset s off &
 xset -dpms &
 xset r rate 350 60 &
-export PATH="$HOME/.local/bin:$PATH"
 exec i3

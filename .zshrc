@@ -40,7 +40,7 @@ export PATH="$HOME/.local/bin:$PATH"
 # default apps
 export VISUAL="nvim"
 export EDITOR="nvim"
-export TERMINAL="kitty"
+export TERMINAL="st"
 export READER="zathura"
 
 # locale
@@ -60,25 +60,31 @@ fi
 # ================ key bindings ================
 
 bindkey '^H' backward-kill-word
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+bindkey -s '^o' 'nvim $(fzf)\n'
 
 # ================ aliases ================
 
-# packages
-alias pacman='pacman --color=always'
-# alias update='pacman --color=always'
-# alias p='sudo pacman -S'
-# alias y='yay -S'
+# misc
+alias pac='sudo pacman --color=always'
+alias open='xdg-open .' # open current location in file manager
+alias discord='discord --no-sandbox' # fix discord
+alias clipboard='xclip -selection clipboard' # copy command output
+alias h='history'
+alias disks='df -h | grep sd \
+  | sed -e "s_/dev/sda[1-9]_\x1b[34m&\x1b[0m_" \
+  | sed -e "s_/dev/sd[b-z][1-9]_\x1b[33m&\x1b[0m_" \
+  | sed -e "s_[,0-9]*[MG]_\x1b[36m&\x1b[0m_" \
+  | sed -e "s_[0-9]*%_\x1b[32m&\x1b[0m_" \
+  | sed -e "s_9[0-9]%_\x1b[31m&\x1b[0m_" \
+  | sed -e "s_/mnt/[-_A-Za-z0-9]*_\x1b[34;1m&\x1b[0m_"'
+
 
 # navigation
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-
-# open current location in file manager
-alias open='xdg-open .'
-
-# fix discord
-alias discord='discord --no-sandbox'
 
 # dirs
 alias rm='rm -i'
@@ -88,15 +94,6 @@ alias rmf='rm -rf'
 
 alias ls='exa --color=auto --group-directories-first'
 alias la='exa -ahl --color=always --git-ignore --group-directories-first --sort extension'
-
-alias h='history'
-alias disks='df -h | grep sd \
-    | sed -e "s_/dev/sda[1-9]_\x1b[34m&\x1b[0m_" \
-    | sed -e "s_/dev/sd[b-z][1-9]_\x1b[33m&\x1b[0m_" \
-    | sed -e "s_[,0-9]*[MG]_\x1b[36m&\x1b[0m_" \
-    | sed -e "s_[0-9]*%_\x1b[32m&\x1b[0m_" \
-    | sed -e "s_9[0-9]%_\x1b[31m&\x1b[0m_" \
-    | sed -e "s_/mnt/[-_A-Za-z0-9]*_\x1b[34;1m&\x1b[0m_"'
 
 # bookmarks
 alias dev='cd ~/Documents/Dev'
@@ -116,14 +113,14 @@ alias gpu='git push -u origin main'
 
 # ================ functions ================
 
-function pass-copy() {
-  pass -c $1 &&
-  clipdel -d "$(xsel -b)"
-}
-
 # git
 function gra() {
-  git remote add origin\
+  git remote add origin git@github.com:facundoveliz/"$@".git
+}
+
+function gcd() {
+  git clone "$1"
+  cd ${1##*/}
 }
 
 function gcm() {
@@ -132,8 +129,7 @@ function gcm() {
 
 function gac() {
   git add --all
-  git commit -m "$*"
-}
+  git commit -m "$*" }
 
 # create a new directory and enter it
 function mkd() {

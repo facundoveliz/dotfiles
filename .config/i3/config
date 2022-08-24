@@ -1,4 +1,3 @@
-# FIX: udiskie in smarthphone connect
 # ================ vars ================
 set $mod Mod4
 set $term st
@@ -21,11 +20,9 @@ for_window [title="Friends List"] floating enable, move position center
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id source ~/.fehbg
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id flameshot
-exec_always --no-startup-id udiskie
+exec_always --no-startup-id picom
 exec_always --no-startup-id clipmenud
 exec_always --no-startup-id dunst
-exec_always --no-startup-id setxkbmap -layout us
 
 # startup programs
 exec --no-startup-id discord
@@ -37,7 +34,6 @@ floating_modifier $mod
 
 bindsym $mod+Return             exec --no-startup-id $term
 bindsym $mod+c                  exec --no-startup-id google-chrome-stable
-bindsym $mod+Shift+c            exec --no-startup-id google-chrome-stable --incognito
 bindsym $mod+x                  exec --no-startup-id code
 bindsym $mod+F9                 exec --no-startup-id pavucontrol
 bindsym $mod+g                  exec --no-startup-id galculator
@@ -45,24 +41,29 @@ bindsym $mod+g                  exec --no-startup-id galculator
 # file manager
 bindsym $mod+t                  exec --no-startup-id thunar
 bindsym $mod+Shift+m            exec --no-startup-id thunar /mnt/1TB/Media
+bindsym $mod+Shift+s            exec --no-startup-id thunar /mnt/1TB/Images/Screenshots
 
 # study mode
 bindsym $mod+F7                 exec --no-startup-id google-chrome-stable --new-window "https://www.youtube.com/playlist?list=PLeVkzW0Ql7pXcKkeH-GNP5j2BGuy9eCW6" "https://www.youtube.com/watch?v=4vIQON2fDWM&t=1581s"
 
-# dmenu scripts
-bindsym $mod+d                  exec --no-startup-id dmenu_run
-bindsym $mod+p                  exec --no-startup-id dmenu-power
-bindsym $mod+Shift+p            exec --no-startup-id sh -c 'passmenu && clipdel -d "$(xsel -b)"'
-bindsym $mod+Mod1+c             exec --no-startup-id clipmenu -i
-bindsym $mod+F8                 exec --no-startup-id dmenu-kill
-bindsym $mod+Mod1+e             exec --no-startup-id dmenu-emoji
-bindsym $mod+Mod1+b             exec --no-startup-id dmenu-zathura
+# dmenu
+bindsym $mod+d                  exec --no-startup-id dmenu_run; mode "default"
+bindsym $mod+r mode "dmenu-scripts"
+mode "dmenu-scripts"{
+  bindsym p                  exec --no-startup-id dmenu-power; mode "default"
+  bindsym m                  exec --no-startup-id sh -c 'passmenu && clipdel -d "$(xsel -b)"'; mode "default"
+  bindsym c                  exec --no-startup-id clipmenu -i; mode "default"
+  bindsym k                  exec --no-startup-id dmenu-kill; mode "default"
+  bindsym e                  exec --no-startup-id dmenu-emoji; mode "default"
+  bindsym b                  exec --no-startup-id dmenu-zathura; mode "default"
+  bindsym Return mode "default"
+}
 
 # flameshot
 bindsym Print                   exec flameshot gui -s -c -p "/mnt/1TB/Images/Screenshots/"
 bindsym Shift+Print             exec flameshot screen -c -p "/mnt/1TB/Images/Screenshots/"
 
-# copy selection to clipboard with OCR
+# copy screenshot text to clipboard with OCR
 bindsym $mod+F10                exec flameshot gui -r -s | tesseract - - -l spa+eng | xclip -selection clipboard
 
 # change keyboard layout
@@ -209,6 +210,7 @@ for_window [class="^.*"] border pixel 2
 
 # disable borders for some apps
 for_window [title=" - Google Chrome"] border none
+for_window [class="discord"] border none
 
 # toggle tiling / floating
 bindsym $mod+s floating toggle; move position center
