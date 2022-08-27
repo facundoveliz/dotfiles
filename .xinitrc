@@ -3,6 +3,7 @@
 export PATH="$HOME/.local/bin:$PATH" &
 setxkbmap -layout us &
 setxkbmap -option caps:escape &
+xgame -gamma 1.15 &
 flameshot &
 udiskie &
 xset s off &
