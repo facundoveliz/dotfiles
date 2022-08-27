@@ -1,6 +1,6 @@
 # ================ vars ================
 set $mod Mod4
-set $term st
+set $term kitty
 
 # ================ apps ================
 
@@ -34,6 +34,7 @@ floating_modifier $mod
 
 bindsym $mod+Return             exec --no-startup-id $term
 bindsym $mod+c                  exec --no-startup-id google-chrome-stable
+bindsym $mod+Shift+c            exec --no-startup-id google-chrome-stable --incognito
 bindsym $mod+x                  exec --no-startup-id code
 bindsym $mod+F9                 exec --no-startup-id pavucontrol
 bindsym $mod+g                  exec --no-startup-id galculator
@@ -56,7 +57,7 @@ mode "dmenu-scripts"{
   bindsym k                  exec --no-startup-id dmenu-kill; mode "default"
   bindsym e                  exec --no-startup-id dmenu-emoji; mode "default"
   bindsym b                  exec --no-startup-id dmenu-zathura; mode "default"
-  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
 # flameshot
@@ -105,7 +106,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+f fullscreen disable; floating enable; resize set 640 360; sticky enable; move window to position 1515 20
 
 # enable window sticky, it follows you through all workspaces
-bindsym $mod+Shift+o sticky enable;
+bindsym $mod+o sticky enable;
 
 # change container layout (tabbed, toggle split)
 bindsym $mod+w layout tabbed
@@ -203,7 +204,7 @@ bindsym $mod+Shift+minus scratchpad show
 font pango:JetBrainsMono Nerd Font 4
 
 # hide window title bar
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 
 # will disable borders when there is only one window in screen
 # smart_borders on
@@ -244,5 +245,5 @@ client.background       $background1
 
 # window gaps, the top gaps are dependly of the bar
 gaps outer 0
-gaps inner 6
-gaps bottom 23
+gaps inner 0
+gaps bottom 22

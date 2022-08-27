@@ -8,6 +8,7 @@ origin = top-right
 offset = 30x30
 indicate_hidden = yes
 shrink = yes
+notification_limit = 0
 
 progress_bar = true
 progress_bar_height = 5
@@ -19,12 +20,12 @@ transparency = 0
 separator_height = 2
 padding = 8
 horizontal_padding = 8
-frame_width = 2
+frame_width = 0
 
-font = Cozette
+font = JetBrainsMono
 line_height = 0
 markup = full
-format = "<span font_desc='Cozette' weight='bold'>%s<span font_desc='Cozette'>\n%b</span></span>"
+format = "<span size='x-large' font_desc='JetBrainsMono Nerd Font 9' weight='bold'>%s<span font_desc='JetBrainsMono Nerd Font 9'>\n%b</span></span>"
 alignment = left
 vertical_alignment = center
 
@@ -54,15 +55,15 @@ separator_color = "#202020"
 
 [base16_low]
     msg_urgency = low
-    background = "#151515"
+    background = "#202020"
     foreground = "#dedede"
 
 [base16_normal]
     msg_urgency = normal
-    background = "#151515"
+    background = "#202020"
     foreground = "#dedede"
 
 [base16_critical]
     msg_urgency = critical
-    background = "#151515"
+    background = "#202020"
     foreground = "#dedede"
