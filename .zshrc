@@ -34,14 +34,11 @@ export ZSH="$HOME/.oh-my-zsh"
 export UPDATE_ZSH_DAYS=7
 source $ZSH/oh-my-zsh.sh
 
-# path
+# scripts path
 export PATH="$HOME/.local/bin:$PATH"
 
 # default apps
-export VISUAL="nvim"
 export EDITOR="nvim"
-export TERMINAL="st"
-export READER="zathura"
 
 # locale
 export LANG=en_US.UTF-8
@@ -62,16 +59,16 @@ fi
 bindkey '^H' backward-kill-word
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
-bindkey -s '^o' 'nvim $(fzf)\n'
 
 # ================ aliases ================
 
 # misc
 alias pac='sudo pacman --color=always'
 alias open='xdg-open .' # open current location in file manager
-alias discord='discord --no-sandbox' # fix discord
-alias clipboard='xclip -selection clipboard' # copy command output
 alias h='history'
+alias discord='discord --no-sandbox' # fix discord
+alias pomotroid='pomotroid --in-process-gpu &'
+alias clipboard='xclip -selection clipboard' # copy command output when used on a pipe
 alias disks='df -h | grep sd \
   | sed -e "s_/dev/sda[1-9]_\x1b[34m&\x1b[0m_" \
   | sed -e "s_/dev/sd[b-z][1-9]_\x1b[33m&\x1b[0m_" \
@@ -86,17 +83,12 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
-# dirs
-alias rm='rm -i'
-alias mv='mv -i'
-alias cp='cp -i'
-alias rmf='rm -rf'
-
+# ls replacement
 alias ls='exa --color=auto --group-directories-first'
 alias la='exa -ahl --color=always --git-ignore --group-directories-first --sort extension'
 
 # bookmarks
-alias dev='cd ~/Documents/Dev'
+alias dev='cd ~/Dev'
 alias media='cd /mnt/1TB/Media'
 
 # git
@@ -113,35 +105,17 @@ alias gpu='git push -u origin main'
 
 # ================ functions ================
 
-# git
-function gra() {
-  git remote add origin git@github.com:facundoveliz/"$@".git
-}
-
-function gcd() {
-  git clone "$1"
-  cd ${1##*/}
-}
-
-function gcm() {
-  git commit -m "$1"
-}
-
 function gac() {
   git add --all
-  git commit -m "$*" }
+  git commit -m "$*"
+}
 
 # create a new directory and enter it
 function mkd() {
   mkdir -p "$@" && cd "$@"
 }
 
-# get an information of ip address
-function myip() {
-  curl -s -H "Accept: application/json" "https://ipinfo.io/${1:-}" | jq "del(.loc, .postal, .readme)"
-}
-
-# extract compressed format
+# extract compressed
 function ext() {
   if [ -f $1 ] ; then
       case $1 in
@@ -163,8 +137,14 @@ function ext() {
   fi
 }
 
+# download any video
+function dl() {
+  youtube-dl $@ --exec "mv {} ~/Downloads && thunar ~/Downloads/{} && exit && notify-send 'youtube-dl' 'Download finished'"
+}
+
+# movie/tv-show torrenting
 function torrent() {
-  webtorrent "$@" --vlc -o /mnt/1TB/Media
+  webtorrent "$@" --vlc -o /mnt/1TB/Media -d 6000 -u 700 --on-done "notify-send 'Webtorrent' 'The torrent finished downloading'"
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
