@@ -47,17 +47,6 @@ require("gitsigns").setup({
 			vim.keymap.set(mode, l, r, opts)
 		end
 
-		-- Navigation
-		keymap("n", "]c", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
-		keymap("n", "[c", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
-
-		-- Actions
-		keymap({ "n", "v" }, "<leader>sc", ":Gitsigns stage_hunk<CR>")
-		keymap({ "n", "v" }, "<leader>rc", ":Gitsigns reset_hunk<CR>")
-		-- keymap("n", "<leader>hS", gs.stage_buffer)
-		-- keymap("n", "<leader>hu", gs.undo_stage_hunk)
-		-- keymap("n", "<leader>hR", gs.reset_buffer)
-		-- keymap("n", "<leader>hp", gs.preview_hunk)
 		keymap("n", "<leader>bl", function()
 			gs.blame_line({ full = true })
 		end)

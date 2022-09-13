@@ -39,35 +39,21 @@ keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 keymap("n", "<leader>j", ":m .1<CR>==", opts)
 keymap("n", "<leader>k", ":m .-2<CR>==", opts)
 
--- actions with leader
-keymap("n", "<leader>ww", ":w<CR>", opts)
-keymap("n", "<leader>wq", ":wq<CR>", opts)
-keymap("n", "<leader>qq", ":q<CR>", opts)
-keymap("n", "<leader>qa", ":qa<CR>", opts)
-keymap("n", "<leader>v", ":vsplit<CR>", opts)
-
 -- buffers
-keymap("n", "<TAB>", "<cmd>:bnext<CR>", opts)
-keymap("n", "<S-TAB>", "<cmd>:bprev<CR>", opts)
+keymap("n", "<S-l>", "<cmd>:bnext<CR>", opts)
+keymap("n", "<S-h>", "<cmd>:bprev<CR>", opts)
 -- close buffer without closing the window
 keymap("n", "tc", "<cmd>bp|bd #<CR>", opts)
 keymap("n", "tx", "<cmd>bp|bd! #<CR>", opts)
 
 -- fix tab
--- keymap("i", "<Tab>", "<C-o>v>", opts)
 keymap("i", "<S-Tab>", "<C-o>v<", opts)
 
 -- nvim tree
 keymap("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
 
--- lazygit
-keymap("n", "<leader>gg", ":LazyGit<CR>", opts)
-
 -- color
 keymap("n", "<leader>cc", ":ColorToggle<CR>", opts)
-
--- formatting
-keymap("n", "fe", ":EslintFixAll<CR>", opts)
 
 -- save and quit with ctrl
 keymap("n", "<S-q>", ":q<CR>", opts)

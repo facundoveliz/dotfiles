@@ -91,11 +91,6 @@ _G.packer_plugins = {
     path = "/home/facu/.local/share/nvim/site/pack/packer/start/NeoSolarized",
     url = "https://github.com/overcache/NeoSolarized"
   },
-  ["ayu-vim"] = {
-    loaded = true,
-    path = "/home/facu/.local/share/nvim/site/pack/packer/start/ayu-vim",
-    url = "https://github.com/ayu-theme/ayu-vim"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/facu/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -136,11 +131,6 @@ _G.packer_plugins = {
     path = "/home/facu/.local/share/nvim/site/pack/packer/start/emmet-vim",
     url = "https://github.com/mattn/emmet-vim"
   },
-  ["everblush.nvim"] = {
-    loaded = true,
-    path = "/home/facu/.local/share/nvim/site/pack/packer/start/everblush.nvim",
-    url = "https://github.com/Everblush/everblush.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/facu/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -151,10 +141,10 @@ _G.packer_plugins = {
     path = "/home/facu/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  gruvbox = {
+  ["gruvbox.nvim"] = {
     loaded = true,
-    path = "/home/facu/.local/share/nvim/site/pack/packer/start/gruvbox",
-    url = "https://github.com/gruvbox-community/gruvbox"
+    path = "/home/facu/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
+    url = "https://github.com/ellisonleao/gruvbox.nvim"
   },
   ["jellybeans.vim"] = {
     loaded = true,
@@ -232,11 +222,6 @@ _G.packer_plugins = {
     path = "/home/facu/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  ["srcery-vim"] = {
-    loaded = true,
-    path = "/home/facu/.local/share/nvim/site/pack/packer/start/srcery-vim",
-    url = "https://github.com/srcery-colors/srcery-vim"
-  },
   ["telescope-zoxide"] = {
     loaded = true,
     path = "/home/facu/.local/share/nvim/site/pack/packer/start/telescope-zoxide",
@@ -252,10 +237,10 @@ _G.packer_plugins = {
     path = "/home/facu/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
   },
-  ["tokyonight.nvim"] = {
+  ["vim-code-dark"] = {
     loaded = true,
-    path = "/home/facu/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
+    path = "/home/facu/.local/share/nvim/site/pack/packer/start/vim-code-dark",
+    url = "https://github.com/tomasiser/vim-code-dark"
   }
 }
 
@@ -267,14 +252,14 @@ time([[Setup for Colorizer]], false)
 time([[packadd for Colorizer]], true)
 vim.cmd [[packadd Colorizer]]
 time([[packadd for Colorizer]], false)
--- Config for: nvim-surround
-time([[Config for nvim-surround]], true)
-try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
-time([[Config for nvim-surround]], false)
 -- Config for: Comment.nvim
 time([[Config for Comment.nvim]], true)
 try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fComment\frequire\0", "config", "Comment.nvim")
 time([[Config for Comment.nvim]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
+time([[Config for nvim-surround]], false)
 if should_profile then save_profiles() end
 
 end)

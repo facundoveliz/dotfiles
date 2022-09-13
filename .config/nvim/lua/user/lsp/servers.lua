@@ -117,6 +117,15 @@ lsp.gopls.setup({
 	end,
 })
 
+-- python
+lsp.pyright.setup({
+	flags = flags,
+	capabilities = capabilities,
+	on_attach = function(client)
+		U.disable_formatting(client)
+	end,
+})
+
 -- typescript
 lsp.tsserver.setup({
 	flags = flags,

@@ -66,7 +66,7 @@ bindkey '^[[F' end-of-line
 alias pac='sudo pacman --color=always'
 alias open='xdg-open .' # open current location in file manager
 alias h='history'
-alias discord='discord --no-sandbox' # fix discord
+# alias discord='discord --no-sandbox' # fix discord
 alias pomotroid='pomotroid --in-process-gpu &'
 alias clipboard='xclip -selection clipboard' # copy command output when used on a pipe
 alias disks='df -h | grep sd \
@@ -82,13 +82,14 @@ alias disks='df -h | grep sd \
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias rmf='rm -rf'
 
 # ls replacement
 alias ls='exa --color=auto --group-directories-first'
-alias la='exa -ahl --color=always --git-ignore --group-directories-first --sort extension'
+alias la='exa -ahl --color=always --group-directories-first --sort extension'
 
 # bookmarks
-alias dev='cd ~/Dev'
+alias dev='cd ~/Documents/Dev'
 alias media='cd /mnt/1TB/Media'
 
 # git

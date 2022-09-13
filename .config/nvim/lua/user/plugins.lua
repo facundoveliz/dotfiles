@@ -100,13 +100,10 @@ return packer.startup(function(use)
 
 	-- colorschemes
 	use("overcache/NeoSolarized")
-	use("gruvbox-community/gruvbox")
+	use("ellisonleao/gruvbox.nvim")
 	use("rebelot/kanagawa.nvim")
-	use("ayu-theme/ayu-vim")
-	use("srcery-colors/srcery-vim")
 	use("nanotech/jellybeans.vim")
-	use("folke/tokyonight.nvim")
-	use("Everblush/everblush.nvim")
+	use("tomasiser/vim-code-dark")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

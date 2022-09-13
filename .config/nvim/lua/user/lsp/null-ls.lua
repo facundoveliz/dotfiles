@@ -20,6 +20,7 @@ nls.setup({
 		-- 	},
 		-- }),
 		fmt.rustfmt,
+		fmt.black,
 		fmt.stylua,
 		fmt.gofmt,
 		dgn.eslint_d,
