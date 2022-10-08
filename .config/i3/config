@@ -12,14 +12,18 @@ for_window [class="(?i)feh"] floating enable, move position center
 for_window [class="(?i)Pavucontrol"] floating enable, move position center
 for_window [class="(?i)Lxappearance"] floating enable, move position center
 for_window [class="Galculator"] floating enable, move position center
+for_window [class="gnome-calculator"] floating enable, move position center
 for_window [class="(?i)gcolor3"] floating enable, move position center
+for_window [class="Chromium-browser"] floating enable, move position center
 for_window [title="Friends List"] floating enable, move position center
+for_window [title="(?i)Steam - News"] floating enable, move position center
 
 # autostart
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id source ~/.fehbg
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id picom
+exec_always --no-startup-id flameshot
 exec_always --no-startup-id clipmenud
 exec_always --no-startup-id dunst
 
@@ -41,7 +45,7 @@ bindsym $mod+c                  exec --no-startup-id google-chrome-stable
 bindsym $mod+Shift+c            exec --no-startup-id google-chrome-stable --incognito
 bindsym $mod+x                  exec --no-startup-id code
 bindsym $mod+F9                 exec --no-startup-id pavucontrol
-bindsym $mod+g                  exec --no-startup-id galculator
+bindsym $mod+g                  exec --no-startup-id gnome-calculator
 
 # file manager
 bindsym $mod+t                  exec --no-startup-id thunar
@@ -70,11 +74,14 @@ mode "dmenu-scripts"{
 }
 
 # flameshot
-bindsym Print                   exec flameshot gui -s -c -p "/mnt/1TB/Images/Screenshots/"
+bindsym Print                   exec flameshot gui -c -p "/mnt/1TB/Images/Screenshots/"
 bindsym Shift+Print             exec flameshot screen -c -p "/mnt/1TB/Images/Screenshots/"
 
 # copy screenshot text to clipboard with OCR
 bindsym $mod+F10                exec flameshot gui -r -s | tesseract - - -l spa+eng | xclip -selection clipboard
+
+# suspend
+bindsym $mod+Shift+s             exec systemctl suspend
 
 # change keyboard layout
 bindsym $mod+F12                exec --no-startup-id setxkbmap latam
