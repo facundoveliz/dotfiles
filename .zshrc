@@ -21,13 +21,15 @@ plugins=(
     zsh-autosuggestions
     zsh-completions
     history
-    alias-tips
     zsh-syntax-highlighting
 )
 
 eval "$(zoxide init zsh)"
 
 # ================ exports ================
+
+# paths
+export PATH=$PATH":$HOME/.local/bin"
 
 # zsh
 export ZSH="$HOME/.oh-my-zsh"
@@ -77,6 +79,9 @@ alias disks='df -h | grep sd \
   | sed -e "s_9[0-9]%_\x1b[31m&\x1b[0m_" \
   | sed -e "s_/mnt/[-_A-Za-z0-9]*_\x1b[34;1m&\x1b[0m_"'
 
+# listen mic
+alias start-mic='pactl load-module module-loopback latency_msec=1'
+alias stop-mic="pactl unload-module $(pactl list short modules | awk '$2 =="module-loopback" { print $1 }' - )"
 
 # navigation
 alias ..='cd ..'
