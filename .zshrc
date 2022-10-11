@@ -1,12 +1,5 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # theme
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 # automatically update without prompting.
 DISABLE_UPDATE_PROMPT="true"
@@ -78,6 +71,8 @@ alias disks='df -h | grep sd \
   | sed -e "s_[0-9]*%_\x1b[32m&\x1b[0m_" \
   | sed -e "s_9[0-9]%_\x1b[31m&\x1b[0m_" \
   | sed -e "s_/mnt/[-_A-Za-z0-9]*_\x1b[34;1m&\x1b[0m_"'
+alias tmp='cd $(mktemp -d)' # create temporal folder and cd into it
+alias please='sudo $(history -p !!)'
 
 # listen mic
 alias start-mic='pactl load-module module-loopback latency_msec=1'
@@ -108,6 +103,7 @@ alias gl='git log'
 alias gaa='git add --all'
 alias gpl='git pull'
 alias gpu='git push -u origin main'
+alias gb='git branch | fzf | xargs -I @ git switch @'
 
 # ================ functions ================
 
@@ -145,7 +141,7 @@ function ext() {
 
 # download any video
 function dl() {
-  youtube-dl $@ --exec "mv {} ~/Downloads && thunar ~/Downloads/{} && exit && notify-send 'youtube-dl' 'Download finished'"
+  yt-dlp $@ --exec "mv {} ~/Downloads && thunar {} && exit && notify-send 'yt-dlp' 'Download finished'"
 }
 
 # movie/tv-show torrenting
@@ -153,7 +149,8 @@ function torrent() {
   webtorrent "$@" --vlc -o /mnt/1TB/Media -d 6000 -u 700 --on-done "notify-send 'Webtorrent' 'The torrent finished downloading'"
 }
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Loads FZF keybindings, replacing native reverse search etc with FZF
+[[ -e "/usr/share/fzf/key-bindings.zsh" ]] \
+  && source "/usr/share/fzf/key-bindings.zsh"
 
 [ -f "/home/facu/.ghcup/env" ] && source "/home/facu/.ghcup/env" # ghcup-env
