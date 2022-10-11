@@ -133,6 +133,26 @@ gpg --armor --gen-random 1 20
 
 see which directories and files are taking the most space
 
-## tldr
+## tealdeer
 
 Simplified and community-driven man pages
+
+## cnf
+
+command-not-found handler which automatically finds and prompts to install the package containing the command
+
+## trans
+
+translate (https://github.com/soimort/translate-shell)
+
+## bottom
+
+htop/btop/gotop replacemente, usage with **btm**
+
+## trickle
+
+bandwith limiter, use with:
+
+```
+trickle -d 25 -u 15 firefox
+```
