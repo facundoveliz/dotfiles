@@ -29,7 +29,7 @@ eval "$(zoxide init zsh)"
 # paths
 export PATH=$PATH":$HOME/.local/bin"
 
-# zsh
+# oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
 export UPDATE_ZSH_DAYS=7
 source $ZSH/oh-my-zsh.sh
@@ -54,34 +54,19 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi
 
-# ================ key bindings ================
-
-bindkey '^H' backward-kill-word
-bindkey '^[[H' beginning-of-line
-bindkey '^[[F' end-of-line
-
 # ================ aliases ================
 
 # misc
 alias pac='sudo pacman --color=always'
-alias open='xdg-open .' # open current location in file manager
 alias h='history'
-# alias discord='discord --no-sandbox' # fix discord
-alias pomotroid='pomotroid --in-process-gpu &'
 alias clipboard='xclip -selection clipboard' # copy command output when used on a pipe
-alias disks='df -h | grep sd \
-  | sed -e "s_/dev/sda[1-9]_\x1b[34m&\x1b[0m_" \
-  | sed -e "s_/dev/sd[b-z][1-9]_\x1b[33m&\x1b[0m_" \
-  | sed -e "s_[,0-9]*[MG]_\x1b[36m&\x1b[0m_" \
-  | sed -e "s_[0-9]*%_\x1b[32m&\x1b[0m_" \
-  | sed -e "s_9[0-9]%_\x1b[31m&\x1b[0m_" \
-  | sed -e "s_/mnt/[-_A-Za-z0-9]*_\x1b[34;1m&\x1b[0m_"'
 alias tmp='cd $(mktemp -d)' # create temporal folder and cd into it
 alias please='sudo $(history -p !!)'
+alias lg='lazygit'
 
 # listen mic
-alias start-mic='pactl load-module module-loopback latency_msec=1'
-alias stop-mic="pactl unload-module $(pactl list short modules | awk '$2 =="module-loopback" { print $1 }' - )"
+alias lm='pactl load-module module-loopback latency_msec=1'
+alias lms="pactl unload-module $(pactl list short modules | awk '$2 =="module-loopback" { print $1 }' - )"
 
 # navigation
 alias ..='cd ..'
@@ -93,29 +78,7 @@ alias rmf='rm -rf'
 alias ls='exa --color=auto --group-directories-first'
 alias la='exa -ahl --color=always --group-directories-first --sort extension'
 
-# bookmarks
-alias dev='cd ~/Documents/Dev'
-alias media='cd /mnt/1TB/Media'
-
-# git
-alias gc='git clone'
-alias gi='git init'
-alias ga='git add'
-alias gp='git push'
-alias gf='git fetch'
-alias gs='git status'
-alias gl='git log'
-alias gaa='git add --all'
-alias gpl='git pull'
-alias gpu='git push -u origin main'
-alias gb='git branch | fzf | xargs -I @ git switch @'
-
 # ================ functions ================
-
-function gac() {
-  git add --all
-  git commit -m "$*"
-}
 
 # create a new directory and enter it
 function mkd() {
@@ -157,8 +120,6 @@ function torrent() {
 # Loads FZF keybindings, replacing native reverse search etc with FZF
 [[ -e "/usr/share/fzf/key-bindings.zsh" ]] \
   && source "/usr/share/fzf/key-bindings.zsh"
-
-[ -f "/home/facu/.ghcup/env" ] && source "/home/facu/.ghcup/env" # ghcup-env
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
