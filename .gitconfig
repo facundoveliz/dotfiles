@@ -1,0 +1,23 @@
+[user]
+	name = Facundo Veliz
+	email = facundoveliz9@gmail.com
+
+[alias]
+  gc = git clone
+  gi = git init
+  ga = git add
+  gp = git push
+  gf = git fetch
+  gs = git status
+  gaa = git add --all
+  gpu = git push -u origin main
+  gb = git branch | fzf | xargs -I @ git switch @
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
+  fuckit = git reset --hard
+
+[color]
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
