@@ -1,5 +1,4 @@
 setxkbmap -layout us &
-setxkbmap -option caps:escape &
 udiskie &
 xset s off &
 xset -dpms &

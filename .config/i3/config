@@ -22,6 +22,7 @@ for_window [title="(?i)Steam - News"] floating enable, move position center
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id source ~/.fehbg
 exec_always --no-startup-id nm-applet
+exec_always --no-startup-id setxkbmap -option caps:escape
 exec_always --no-startup-id picom
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id clipmenud
