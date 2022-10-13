@@ -156,3 +156,11 @@ bandwith limiter, use with:
 ```
 trickle -d 25 -u 15 firefox
 ```
+
+## tig
+
+git text-mode interface
+
+## bandwhich
+
+display current network utilization
