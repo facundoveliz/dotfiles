@@ -29,37 +29,24 @@ if not status_ok then
 	return
 end
 
--- color customization
-
--- line numbers stand out more
-vim.highlight.link("LineNr", "Comment", true)
-
 -- remove background of floating windows
-vim.highlight.create("NormalFloat", { guibg = "None", guifg = "None" }, false)
-vim.highlight.create("FloatBorder", { guibg = "None" }, false)
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", fg = "None" })
+vim.api.nvim_set_hl(0, "FloatBorder", { bg = "None" })
 
 -- remove background color for fold column
-vim.highlight.create("Folded", { guibg = "None" })
--- remove background color for fold column
-vim.highlight.link("FoldColumn", "Normal")
+vim.api.nvim_set_hl(0, "Folded", { bg = "None" })
 
 -- thinner/invisible split divider (depends on theme)
-vim.highlight.create("VertSplit", { guibg = "None", ctermbg = 00 })
+vim.api.nvim_set_hl(0, "VertSplit", { bg = "None", ctermbg = 0 })
 
 -- remove color bg from signs column
-vim.highlight.create("SignColumn", { guibg = "None", ctermbg = 00 })
-vim.highlight.create("CursorLineSign", { guibg = "None", ctermbg = 00 })
+vim.api.nvim_set_hl(0, "SignColumn", { bg = "None", ctermbg = 0 })
+vim.api.nvim_set_hl(0, "CursorLineSign", { bg = "None", ctermbg = 0 })
 
 -- remove background of pmenu
-vim.highlight.create("Pmenu", { guibg = "None", ctermbg = 00 })
-vim.highlight.create("PmenuSbar", { guibg = "None", ctermbg = 00 })
-vim.highlight.create("PmenuThumb", { guibg = "None", ctermbg = 00 })
-
--- make git blame signs behave like comments
-vim.highlight.link("GitSignsCurrentLineBlame", "Comment", true)
-
--- make comments italic
-vim.highlight.create("Comment", { gui = "italic", cterm = "italic" }, false)
+vim.api.nvim_set_hl(0, "Pmenu", { bg = "None", ctermbg = 0 })
+vim.api.nvim_set_hl(0, "PmenuSbar", { bg = "None", ctermbg = 0 })
+vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "None", ctermbg = 0 })
 
 -- set the color of the vertical split bar to transparent
-vim.highlight.create("VertSplit", { ctermbg = 00 })
+vim.api.nvim_set_hl(0, "VertSplit", { ctermbg = 0 })

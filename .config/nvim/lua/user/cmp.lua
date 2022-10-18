@@ -8,6 +8,8 @@ if not snip_status_ok then
 	return
 end
 
+local border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" }
+
 local kind_icons = {
 	Text = "",
 	Method = "m",
@@ -36,7 +38,6 @@ local kind_icons = {
 	TypeParameter = "",
 }
 
-cmp.config.window.documentation = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -44,8 +45,6 @@ cmp.setup({
 		end,
 	},
 	mapping = {
-		-- ["<C-j>"] = cmp.mapping.select_next_item(),
-		-- ["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -66,10 +65,7 @@ cmp.setup({
 		end, { "i", "s" }),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
 		["<C-e>"] = cmp.mapping.close(),
-		["<CR>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Insert,
-			select = true,
-		}),
+		["<CR>"] = cmp.mapping.confirm({ select = true }),
 	},
 	formatting = {
 		fields = { "kind", "abbr", "menu" },
@@ -92,9 +88,14 @@ cmp.setup({
 		{ name = "buffer" },
 		{ name = "path", keyword_length = 5 },
 	},
-	-- documentation = {
-	-- border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-	-- },
+	window = {
+		completion = {
+			border = border,
+		},
+		documentation = {
+			border = border,
+		},
+	},
 	experimental = {
 		native_menu = false,
 		ghost_text = true,

@@ -67,7 +67,6 @@ return packer.startup(function(use)
 	use("nvim-lua/plenary.nvim") -- useful lua functions dependencies
 	use("lewis6991/gitsigns.nvim") -- add git decorations
 	use("folke/todo-comments.nvim") -- highlight and search tasks marked in comments
-	-- use("styled-components/vim-styled-components")
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
@@ -97,6 +96,7 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("jose-elias-alvarez/null-ls.nvim") -- linters and diagnostics
+	-- use { "williamboman/mason.nvim" } -- lsp/linter/formatters installer
 
 	-- colorschemes
 	use("overcache/NeoSolarized")

@@ -15,6 +15,8 @@ local signs = {
 	{ name = "DiagnosticSignInfo", text = "" },
 }
 
+local border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" }
+
 for _, sign in ipairs(signs) do
 	vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
@@ -28,13 +30,13 @@ vim.diagnostic.config({
 	underline = false,
 	severity_sort = true,
 	float = {
-		style = "minimal",
-		border = "rounded",
 		source = "always",
-		header = "",
-		prefix = "",
+		border = border,
 	},
 })
+
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border })
+vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border })
 
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
@@ -51,113 +53,13 @@ keymap("n", "dn", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>
 keymap("n", "dp", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
 keymap("n", "dl", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
--- lua
-lsp.sumneko_lua.setup({
-	flags = flags,
-	capabilities = capabilities,
-	on_attach = function(client)
-		U.disable_formatting(client)
-	end,
-	settings = {
-		Lua = {
-			completion = {
-				enable = true,
-				showWord = "Disable",
-			},
-			runtime = {
-				version = "LuaJIT",
-				path = U.get_luajit_path(),
-			},
-			diagnostics = {
-				globals = { "vim", "dump" },
-			},
-			workspace = {
-				library = U.get_nvim_rtp_path(),
-			},
-			telemetry = {
-				enable = false,
-			},
-		},
-	},
-})
-
--- rust
-lsp.rust_analyzer.setup({
-	flags = flags,
-	capabilities = capabilities,
-	on_attach = function(client)
-		U.disable_formatting(client)
-	end,
-	settings = {
-		["rust-analyzer"] = {
-			cargo = {
-				allFeatures = true,
-			},
-			checkOnSave = {
-				allFeatures = true,
-				command = "clippy",
-			},
-			procMacro = {
-				ignored = {
-					["async-trait"] = { "async_trait" },
-					["napi-derive"] = { "napi" },
-					["async-recursion"] = { "async_recursion" },
-				},
-			},
-		},
-	},
-})
-
--- golang
-lsp.gopls.setup({
-	flags = flags,
-	capabilities = capabilities,
-	on_attach = function(client)
-		U.disable_formatting(client)
-	end,
-})
-
--- python
-lsp.pyright.setup({
-	flags = flags,
-	capabilities = capabilities,
-	on_attach = function(client)
-		U.disable_formatting(client)
-	end,
-})
-
--- typescript
-lsp.tsserver.setup({
-	flags = flags,
-	capabilities = capabilities,
-	on_attach = function(client)
-		U.disable_formatting(client)
-	end,
-})
-
--- css
-lsp.cssls.setup({
-	flags = flags,
-	capabilities = capabilities,
-	on_attach = function(client)
-		U.disable_formatting(client)
-	end,
-})
-
--- json
-lsp.jsonls.setup({
-	flags = flags,
-	capabilities = capabilities,
-	on_attach = function(client)
-		U.disable_formatting(client)
-	end,
-})
-
--- yaml
-lsp.yamlls.setup({
-	flags = flags,
-	capabilities = capabilities,
-	on_attach = function(client)
-		U.disable_formatting(client)
-	end,
-})
+local servers = { "gopls", "pyright", "tsserver", "sumneko_lua", "jsonls", "yamlls", "cssls" }
+for _, k in ipairs(servers) do
+	lsp[k].setup({
+		flags = flags,
+		capabilities = capabilities,
+		on_attach = function(client)
+			U.disable_formatting(client)
+		end,
+	})
+end

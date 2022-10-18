@@ -11,20 +11,11 @@ nls.setup({
 		}),
 		fmt.prettierd,
 		fmt.eslint_d,
-		-- fmt.prettier.with({
-		-- 	extra_args = {
-		-- 		"--tab-width=4",
-		-- 		"--trailing-comma=es5",
-		-- 		"--end-of-line=lf",
-		-- 		"--arrow-parens=always",
-		-- 	},
-		-- }),
-		fmt.rustfmt,
 		fmt.black,
 		fmt.stylua,
 		fmt.gofmt,
 		dgn.eslint_d,
-		-- dgn.shellcheck,
+		dgn.shellcheck,
 		dgn.luacheck.with({
 			extra_args = { "--globals", "vim", "--std", "luajit" },
 		}),
