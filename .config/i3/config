@@ -29,12 +29,7 @@ exec_always --no-startup-id clipmenud
 exec_always --no-startup-id dunst
 
 # startup programs
-exec --no-startup-id discord
-
-# bar {
-#         status_command i3status
-#         tray_output primary
-# }
+# exec --no-startup-id discord
 
 # ================ keybindings ================
 
@@ -58,9 +53,6 @@ mode "thunar-bookmarks"{
   bindsym Escape mode "default"
 }
 
-# study mode
-bindsym $mod+F7                 exec --no-startup-id google-chrome-stable --new-window "https://www.youtube.com/playlist?list=PLeVkzW0Ql7pXcKkeH-GNP5j2BGuy9eCW6" "https://www.youtube.com/watch?v=4vIQON2fDWM&t=1581s"
-
 # dmenu
 bindsym $mod+d                  exec --no-startup-id dmenu_run; mode "default"
 bindsym $mod+comma mode "dmenu-scripts"
@@ -80,9 +72,6 @@ bindsym Shift+Print             exec flameshot screen -c -p "/mnt/1TB/Images/Scr
 
 # copy screenshot text to clipboard with OCR
 bindsym $mod+F10                exec flameshot gui -r -s | tesseract - - -l spa+eng | xclip -selection clipboard
-
-# suspend
-bindsym $mod+Shift+s             exec systemctl suspend
 
 # change keyboard layout
 bindsym $mod+F12                exec --no-startup-id setxkbmap latam
@@ -111,7 +100,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # focus on opened window
-focus_on_window_activation focus
+# focus_on_window_activation focus
 
 # navigate through workspaces
 bindsym Mod1+Tab workspace back_and_forth
@@ -257,12 +246,12 @@ set $magenta #c6b6ee
 
 # class                 border  bground text    indicator child_border
 client.focused          $yellow $yellow $yellow $yellow   $yellow
-client.focused_inactive $background1 $background1 $background1 $background2   $background2
-client.unfocused        $background1 $background1 $background1 $background2   $background2
-client.urgent           $background1 $background1 $background1 $yellow   $background2
-client.placeholder      $background1 $background1 $background1 $yellow   $background2
+client.focused_inactive $background1 $background1 $background1 $background2 $background2
+client.unfocused        $background1 $background1 $background1 $background2 $background2
+client.urgent           $background1 $background1 $background1 $yellow $background2
+client.placeholder      $background1 $background1 $background1 $yellow $background2
 client.background       $background1
 
-# window gaps, the top gaps are dependly of the bar
+# window gaps, the bottom gaps are dependly of the bar
 gaps inner 0
 gaps bottom 20
