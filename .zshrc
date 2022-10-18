@@ -44,8 +44,8 @@ export EDITOR="nvim"
 export LANG=en_US.UTF-8
 
 # clipmenu
-export CM_DIR="$HOME/.clipboard"
 export CM_SELECTIONS="clipboard"
+export CM_MAX_CLIPS="50"
 
 # ================ auto start ================
 
@@ -53,6 +53,10 @@ export CM_SELECTIONS="clipboard"
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi
+
+# ================ keybindings ================
+
+bindkey '^H' backward-kill-word
 
 # ================ aliases ================
 
@@ -109,7 +113,7 @@ function ext() {
 
 # download any video
 function dl() {
-  yt-dlp $@ --exec "mv {} ~/Downloads && thunar {} && exit && notify-send 'yt-dlp' 'Download finished'"
+  yt-dlp $@ --exec "mv {} ~/Downloads && thunar ~/Downloads && exit && notify-send 'yt-dlp' 'Download finished'"
 }
 
 # movie/tv-show torrenting
