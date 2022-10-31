@@ -96,7 +96,6 @@ return packer.startup(function(use)
 	use("neovim/nvim-lspconfig") -- enable LSP
 	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
 	use("jose-elias-alvarez/null-ls.nvim") -- linters and diagnostics
-	-- use { "williamboman/mason.nvim" } -- lsp/linter/formatters installer
 
 	-- colorschemes
 	use("overcache/NeoSolarized")
@@ -104,6 +103,8 @@ return packer.startup(function(use)
 	use("rebelot/kanagawa.nvim")
 	use("nanotech/jellybeans.vim")
 	use("tomasiser/vim-code-dark")
+	use("folke/tokyonight.nvim")
+	use("catppuccin/nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

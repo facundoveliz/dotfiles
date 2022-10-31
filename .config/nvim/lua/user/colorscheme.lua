@@ -10,10 +10,6 @@ vim.g.jellybeans_overrides = {
 	SignColumn = { ctermbg = "none", guibg = "none" },
 }
 
--- tokyonight
-vim.g.tokyonight_style = "night"
-vim.g.tokyonight_italic_functions = true
-
 -- ayu
 vim.g.ayucolor = "mirage"
 
