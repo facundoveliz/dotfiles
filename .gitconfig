@@ -3,6 +3,13 @@
 	email = facundoveliz9@gmail.com
 	signingkey = 85CDDE0F7E55D0B1C9A96550AD87F1E38F03C377
 
+[credential]
+  helper = libsecret
+
+[commit]
+  sign = true
+  gpgSign = true
+
 [alias]
   gc = git clone
   gi = git init
@@ -22,9 +29,3 @@
   diff = auto
   interactive = auto
   status = auto
-
-[credential]
-	helper = libsecret
-[commit]
-	sign = true
-	gpgSign = true
