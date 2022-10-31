@@ -61,6 +61,7 @@ bindkey '^H' backward-kill-word
 # ================ aliases ================
 
 # misc
+alias vim='nvim'
 alias pac='sudo pacman --color=always'
 alias h='history'
 alias clipboard='xclip -selection clipboard' # copy command output when used on a pipe
@@ -118,7 +119,7 @@ function dl() {
 
 # movie/tv-show torrenting
 function torrent() {
-  webtorrent "$@" --vlc -o /mnt/1TB/Media -d 6000 -u 700 --on-done "notify-send 'Webtorrent' 'The torrent finished downloading'"
+  webtorrent "$@" -o /mnt/1TB/Media -d 6000 -u 700 --on-done "notify-send 'Webtorrent' 'The torrent finished downloading'"
 }
 
 # Loads FZF keybindings, replacing native reverse search etc with FZF
