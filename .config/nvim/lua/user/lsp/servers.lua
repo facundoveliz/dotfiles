@@ -48,12 +48,13 @@ keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 keymap("n", "rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+keymap("n", "ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 keymap("n", "gl", '<cmd>lua vim.diagnostic.open_float({ border = "rounded" })<CR>', opts)
 keymap("n", "dn", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 keymap("n", "dp", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
 keymap("n", "dl", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
-local servers = { "gopls", "pyright", "tsserver", "sumneko_lua", "jsonls", "yamlls", "cssls" }
+local servers = { "gopls", "pyright", "tsserver", "jsonls", "yamlls", "cssls", "tailwindcss" }
 for _, k in ipairs(servers) do
 	lsp[k].setup({
 		flags = flags,
@@ -63,3 +64,21 @@ for _, k in ipairs(servers) do
 		end,
 	})
 end
+
+lsp.sumneko_lua.setup({
+	flags = flags,
+	capabilities = capabilities,
+	on_attach = function(client)
+		U.disable_formatting(client)
+	end,
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+			telemetry = {
+				enable = false,
+			},
+		},
+	},
+})
