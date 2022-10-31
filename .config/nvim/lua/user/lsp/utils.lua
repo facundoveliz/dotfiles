@@ -5,7 +5,7 @@ function U.fmt_on_save(client)
 		vim.cmd([[
             augroup FORMATTING
                 autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.format { async = true}
+                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
             augroup END
         ]])
 	end
