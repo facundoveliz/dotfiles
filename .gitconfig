@@ -21,3 +21,6 @@
   diff = auto
   interactive = auto
   status = auto
+
+[credential]
+	helper = /usr/share/git/credential/gnome-keyring/git-credential-gnome-keyring

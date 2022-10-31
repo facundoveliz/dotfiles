@@ -27,6 +27,7 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id clipmenud
 exec_always --no-startup-id dunst
+# exec_always --no-startup-id node ~/Documents/Dev/automation-scripts/todoist-notifier/index.js
 
 # startup programs
 # exec --no-startup-id discord
@@ -100,7 +101,7 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # focus on opened window
-# focus_on_window_activation focus
+focus_on_window_activation focus
 
 # navigate through workspaces
 bindsym Mod1+Tab workspace back_and_forth
@@ -219,7 +220,7 @@ for_window [class="^.*"] border pixel 2
 smart_borders on
 
 # disable borders for some apps
-for_window [title=" - Google Chrome"] border none
+# for_window [title=" - Google Chrome"] border none
 for_window [class="discord"] border none
 
 # toggle tiling / floating
