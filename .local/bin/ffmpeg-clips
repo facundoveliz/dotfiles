@@ -3,11 +3,9 @@
 rm -rf file_list.txt
 rm -rf duration_list.txt
 for f in *.mp4; do echo file "'$f'" >> file_list.txt ; done
-for f in *.mp4; do ffmpeg -i $f 2>&1 | grep "Duration"| cut -d ' ' -f 4 | sed s/,// >> duration_list.txt ; done
+for f in *.mp4; do ffprobe -i '$f' -show_entries format=duration -v quiet -of csv="p=0" >> duration_list.txt ; done
+echo 'file list: ' & cat file_list.txt
+echo 'duration list: ' & cat duration_list.txt
 # ffmpeg -f concat -safe 0 -i file_list.txt final.mp4
-
-function getDuration() {
-  ffmpeg -i $f 2>&1 | grep "Duration"| cut -d ' ' -f 4 | sed s/,// >> duration_list.txt
-}
 
 # for d in ./*/ ; do (cd "$d" && rm -rf final.mp4); done

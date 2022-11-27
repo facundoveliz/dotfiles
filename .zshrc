@@ -86,8 +86,17 @@ alias la='exa -ahl --color=always --group-directories-first --sort extension'
 # ================ functions ================
 
 # create a new directory and enter it
-function mkd() {
+function md() {
   mkdir -p "$@" && cd "$@"
+}
+
+# attach to the first existing tmux session, or create a new session if there are none
+function tm() {
+	if (tmux list-sessions >& /dev/null) then
+		tmux a
+	else
+		tmux
+	fi
 }
 
 # extract compressed

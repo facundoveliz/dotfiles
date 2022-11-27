@@ -129,7 +129,7 @@ gpg --armor --gen-random 1 20
 
 # scripts & userful commands
 
-## ncdu
+## dust
 
 see which directories and files are taking the most space
 
