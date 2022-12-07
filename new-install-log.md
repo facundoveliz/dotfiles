@@ -113,6 +113,10 @@ Set time to local
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
 ```
 
+# ssh keys
+
+https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
 # gpg keys
 
 ## import
@@ -126,6 +130,12 @@ gpg --armor --export-secret-keys facundoveliz9@gmail.com | gpg --armor --symmetr
 ## generate a strong random password
 
 gpg --armor --gen-random 1 20
+
+# pass
+
+git clone git@github.com:facundoveliz/password-store.git
+
+move password-store to ~/.password-store
 
 # scripts & userful commands
 
