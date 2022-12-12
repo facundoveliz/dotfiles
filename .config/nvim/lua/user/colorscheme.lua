@@ -15,7 +15,7 @@ vim.g.ayucolor = "mirage"
 
 vim.o.background = "dark"
 
-local colorscheme = "jellybeans"
+local colorscheme = "nightfox"
 -- vim.cmd("colorscheme gruvbox")
 -- vim.api.nvim_set_hl(0, "Normal", { guibg = NONE, ctermbg = NONE }) -- NOTE: Enable only if gruvbox transparency is enabled
 

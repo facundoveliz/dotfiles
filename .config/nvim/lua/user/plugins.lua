@@ -105,6 +105,7 @@ return packer.startup(function(use)
 	use("tomasiser/vim-code-dark")
 	use("folke/tokyonight.nvim")
 	use("catppuccin/nvim")
+	use("EdenEast/nightfox.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

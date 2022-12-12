@@ -131,6 +131,10 @@ gpg --armor --export-secret-keys facundoveliz9@gmail.com | gpg --armor --symmetr
 
 gpg --armor --gen-random 1 20
 
+# disable fallback
+
+Change PRESETS=('default' 'fallback') line to PRESETS=('default') in all .preset files in /etc/mkinitcpio.d/.
+
 # pass
 
 git clone git@github.com:facundoveliz/password-store.git

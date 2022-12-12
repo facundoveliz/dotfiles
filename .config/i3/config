@@ -236,23 +236,22 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # ================ styling ================
-set $background1 #151515
-set $background2 #202020
-set $foreground #dedede
-set $red #b85335
-set $orange #cf6a4c
-set $yellow #ffb964
-set $green #99ad6a
-set $blue #8fbfdc
-set $cyan #8197bf
-set $magenta #c6b6ee
+set $background1 #192330
+set $background2 #2b3b51
+set $foreground #cdcecf
+set $red #c94f6d
+set $yellow #dbc074
+set $green #81b29a
+set $blue #719cd6
+set $cyan #63cdcf
+set $magenta #9d79d6
 
 # class                 border  bground text    indicator child_border
-client.focused          $yellow $yellow $yellow $yellow   $yellow
+client.focused          $green $green $green $green   $green
 client.focused_inactive $background1 $background1 $background1 $background2 $background2
 client.unfocused        $background1 $background1 $background1 $background2 $background2
-client.urgent           $background1 $background1 $background1 $yellow $background2
-client.placeholder      $background1 $background1 $background1 $yellow $background2
+client.urgent           $background1 $background1 $background1 $green $background2
+client.placeholder      $background1 $background1 $background1 $green $background2
 client.background       $background1
 
 # window gaps, the bottom gaps are dependly of the bar
