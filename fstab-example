@@ -2,22 +2,20 @@
 # See fstab(5) for details.
 
 # <file system> <dir> <type> <options> <dump> <pass>
+# /dev/nvme0n1p2
+UUID=21dbb2f1-7ca7-444a-8c61-684f533efbdb	/         	ext4      	rw,relatime	0 1
+
 # /dev/sda1
-UUID=72DA-2464      	                    /boot       vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+UUID=5411-DAB0      	/efi      	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
 
 # /dev/nvme0n1p1
-UUID=8aa4a1cd-fe26-4d54-86b4-ae4a28af0446	none       swap      	defaults  	0 0
-
-# /dev/nvme0n1p2
-UUID=763e62b3-3591-4a47-87e9-c95cea468ba0	/          ext4      	rw,relatime	0 1
-
-# /dev/sdc2
-UUID=56CC3A6ECC3A488F                     /mnt/1TB   ntfs-3g defaults,rw,user,hide_hid_files,exec,umask=000 0 2
+UUID=599f755c-1fad-4dc0-96c9-b6790a4f4df2	none      	swap      	defaults  	0 0
 
 # /dev/sda3
-UUID=105CEF6A5CEF48D4                     /mnt/240GB ntfs-3g defaults,rw,user,hide_hid_files,exec,umask=000 0 2
+UUID=36E6241DE623DBBD           /mnt/240GB   ntfs-3g defaults,user,locale=en_US.utf8,exec,uid=1000,gid=1000,windows_names,auto,hide_hid_files 0 0
 
 # /dev/sdb1
-UUID=9ACC4B2ACC4B004D                     /mnt/320GB ntfs-3g defaults,rw,user,hide_hid_files,exec,umask=000 0 2
+UUID=9ACC4B2ACC4B004D           /mnt/320GB   ntfs-3g defaults,user,locale=en_US.utf8,exec,uid=1000,gid=1000,windows_names,auto,hide_hid_files 0 0
 
-/swapfile.1661125946 none swap defaults 0 0
+# /dev/sdc2
+UUID=56CC3A6ECC3A488F           /mnt/1TB     ntfs-3g defaults,user,locale=en_US.utf8,exec,uid=1000,gid=1000,windows_names,auto,hide_hid_files 0 0
