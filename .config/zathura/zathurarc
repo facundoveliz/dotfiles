@@ -28,30 +28,32 @@ map C recolor
 
 set font "JetBrainsMono Nerd Font 12"
 
-set default-bg "#192330" #00
-set default-fg "#cdcecf" #01
+set default-bg "#151515" #00
+set default-fg "#dedede" #01
 
-set statusbar-fg "#B0B0B0" #04
-set statusbar-bg "#202020" #01
+set recolor-lightcolor \#151515
 
-set inputbar-bg "#192330" #00 currently not used
-set inputbar-fg "#192330" #02
+set statusbar-fg "#dedede" #04
+set statusbar-bg "#151515" #01
 
-set notification-error-bg "#c94f6d" #08
-set notification-error-fg "#192330" #00
+set inputbar-bg "#151515" #00 currently not used
+set inputbar-fg "#151515" #02
 
-set notification-warning-bg "#c94f6d" #08
-set notification-warning-fg "#192330" #00
+set notification-error-bg "#cf6a4c" #08
+set notification-error-fg "#151515" #00
 
-set highlight-color "#dbc074" #0A
-set highlight-active-color "#719cd6" #0D
+set notification-warning-bg "#cf6a4c" #08
+set notification-warning-fg "#151515" #00
 
-set completion-highlight-fg "#192330" #02
-set completion-highlight-bg "#81b29a" #0C
+set highlight-color "#fad07a" #0A
+set highlight-active-color "#8fbfdc" #0D
+
+set completion-highlight-fg "#151515" #02
+set completion-highlight-bg "#799d6a" #0C
 
 set completion-bg "#303030" #02
 set completion-fg "#E0E0E0" #0C
 
-set notification-bg "#81b29a" #0B
-set notification-fg "#192330" #00
+set notification-bg "#799d6a" #0B
+set notification-fg "#151515" #00
 

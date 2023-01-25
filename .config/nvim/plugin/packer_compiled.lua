@@ -91,11 +91,6 @@ _G.packer_plugins = {
     path = "/home/facundo/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  NeoSolarized = {
-    loaded = true,
-    path = "/home/facundo/.local/share/nvim/site/pack/packer/start/NeoSolarized",
-    url = "https://github.com/overcache/NeoSolarized"
-  },
   ["bufferline.nvim"] = {
     loaded = true,
     path = "/home/facundo/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
@@ -131,6 +126,11 @@ _G.packer_plugins = {
     path = "/home/facundo/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["color-picker.nvim"] = {
+    loaded = true,
+    path = "/home/facundo/.local/share/nvim/site/pack/packer/start/color-picker.nvim",
+    url = "https://github.com/ziontee113/color-picker.nvim"
+  },
   ["emmet-vim"] = {
     loaded = true,
     path = "/home/facundo/.local/share/nvim/site/pack/packer/start/emmet-vim",
@@ -146,20 +146,10 @@ _G.packer_plugins = {
     path = "/home/facundo/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  ["gruvbox.nvim"] = {
-    loaded = true,
-    path = "/home/facundo/.local/share/nvim/site/pack/packer/start/gruvbox.nvim",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
-  },
   ["jellybeans.vim"] = {
     loaded = true,
     path = "/home/facundo/.local/share/nvim/site/pack/packer/start/jellybeans.vim",
     url = "https://github.com/nanotech/jellybeans.vim"
-  },
-  ["kanagawa.nvim"] = {
-    loaded = true,
-    path = "/home/facundo/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
-    url = "https://github.com/rebelot/kanagawa.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -175,11 +165,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/facundo/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
-  },
-  nvim = {
-    loaded = true,
-    path = "/home/facundo/.local/share/nvim/site/pack/packer/start/nvim",
-    url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -251,16 +236,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/facundo/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
-  },
-  ["tokyonight.nvim"] = {
-    loaded = true,
-    path = "/home/facundo/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim"
-  },
-  ["vim-code-dark"] = {
-    loaded = true,
-    path = "/home/facundo/.local/share/nvim/site/pack/packer/start/vim-code-dark",
-    url = "https://github.com/tomasiser/vim-code-dark"
   }
 }
 

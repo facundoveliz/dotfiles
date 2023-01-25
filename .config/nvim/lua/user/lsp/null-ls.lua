@@ -25,7 +25,7 @@ nls.setup({
 			extra_args = { "--globals", "vim", "--std", "luajit" },
 		}),
 	},
-	on_attach = function(client)
-		U.fmt_on_save(client)
-	end,
+	-- on_attach = function(client)
+	-- 	U.fmt_on_save(client)
+	-- end,
 })

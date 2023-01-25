@@ -73,6 +73,7 @@ return packer.startup(function(use)
 			require("Comment").setup()
 		end,
 	}) -- comment lines easily
+	use("ziontee113/color-picker.nvim") -- color picker
 
 	-- telescope
 	use("nvim-lua/popup.nvim") -- telescope dependencies
@@ -98,13 +99,7 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- linters and diagnostics
 
 	-- colorschemes
-	use("overcache/NeoSolarized")
-	use("ellisonleao/gruvbox.nvim")
-	use("rebelot/kanagawa.nvim")
 	use("nanotech/jellybeans.vim")
-	use("tomasiser/vim-code-dark")
-	use("folke/tokyonight.nvim")
-	use("catppuccin/nvim")
 	use("EdenEast/nightfox.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
