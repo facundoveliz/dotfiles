@@ -78,7 +78,12 @@ alias lms="pactl unload-module $(pactl list short modules | awk '$2 =="module-lo
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
+# verbose
+alias rm='rm -v'
 alias rmf='rm -rf'
+alias cp='cp -vi'
+alias mv='mv -vi'
 
 # ls replacement
 alias ls='exa --color=auto --group-directories-first'
