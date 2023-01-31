@@ -1,4 +1,4 @@
-# add dotfiles
+# Add dotfiles
 
 ```
 git clone --bare https://github.com/facundoveliz/dotfiles $HOME/.dotfiles
@@ -6,23 +6,27 @@ alias config='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 dots checkout
 ```
 
-# install yay
+# Install yay
 
 ```
 pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 ```
 
-# fix audio
+# Fix audio
 
 First try rebooting, if not, try this
+
+# Fix time
+
+Set time to local
 
 ```
 pulseaudio -D
 ```
 
-# install neovim
+# NVim
 
-## install packer
+## Install packer
 
 ```
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -35,18 +39,18 @@ Tambien proba con:
 nvim +PackerSync
 ```
 
-## install nulljs stuff
+## Install nulljs stuff
 
 ```
 npm install -g @fsouza/prettierd
 cargo install stylua
 ```
 
-## install Treesitter and LSP stuff
+## Install Treesitter and LSP stuff
 
 Use npm/yarn and :TSInstall
 
-# install oh-my-zsh and its plugins
+# Install oh-my-zsh and its plugins
 
 ```
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -62,14 +66,9 @@ git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/cust
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-# installing gtk themes
+# GTK Themes
 
-## solarized
-
-```
-git clone https://github.com/Ferdi265/numix-solarized-gtk-theme.git
-sudo make THEME=SolarizedDarkViolet install
-```
+The current best theme is materia, but I also used numix
 
 # fstab
 
@@ -79,7 +78,7 @@ Example of code
 UUID=56CC3A6ECC3A488F           /mnt/1TB   ntfs-1g nofail,noatime,rw,user,uid=1000,gid=1000,dmask=022,fmask=133,windows_names,auto,hide_hid_files, 0 2
 ```
 
-# dmenu emojis
+# DMenu emojis
 
 Remove some lines of code that doesn't let show emojis
 
@@ -87,7 +86,7 @@ Remove some lines of code that doesn't let show emojis
 https://www.codejam.info/2021/08/dmenu-libxft-bgra-emoji-support.html
 ```
 
-# autologin
+# Autologin
 
 ```
 sudo vim /etc/systemd/system/getty.target.wants/getty@tty1.service
@@ -105,29 +104,25 @@ To this
 ExecStart=-/sbin/agetty -a USERNAME %I $TERM
 ```
 
-# time
-
-Set time to local
-
 ```
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
 ```
 
-# ssh keys
+# SSH keys
 
 https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
 # gpg keys
 
-## import
+# Export a specific `foo@bar.com` key in an encrypted (i.e. password-protected) file `mykey.sec.asc`
 
-gpg --import ~/secret-backup.gpg
+gpg --armor --export-secret-keys foo@bar.com | gpg --armor --symmetric --output mykey.sec.asc
 
-## export
+# Import the key in `mykey.sec.asc`. `gpg` will ask for the password used when exporting.
 
-gpg --armor --export-secret-keys facundoveliz9@gmail.com | gpg --armor --symmetric --output mykey.sec.asc
+gpg --no-use-agent --output - mykey.sec.asc | gpg --import
 
-## generate a strong random password
+## Generate a strong random password using gpg
 
 gpg --armor --gen-random 1 20
 

@@ -29,8 +29,9 @@ exec_always --no-startup-id flameshot
 exec_always --no-startup-id clipmenud
 exec_always --no-startup-id dunst
 exec_always --no-startup-id easyeffects --gapplication-service
+exec_always --no-startup-id xmodmap -e 'keycode 135 = Super_R' && xset -r 135
 
-# exec_always --no-startup-id node ~/Dev/automation-scripts/todoist-notifier/index.js &
+# exec_always --no-startup-id node ~/Dev/automation-scripts/todoist-creator/index.js &
 
 # startup programs
 # exec --no-startup-id discord
@@ -48,7 +49,7 @@ bindsym $mod+F9                 exec --no-startup-id pavucontrol
 bindsym $mod+g                  exec --no-startup-id gnome-calculator
 
 # browser quick-acces
-bindsym $mod+semicolon mode "browser-quick-acces"
+bindsym $mod+semicolon mode "browser-quick-access"
 mode "browser-quick-access"{
   bindsym m                     exec --no-startup-id brave --app-url "https://www.instagram.com/p/CTklpgeF61n/" --app-url "https://twitter.com/meandwh/status/1616547356920389632"; mode "default"
 }
