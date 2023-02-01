@@ -96,6 +96,16 @@ function md() {
   mkdir -p "$@" && cd "$@"
 }
 
+# compress and encrypt with tar and gpg
+function gcrypt() {
+  tar -cvz $@ | gpg -e -r facundoveliz9@gmail.com -o $@.tgz.gpg
+}
+
+# decrypt and exctract with gpg and tar
+function gdecrypt() {
+  gpg -d $@ | tar xvz
+}
+
 # attach to the first existing tmux session, or create a new session if there are none
 function tm() {
 	if (tmux list-sessions >& /dev/null) then
