@@ -126,6 +126,16 @@ gpg --no-use-agent --output - mykey.sec.asc | gpg --import
 
 gpg --armor --gen-random 1 20
 
+# Enable printer
+
+Download printer driver from here(https://www.bchemnet.com/suldr/suld.html
+
+Install cups, cups-pdf and usbutils packages
+
+Enable and start cups.service
+
+Enter localhost:631 and config the printer there.
+
 # disable fallback
 
 Change PRESETS=('default' 'fallback') line to PRESETS=('default') in all .preset files in /etc/mkinitcpio.d/.
