@@ -1,22 +1,10 @@
-# Add dotfiles
+# General notes
 
-```
-git clone --bare https://github.com/facundoveliz/dotfiles $HOME/.dotfiles
-alias config='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
-dots checkout
-```
+These are my general notes that I take for a better linux installation through time, and an attempt to make things easier.
 
-# Install yay
+# Common fixes
 
-```
-pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
-```
-
-# Fix audio
-
-First try rebooting, if not, try this
-
-# Fix time
+## Audio
 
 Set time to local
 
@@ -24,9 +12,19 @@ Set time to local
 pulseaudio -D
 ```
 
-# NVim
+# Packages and utils
 
-## Install packer
+## Yay
+
+Package manager
+
+```
+pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+```
+
+## Neovim
+
+### Packer
 
 ```
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
@@ -39,38 +37,50 @@ Tambien proba con:
 nvim +PackerSync
 ```
 
-## Install nulljs stuff
+### Nulljs
 
 ```
 npm install -g @fsouza/prettierd
 cargo install stylua
 ```
 
-## Install Treesitter and LSP stuff
+### Treesitter
 
 Use npm/yarn and :TSInstall
 
-# Install oh-my-zsh and its plugins
+## oh-my-zsh and its plugins
 
 ```
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
 
+```
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+```
 
+```
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+```
 
+```
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+```
 
+```
 git clone https://github.com/djui/alias-tips.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/alias-tips
+```
 
+```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-# GTK Themes
+## GTK Themes
 
 The current best theme is materia, but I also used numix
 
-# fstab
+# Configs
+
+## fstab
 
 Example of code
 
@@ -78,7 +88,7 @@ Example of code
 UUID=56CC3A6ECC3A488F           /mnt/1TB   ntfs-1g nofail,noatime,rw,user,uid=1000,gid=1000,dmask=022,fmask=133,windows_names,auto,hide_hid_files, 0 2
 ```
 
-# DMenu emojis
+## DMenu emojis
 
 Remove some lines of code that doesn't let show emojis
 
@@ -86,7 +96,7 @@ Remove some lines of code that doesn't let show emojis
 https://www.codejam.info/2021/08/dmenu-libxft-bgra-emoji-support.html
 ```
 
-# Autologin
+## Autologin
 
 ```
 sudo vim /etc/systemd/system/getty.target.wants/getty@tty1.service
@@ -108,78 +118,52 @@ ExecStart=-/sbin/agetty -a USERNAME %I $TERM
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
 ```
 
-# SSH keys
+## Enable printer
 
-https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+Download printer driver from [here](https://www.bchemnet.com/suldr/suld.html).
 
-# gpg keys
+Install `cups`, `cups-pdf` and `usbutils` packages
 
-# Export a specific `foo@bar.com` key in an encrypted (i.e. password-protected) file `mykey.sec.asc`
+Enable and start `cups.service`
 
-gpg --armor --export-secret-keys foo@bar.com | gpg --armor --symmetric --output mykey.sec.asc
+Enter `localhost:631` and config the printer there.
 
-# Import the key in `mykey.sec.asc`. `gpg` will ask for the password used when exporting.
+## Disable kernel fallback
 
-gpg --no-use-agent --output - mykey.sec.asc | gpg --import
+This works well for getting more space in the `efi` partition.
 
-## Generate a strong random password using gpg
+Change `PRESETS=('default' 'fallback')` line to `PRESETS=('default')` in all .preset files in `/etc/mkinitcpio.d/`
 
-gpg --armor --gen-random 1 20
+## pass
 
-# Enable printer
-
-Download printer driver from here(https://www.bchemnet.com/suldr/suld.html
-
-Install cups, cups-pdf and usbutils packages
-
-Enable and start cups.service
-
-Enter localhost:631 and config the printer there.
-
-# disable fallback
-
-Change PRESETS=('default' 'fallback') line to PRESETS=('default') in all .preset files in /etc/mkinitcpio.d/.
-
-# pass
-
+```
 git clone git@github.com:facundoveliz/password-store.git
-
-move password-store to ~/.password-store
-
-# scripts & userful commands
-
-## dust
-
-see which directories and files are taking the most space
-
-## tealdeer
-
-Simplified and community-driven man pages
-
-## cnf
-
-command-not-found handler which automatically finds and prompts to install the package containing the command
-
-## trans
-
-translate (https://github.com/soimort/translate-shell)
-
-## bottom
-
-htop/btop/gotop replacemente, usage with **btm**
-
-## trickle
-
-bandwith limiter, use with:
-
-```
-trickle -d 25 -u 15 firefox
 ```
 
-## tig
+And store the folder in `~/.password-store`
 
-git text-mode interface
+# Keys
 
-## bandwhich
+## SSH keys
 
-display current network utilization
+[Github guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent) in how to add a new one.
+
+## GPG keys
+
+Export a specific `foo@bar.com` key in an encrypted (i.e. password-protected) file `mykey.sec.asc`
+
+```
+gpg --armor --export-secret-keys foo@bar.com | gpg --armor --symmetric --output mykey.sec.asc
+```
+
+Import the key in `mykey.sec.asc`. `gpg` will ask for the password used when exporting.
+
+```
+gpg --no-use-agent --output - mykey.sec.asc | gpg --import
+```
+
+### Generate a strong random password using gpg
+
+```
+gpg --armor --gen-random 1 20
+```
