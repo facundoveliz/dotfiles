@@ -74,6 +74,7 @@ return packer.startup(function(use)
 		end,
 	}) -- comment lines easily
 	use("ziontee113/color-picker.nvim") -- color picker
+	use("iamcco/markdown-preview.nvim") --md preview
 
 	-- telescope
 	use("nvim-lua/popup.nvim") -- telescope dependencies
