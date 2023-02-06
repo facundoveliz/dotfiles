@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
 	-- general
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }, --colorizer
-	"kyazdani42/nvim-tree.lua", --folder manager
 	"nvim-lualine/lualine.nvim", --status line in the bottom
 	"akinsho/bufferline.nvim", --buffer status in the top
 	"windwp/nvim-autopairs", --autoclose
@@ -50,6 +49,28 @@ require("lazy").setup({
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
+      {
+        -- only needed if you want to use the commands with "_with_window_picker" suffix
+        's1n7ax/nvim-window-picker',
+        tag = "v1.*",
+        config = function()
+          require'window-picker'.setup({
+            autoselect_one = false,
+            include_current = false,
+            filter_rules = {
+              -- filter using buffer options
+              bo = {
+                -- if the file type is one of following, the window will be ignored
+                filetype = { 'neo-tree', "neo-tree-popup", "notify" },
+
+                -- if the buffer type is one of following, the window will be ignored
+                buftype = { 'terminal', "quickfix" },
+              },
+            },
+            other_win_hl_color = '#e35e4f',
+          })
+        end,
+      }
 		},
 	},
 	"ziontee113/color-picker.nvim", --color picker
