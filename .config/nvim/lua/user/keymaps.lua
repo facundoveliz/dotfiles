@@ -50,7 +50,7 @@ keymap("n", "tx", "<cmd>bp|bd! #<CR>", opts)
 keymap("i", "<S-Tab>", "<C-o>v<", opts)
 
 -- nvim tree
-keymap("n", "<C-b>", ":NvimTreeToggle<CR>", opts)
+keymap("n", "<C-b>", ":NeoTreeFocusToggle<CR>", opts)
 
 -- color
 keymap("n", "<leader>cc", ":ColorToggle<CR>", opts)

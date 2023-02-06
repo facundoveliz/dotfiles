@@ -20,10 +20,6 @@ keymap("n", "<leader>fz", "<cmd>Telescope zoxide list<CR>", opts)
 keymap("n", "<leader>fr", "<cmd>Telescope resume<CR>", opts)
 keymap("n", "<leader>ft", "<cmd>TodoTelescope<CR>", opts)
 
--- extensions
-telescope.load_extension("fzf")
-telescope.load_extension("zoxide")
-
 telescope.setup({
 	defaults = {
 		prompt_prefix = " 🔎 ",
@@ -90,3 +86,7 @@ telescope.setup({
 		},
 	},
 })
+
+-- extensions
+telescope.load_extension("fzf")
+telescope.load_extension("zoxide")

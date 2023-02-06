@@ -1,112 +1,84 @@
-local fn = vim.fn
-
--- automatically install packer
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-if fn.empty(fn.glob(install_path)) > 0 then
-	PACKER_BOOTSTRAP = fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
 		"git",
 		"clone",
-		"--depth",
-		"1",
-		"https://github.com/wbthomason/packer.nvim",
-		install_path,
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
 	})
-	print("Installing packer close and reopen Neovim...")
-	vim.cmd([[packadd packer.nvim]])
 end
+vim.opt.rtp:prepend(lazypath)
 
--- autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]])
-
--- use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-	return
-end
-
--- have packer use a popup window
-packer.init({
-	display = {
-		open_fn = function()
-			return require("packer.util").float({ border = "rounded" })
-		end,
-	},
-})
-
--- plugins
-return packer.startup(function(use)
+require("lazy").setup({
 	-- general
-	use("wbthomason/packer.nvim") -- have packer manage itself
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- colorizer
-	use("nvim-lua/plenary.nvim") -- useful lua functions dependencies
-	use("kyazdani42/nvim-web-devicons") -- icons for some plugins
-	use("kyazdani42/nvim-tree.lua") -- folder manager
-	use("nvim-lualine/lualine.nvim") -- status line in the bottom
-	use("akinsho/bufferline.nvim") -- buffer status in the top
-	use("windwp/nvim-autopairs") -- autoclose
-	use("mattn/emmet-vim") -- html abbreviations
-	use({
+	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }, --colorizer
+	"kyazdani42/nvim-tree.lua", --folder manager
+	"nvim-lualine/lualine.nvim", --status line in the bottom
+	"akinsho/bufferline.nvim", --buffer status in the top
+	"windwp/nvim-autopairs", --autoclose
+	"mattn/emmet-vim", --html abbreviations
+	{
 		"kylechui/nvim-surround",
 		config = function()
 			require("nvim-surround").setup()
 		end,
-	}) -- "surrounds" parentheses, brackets, xml, etc
-	use({
+	}, --"surrounds" parentheses, brackets, xml, etc
+	{
 		"chrisbra/Colorizer",
 		setup = function()
 			vim.g.colorizer_disable_bufleave = 1
 		end,
-	}) -- color preview
-	use({
+	}, --color preview
+	{
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup()
 		end,
-	}) -- comment lines easily
-	use({
+	}, --comment lines easily
+	{
 		"folke/todo-comments.nvim",
 		config = function()
 			require("todo-comments").setup()
 		end,
-	}) -- highlight and search tasks marked in comments
-	use("ziontee113/color-picker.nvim") -- color picker
-	use("iamcco/markdown-preview.nvim") --md preview
+	}, --highlight and search tasks marked in comments
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+		},
+	},
+	"ziontee113/color-picker.nvim", --color picker
+	"iamcco/markdown-preview.nvim", --md preview
 
 	-- LSP
-	use("neovim/nvim-lspconfig") -- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("jose-elias-alvarez/null-ls.nvim") -- linters and diagnostics
+	"neovim/nvim-lspconfig", --enable LSP
+	"williamboman/nvim-lsp-installer", --simple to use language server installer
+	"jose-elias-alvarez/null-ls.nvim", --linters and diagnostics
 
 	-- completion
-	use("hrsh7th/nvim-cmp") -- the completion plugin
-	use("hrsh7th/cmp-buffer") -- buffer completions
-	use("hrsh7th/cmp-path") -- path completions
-	use("hrsh7th/cmp-cmdline") -- cmdline completions
-	use("hrsh7th/cmp-nvim-lsp") -- autoimport, expanding snippets, etc
-	use("hrsh7th/cmp-nvim-lua") -- lua nvim completions
-	use("saadparwaiz1/cmp_luasnip") -- snippet completions
+	"hrsh7th/nvim-cmp", --the completion plugin
+	"hrsh7th/cmp-buffer", --buffer completions
+	"hrsh7th/cmp-path", --path completions
+	"hrsh7th/cmp-cmdline", --cmdline completions
+	"hrsh7th/cmp-nvim-lsp", --autoimport, expanding snippets, etc
+	"hrsh7th/cmp-nvim-lua", --lua nvim completions
+	"saadparwaiz1/cmp_luasnip", --snippet completions
 
 	-- snippets
-	use("L3MON4D3/LuaSnip") --snippet engine
-	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
+	"L3MON4D3/LuaSnip", --snippet engine
+	"rafamadriz/friendly-snippets", --a bunch of snippets to use
 
 	-- telescope
-	use("nvim-lua/popup.nvim") -- telescope dependencies
-	use("nvim-telescope/telescope.nvim") -- fuzzy finding
-	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-	use("jvgrootveld/telescope-zoxide") -- jump between most used directories
+	"nvim-lua/popup.nvim", --telescope dependencies
+	"nvim-telescope/telescope.nvim", --fuzzy finding
+	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- fzf plugin
+	"jvgrootveld/telescope-zoxide", --jump between most used directories
 
 	-- colorschemes
-	use("nanotech/jellybeans.vim")
-
-	-- Automatically set up your configuration after cloning packer.nvim
-	-- Put this at the end after all plugins
-	if PACKER_BOOTSTRAP then
-		require("packer").sync()
-	end
-end)
+	"nanotech/jellybeans.vim",
+})
