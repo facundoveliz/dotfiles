@@ -49,12 +49,6 @@ keymap("n", "tx", "<cmd>bp|bd! #<CR>", opts)
 -- fix tab
 keymap("i", "<S-Tab>", "<C-o>v<", opts)
 
--- nvim tree
-keymap("n", "<C-b>", ":NeoTreeFocusToggle<CR>", opts)
-
--- color
-keymap("n", "<leader>cc", ":ColorToggle<CR>", opts)
-
 -- save and quit with ctrl
 keymap("n", "<S-q>", ":q<CR>", opts)
 keymap("n", "<S-w>", ":w<CR>", opts)
