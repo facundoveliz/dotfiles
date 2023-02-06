@@ -43,43 +43,44 @@ return packer.startup(function(use)
 	-- general
 	use("wbthomason/packer.nvim") -- have packer manage itself
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }) -- colorizer
+	use("nvim-lua/plenary.nvim") -- useful lua functions dependencies
+	use("kyazdani42/nvim-web-devicons") -- icons for some plugins
+	use("kyazdani42/nvim-tree.lua") -- folder manager
+	use("nvim-lualine/lualine.nvim") -- status line in the bottom
+	use("akinsho/bufferline.nvim") -- buffer status in the top
 	use("windwp/nvim-autopairs") -- autoclose
+	use("mattn/emmet-vim") -- html abbreviations
 	use({
 		"kylechui/nvim-surround",
 		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
+			require("nvim-surround").setup()
 		end,
 	}) -- "surrounds" parentheses, brackets, xml, etc
-	use("mattn/emmet-vim") -- html abbreviations
-	use("nvim-lualine/lualine.nvim") -- status line in the bottom
-	use("akinsho/bufferline.nvim") -- buffer status in the top
-	use("kyazdani42/nvim-web-devicons") -- icons for some plugins
 	use({
 		"chrisbra/Colorizer",
 		setup = function()
 			vim.g.colorizer_disable_bufleave = 1
 		end,
 	}) -- color preview
-	use("kyazdani42/nvim-tree.lua") -- folder manager
-	-- use("andweeb/presence.nvim") -- discord presence
-	use("nvim-lua/plenary.nvim") -- useful lua functions dependencies
-	use("lewis6991/gitsigns.nvim") -- add git decorations
-	use("folke/todo-comments.nvim") -- highlight and search tasks marked in comments
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup()
 		end,
 	}) -- comment lines easily
+	use({
+		"folke/todo-comments.nvim",
+		config = function()
+			require("todo-comments").setup()
+		end,
+	}) -- highlight and search tasks marked in comments
 	use("ziontee113/color-picker.nvim") -- color picker
 	use("iamcco/markdown-preview.nvim") --md preview
 
-	-- telescope
-	use("nvim-lua/popup.nvim") -- telescope dependencies
-	use("nvim-telescope/telescope.nvim") -- fuzzy finding
-	use("jvgrootveld/telescope-zoxide") -- jump between most used directories
+	-- LSP
+	use("neovim/nvim-lspconfig") -- enable LSP
+	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	use("jose-elias-alvarez/null-ls.nvim") -- linters and diagnostics
 
 	-- completion
 	use("hrsh7th/nvim-cmp") -- the completion plugin
@@ -94,14 +95,14 @@ return packer.startup(function(use)
 	use("L3MON4D3/LuaSnip") --snippet engine
 	use("rafamadriz/friendly-snippets") -- a bunch of snippets to use
 
-	-- LSP
-	use("neovim/nvim-lspconfig") -- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("jose-elias-alvarez/null-ls.nvim") -- linters and diagnostics
+	-- telescope
+	use("nvim-lua/popup.nvim") -- telescope dependencies
+	use("nvim-telescope/telescope.nvim") -- fuzzy finding
+	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+	use("jvgrootveld/telescope-zoxide") -- jump between most used directories
 
 	-- colorschemes
 	use("nanotech/jellybeans.vim")
-	use("EdenEast/nightfox.nvim")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

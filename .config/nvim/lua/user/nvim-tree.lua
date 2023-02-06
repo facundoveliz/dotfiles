@@ -5,7 +5,7 @@ require("nvim-tree").setup({
 	},
 	view = {
 		width = 30,
-		side = "right",
+		side = "left",
 		hide_root_folder = true,
 	},
 	actions = {

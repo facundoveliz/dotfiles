@@ -5,12 +5,29 @@ end
 
 local actions = require("telescope.actions")
 
+-- keybindings
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
+keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
+keymap("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
+keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
+keymap("n", "<leader>fc", "<cmd>Telescope commands<CR>", opts)
+keymap("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", opts)
+keymap("n", "<leader>fz", "<cmd>Telescope zoxide list<CR>", opts)
+keymap("n", "<leader>fr", "<cmd>Telescope resume<CR>", opts)
+keymap("n", "<leader>ft", "<cmd>TodoTelescope<CR>", opts)
+
+-- extensions
+telescope.load_extension("fzf")
+telescope.load_extension("zoxide")
+
 telescope.setup({
 	defaults = {
-		file_sorter = require("telescope.sorters").get_fzy_sorter,
 		prompt_prefix = " 🔎 ",
 		selection_caret = "   ",
-		path_display = { "smart" },
 		mappings = {
 			i = {
 				["<C-n>"] = actions.cycle_history_next,
@@ -73,21 +90,3 @@ telescope.setup({
 		},
 	},
 })
-
--- extensions
-telescope.load_extension("zoxide")
-
--- keybindings
-local keymap = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-
-keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", opts)
-keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", opts)
-keymap("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", opts)
-keymap("n", "<leader>fo", "<cmd>Telescope oldfiles<CR>", opts)
-keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", opts)
-keymap("n", "<leader>fc", "<cmd>Telescope commands<CR>", opts)
-keymap("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", opts)
-keymap("n", "<leader>fz", "<cmd>Telescope zoxide list<CR>", opts)
-keymap("n", "<leader>fr", "<cmd>Telescope resume<CR>", opts)
-keymap("n", "<leader>ft", "<cmd>TodoTelescope<CR>", opts)
