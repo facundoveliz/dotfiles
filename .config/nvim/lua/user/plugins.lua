@@ -16,11 +16,29 @@ require("lazy").setup({
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }, --colorizer
 	"nvim-lualine/lualine.nvim", --status line in the bottom
 	"akinsho/bufferline.nvim", --buffer status in the top
-	"windwp/nvim-autopairs", --autoclose
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			vim.opt.list = true
+			vim.opt.listchars:append("eol:↴")
+			require("indent_blankline").setup({
+				show_end_of_line = true,
+			})
+		end,
+	},
+	{
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	}, --autoclose
+	"mattn/emmet-vim", --html abbreviations
 	{
 		"kylechui/nvim-surround",
 		config = function()
-			require("nvim-surround").setup()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
 		end,
 	}, --"surrounds" parentheses, brackets, xml, etc
 	{
@@ -54,28 +72,6 @@ require("lazy").setup({
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
-			{
-				-- only needed if you want to use the commands with "_with_window_picker" suffix
-				"s1n7ax/nvim-window-picker",
-				tag = "v1.*",
-				config = function()
-					require("window-picker").setup({
-						autoselect_one = false,
-						include_current = false,
-						filter_rules = {
-							-- filter using buffer options
-							bo = {
-								-- if the file type is one of following, the window will be ignored
-								filetype = { "neo-tree", "neo-tree-popup", "notify" },
-
-								-- if the buffer type is one of following, the window will be ignored
-								buftype = { "terminal", "quickfix" },
-							},
-						},
-						other_win_hl_color = "#e35e4f",
-					})
-				end,
-			},
 		},
 	},
 	{
