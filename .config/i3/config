@@ -120,7 +120,7 @@ bindsym Mod1+Tab workspace back_and_forth
 bindsym $mod+f fullscreen toggle
 
 # enter fullscreen mode for the focused container
-bindsym $mod+Shift+f fullscreen disable; floating enable; resize set 640 360; sticky enable; move window to position 1515 20
+bindsym $mod+Shift+f fullscreen disable; floating enable; resize set 640 360; sticky enable; move window to position 0 0
 
 # enable window sticky, it follows you through all workspaces
 bindsym $mod+o sticky enable;
