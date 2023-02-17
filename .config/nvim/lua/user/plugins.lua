@@ -15,17 +15,6 @@ require("lazy").setup({
 	-- general
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" }, --colorizer
 	"nvim-lualine/lualine.nvim", --status line in the bottom
-	"akinsho/bufferline.nvim", --buffer status in the top
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			vim.opt.list = true
-			vim.opt.listchars:append("eol:↴")
-			require("indent_blankline").setup({
-				show_end_of_line = true,
-			})
-		end,
-	},
 	{
 		"windwp/nvim-autopairs",
 		config = function()
@@ -111,4 +100,10 @@ require("lazy").setup({
 
 	-- colorschemes
 	"nanotech/jellybeans.vim",
+	{
+		"ellisonleao/gruvbox.nvim",
+		dependencies = {
+			"rktjmp/lush.nvim",
+		},
+	},
 })

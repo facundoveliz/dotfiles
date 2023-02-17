@@ -65,7 +65,7 @@ for _, k in ipairs(servers) do
 	})
 end
 
-lsp.sumneko_lua.setup({
+lsp.lua_ls.setup({
 	flags = flags,
 	capabilities = capabilities,
 	on_attach = function(client)

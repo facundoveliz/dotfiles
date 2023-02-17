@@ -1,23 +1,13 @@
--- gruvbox
-vim.g.gruvbox_contrast_dark = "hard"
-vim.g.gruvbox_contrast_light = "hard"
-vim.g.gruvbox_sign_column = "bg"
-vim.g.gruvbox_number_column = "bg"
-vim.g.gruvbox_transparent_bg = 1
+require("gruvbox").setup({
+	contrast = "hard", -- can be "hard", "soft" or empty string
+})
 
 -- jellybeans
 vim.g.jellybeans_overrides = {
 	SignColumn = { ctermbg = "none", guibg = "none" },
 }
 
--- ayu
-vim.g.ayucolor = "mirage"
-
-vim.o.background = "dark"
-
 local colorscheme = "jellybeans"
--- vim.cmd("colorscheme gruvbox")
--- vim.api.nvim_set_hl(0, "Normal", { guibg = NONE, ctermbg = NONE }) -- NOTE: Enable only if gruvbox transparency is enabled
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
