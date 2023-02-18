@@ -21,13 +21,11 @@ require("lazy").setup({
 			require("nvim-autopairs").setup({})
 		end,
 	}, --autoclose
-	"mattn/emmet-vim", --html abbreviations
+	{ "mattn/emmet-vim", event = "VeryLazy" }, --html abbreviations
 	{
 		"kylechui/nvim-surround",
 		config = function()
-			require("nvim-surround").setup({
-				-- Configuration here, or leave empty to use defaults
-			})
+			require("nvim-surround").setup()
 		end,
 	}, --"surrounds" parentheses, brackets, xml, etc
 	{
