@@ -1,0 +1,85 @@
+#!/bin/bash
+
+#create an empty file to store the timestamps
+touch timestamps.txt
+
+# Initialize total duration to 0
+total_duration=0
+
+# Loop through all the videos in the current working directory
+for video in "$(pwd)"/*
+do
+    # get the duration of the video
+    duration=$(ffmpeg -i "$video" 2>&1 | grep "Duration" | cut -d ' ' -f 4 | sed s/,//)
+
+    # convert duration to seconds
+    duration_in_seconds=$(echo $duration | awk -F: '{ print ($1 * 3600) + ($2 * 60) + $3 }')
+
+    # add the current duration to the total duration
+    total_duration=$(echo $total_duration + $duration_in_seconds | bc)
+
+    # convert total duration back to HH:MM:SS format
+    total_duration_formatted=$(echo $(date -u -d @${total_duration} +"%T"))
+
+    # get the duration in seconds, minutes and hours
+    seconds=$(echo $total_duration_formatted | awk -F: '{print $3}')
+    minutes=$(echo $total_duration_formatted | awk -F: '{print $2}')
+    hours=$(echo $total_duration_formatted | awk -F: '{print $1}')
+
+    # If minutes are negative, then subtract 1 hour and set the minutes to 59
+    if [ $minutes -lt 0 ]; then
+    hours=$(($hours-1))
+    minutes=$((10#$minutes+60))
+    fi
+
+    # If the seconds are negative, then subtract 1 minute and set the seconds to 59
+    if [ $seconds -lt 0 ]; then
+    minutes=$(($minutes-1))
+    seconds=$((60+$seconds))
+    fi
+
+    # format the timestamp in the format "HH:MM:SS"
+    total_duration_formatted="$hours:$minutes:$seconds"
+
+    # get the name of the video without the file extension
+    name=$(basename "$video" | cut -f 1 -d '.')
+
+    # write the total duration and name to the timestamps file
+    echo "$total_duration_formatted - $name" >> timestamps.txt
+done
+
+# loop through all subdirectories in the current directory
+# for dir in */; do
+#     # remove trailing "/" from the directory name
+#     dir=${dir%*/}
+#     # initialize a variable to store the total duration
+#     total_duration=0
+#     # loop through all .mp4 files in the directory
+#     for file in "$dir"/*; do
+#         # get the duration of the video in seconds
+#         duration=$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$file")
+#         # add the duration to the total
+#         total_duration=$(echo "$total_duration + $duration" | bc)
+#         # convert the total duration to minutes
+#         minutes=$(echo "scale=0; $total_duration/60" | bc)
+#         # get the remaining seconds
+#         seconds=$(echo "scale=0; $total_duration%60" | bc)
+#         # check if the duration is less than a minute
+#         if [ $minutes -lt 1 ]; then
+#             duration="$seconds sec"
+#         else
+#             # check if the duration has remaining seconds
+#             if [ $seconds -lt 10 ]; then
+#                 duration="$minutes:0$seconds min"
+#             else
+#                 duration="$minutes:$seconds min"
+#             fi
+#         fi
+#         # get the name of the video
+#         name=${file##*/}
+#         # remove the extension from the name
+#         name=${name%.*}
+#         # create a new line in the text file with the total duration and name of the video
+#         echo "$duration $name" >> "$dir".txt
+#     done
+# done
