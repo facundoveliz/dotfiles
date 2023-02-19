@@ -31,7 +31,7 @@ require("lazy").setup({
 	{
 		"chrisbra/Colorizer",
 		keys = {
-			{ "<leader>cc", ":ColorToggle<CR>", desc = "NeoTree" },
+			{ "<leader>cc", ":ColorToggle<CR>" },
 		},
 		setup = function()
 			vim.g.colorizer_disable_bufleave = 1
@@ -71,6 +71,14 @@ require("lazy").setup({
 		end,
 	}, --color picker
 	"iamcco/markdown-preview.nvim", --md preview
+	{
+		"folke/trouble.nvim",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		config = function()
+			require("trouble").setup()
+		end,
+	},
+	{ "romgrk/barbar.nvim", dependencies = "nvim-tree/nvim-web-devicons" },
 
 	-- LSP
 	"neovim/nvim-lspconfig", --enable LSP
@@ -98,6 +106,8 @@ require("lazy").setup({
 
 	-- colorschemes
 	"nanotech/jellybeans.vim",
+	"rebelot/kanagawa.nvim",
+	"rose-pine/neovim",
 	{
 		"ellisonleao/gruvbox.nvim",
 		dependencies = {

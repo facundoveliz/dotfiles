@@ -1,5 +1,4 @@
 local keymap = vim.api.nvim_set_keymap
-
 local opts = { noremap = true, silent = true }
 
 keymap("", "<Space>", "<Nop>", opts)
@@ -38,13 +37,6 @@ keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
 keymap("n", "<leader>j", ":m .1<CR>==", opts)
 keymap("n", "<leader>k", ":m .-2<CR>==", opts)
-
--- buffers
-keymap("n", "<S-l>", "<cmd>:bnext<CR>", opts)
-keymap("n", "<S-h>", "<cmd>:bprev<CR>", opts)
--- close buffer without closing the window
-keymap("n", "tc", "<cmd>bp|bd #<CR>", opts)
-keymap("n", "tx", "<cmd>bp|bd! #<CR>", opts)
 
 -- fix tab
 keymap("i", "<S-Tab>", "<C-o>v<", opts)
