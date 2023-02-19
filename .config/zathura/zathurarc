@@ -29,11 +29,11 @@ map C recolor
 set font "JetBrainsMono Nerd Font 12"
 
 set default-bg "#151515" #00
-set default-fg "#dedede" #01
+set default-fg "#e0def4" #01
 
 set recolor-lightcolor \#151515
 
-set statusbar-fg "#dedede" #04
+set statusbar-fg "#e0def4" #04
 set statusbar-bg "#151515" #01
 
 set inputbar-bg "#151515" #00 currently not used
