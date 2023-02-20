@@ -9,7 +9,7 @@ xset r rate 350 60
 xgamma -gamma 1.2
 
 # scripts
-# node ~/Dev/automation-scripts/todoist-notifier/index.js &
+node ~/Dev/automation-scripts/todoist-notifier/index.js &
 # node ~/Dev/automation-scripts/todoist-creator/index.js &
 
 # some default apps

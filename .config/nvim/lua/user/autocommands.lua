@@ -6,13 +6,6 @@ vim.cmd([[
   augroup END
 ]])
 
--- start terminal in insert mode
-vim.cmd([[
-  augroup terminal
-    au TermOpen * startinsert
-  augroup END
-]])
-
 -- auto save/load folds
 vim.cmd([[
   augroup remember_folds
@@ -20,11 +13,6 @@ vim.cmd([[
     autocmd BufWinLeave *.* mkview
     autocmd BufWinEnter *.* silent! loadview
   augroup END
-]])
-
--- don't show any numbers inside terminals
-vim.cmd([[
-  au TermOpen term://* setlocal nonumber norelativenumber | setfiletype terminal
 ]])
 
 -- restores the last cursor position when opening a file
@@ -35,3 +23,20 @@ vim.cmd([[
       \ if line("'\"") > 1 && line("'\"") <= line("$") && &ft !~# 'commit' | execute "normal! g`\"zvzz" | endif
   augroup END
 ]])
+
+-- barbar integration with file browsers
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	callback = function(tbl)
+		if vim.bo[tbl.buf].filetype == "neo-tree" then
+			require("bufferline.api").set_offset(37, "FileTree")
+		end
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWinLeave", "BufWipeout" }, {
+	callback = function(tbl)
+		if vim.bo[tbl.buf].filetype == "neo-tree" then
+			require("bufferline.api").set_offset(0)
+		end
+	end,
+})

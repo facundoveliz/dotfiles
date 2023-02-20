@@ -54,6 +54,33 @@ keymap("n", "<leader><leader>s", "<cmd>source %<CR>", opts)
 -- use C-c to toggle hlsearch in normal mode
 keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
 
+-- barbar
+keymap("n", "<S-l>", "<Cmd>BufferNext<CR>", opts)
+keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
+-- NOTE: use this if the barbar isn't installed
+-- keymap("n", "<S-l>", "<cmd>:bnext<CR>", opts)
+-- keymap("n", "<S-h>", "<cmd>:bprev<CR>", opts)
+
+-- reorder buffers
+keymap("n", "<A-l>", "<Cmd>BufferMoveNext<CR>", opts)
+keymap("n", "<A-h>", "<Cmd>BufferMovePrevious<CR>", opts)
+
+-- goto buffer in position
+keymap("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
+keymap("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
+keymap("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
+keymap("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
+keymap("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", opts)
+keymap("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", opts)
+keymap("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", opts)
+keymap("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", opts)
+keymap("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
+keymap("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
+
+-- close buffer without closing the window
+keymap("n", "tc", "<cmd>bp|bd #<CR>", opts)
+keymap("n", "tx", "<cmd>bp|bd! #<CR>", opts)
+
 vim.cmd([[
 " replace all ocurrences, similar to C-d in vs****
   vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
