@@ -45,9 +45,6 @@ keymap("i", "<S-Tab>", "<C-o>v<", opts)
 keymap("n", "<S-q>", ":q<CR>", opts)
 keymap("n", "<S-w>", ":w<CR>", opts)
 
--- use ESC to exit insert mode in :term
-keymap("t", "<Esc>", "<C-\\><C-n>", opts)
-
 -- source current file
 keymap("n", "<leader><leader>s", "<cmd>source %<CR>", opts)
 
@@ -62,8 +59,8 @@ keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
 -- keymap("n", "<S-h>", "<cmd>:bprev<CR>", opts)
 
 -- reorder buffers
-keymap("n", "<A-l>", "<Cmd>BufferMoveNext<CR>", opts)
-keymap("n", "<A-h>", "<Cmd>BufferMovePrevious<CR>", opts)
+keymap("n", "<C-A-l>", "<Cmd>BufferMoveNext<CR>", opts)
+keymap("n", "<C-A-h>", "<Cmd>BufferMovePrevious<CR>", opts)
 
 -- goto buffer in position
 keymap("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
