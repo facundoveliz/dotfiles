@@ -47,6 +47,9 @@ export LANG=en_US.UTF-8
 export CM_SELECTIONS="clipboard"
 export CM_MAX_CLIPS="50"
 
+# fix npm global installs
+export NPM_CONFIG_PREFIX="~/.npm-global\nexport PATH=\:$PATH:~/.npm-global/bin"
+
 # ================ auto start ================
 
 # auto startx

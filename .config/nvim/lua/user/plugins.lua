@@ -13,9 +13,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- LSP
+	"williamboman/mason.nvim", --simple to use language server installer
+	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig", --enable LSP
-	"williamboman/nvim-lsp-installer", --simple to use language server installer
 	"jose-elias-alvarez/null-ls.nvim", --linters and diagnostics
+	"jay-babu/mason-null-ls.nvim", -- null-ls installer
 
 	-- completion
 	"hrsh7th/nvim-cmp", --the completion plugin
@@ -36,7 +38,7 @@ require("lazy").setup({
 		cmd = "Telescope",
 		dependencies = "nvim-lua/popup.nvim",
 		keys = {
-      { "<leader>ff", "<cmd>execute 'NeoTreeClose' | Telescope find_files hidden=true<CR>" },
+			{ "<leader>ff", "<cmd>execute 'NeoTreeClose' | Telescope find_files hidden=true<CR>" },
 			{ "<leader>fg", "<cmd>Telescope live_grep hidden=true<CR>" },
 			{ "<leader>fh", "<cmd>Telescope help_tags<CR>" },
 			{ "<leader>fo", "<cmd>Telescope oldfiles hidden=true<CR>" },

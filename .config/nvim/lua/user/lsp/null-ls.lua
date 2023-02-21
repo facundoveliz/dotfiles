@@ -1,31 +1,24 @@
-local nls = require("null-ls")
-local U = require("user.lsp.utils")
+local null = require("null-ls")
+local mason = require("mason-null-ls")
 
-local fmt = nls.builtins.formatting
-local dgn = nls.builtins.diagnostics
+local fmt = null.builtins.formatting
+local dgn = null.builtins.diagnostics
 
-nls.setup({
+mason.setup({
+	ensure_installed = {
+		"prettierd",
+		"eslint_d",
+    "stylua",
+	},
+})
+
+null.setup({
 	sources = {
 		fmt.trim_whitespace.with({
 			filetypes = { "text", "sh", "zsh", "toml", "make", "conf", "tmux" },
 		}),
 		fmt.prettierd,
-		-- fmt.prettierd.with({
-		-- 	extra_args = {
-		-- 		"--single-quote=true",
-		-- 		"--bracket-same-line=true",
-		-- 	},
-		-- }),
 		fmt.eslint_d,
-		fmt.black,
 		fmt.stylua,
-		fmt.gofmt,
-		dgn.eslint_d,
-		dgn.luacheck.with({
-			extra_args = { "--globals", "vim", "--std", "luajit" },
-		}),
 	},
-	-- on_attach = function(client)
-	-- 	U.fmt_on_save(client)
-	-- end,
 })
