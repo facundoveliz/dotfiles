@@ -4,4 +4,4 @@
 rclone copy --update --verbose --transfers 30 --checkers 8 --contimeout 60s --timeout 300s --retries 3 --low-level-retries 10 --stats 1s "/home/facundo/Notes" "gdrive:/Notes/"
 
 # misc personal documents
-rclone bisync --resync --update --verbose --transfers 30 --checkers 8 --contimeout 60s --timeout 300s --retries 3 --low-level-retries 10 --stats 1s "gdrive:/Documentos/" "/mnt/1TB/Documents"
+rclone copy --update --verbose --transfers 30 --checkers 8 --contimeout 60s --timeout 300s --retries 3 --low-level-retries 10 --stats 1s "/home/facundo/Documents" "gdrive:/Documents/"
