@@ -247,7 +247,7 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # ================ styling ================
 set $background1 #1F1F28
-set $background2 #49473E
+set $background2 #606069
 set $foreground #DDD8BB
 set $red #E46A78
 set $orange #E5C283
@@ -258,9 +258,9 @@ set $cyan #7BC2DF
 set $magenta #A98FD2
 
 # class                 border       bground      text         indicator    child_border
-client.focused          $yellow      $yellow      $background1 $yellow      $yellow
+client.focused          $background1 $background1 $foreground $yellow      $yellow
 client.focused_inactive $background1 $background1 $foreground $background2 $background2
-client.unfocused        $background1 $background1 $foreground $background2 $background2
+client.unfocused        $background1 $background1 $background2 $background2 $background2
 client.urgent           $background1 $background1 $foreground $yellow      $background2
 client.placeholder      $background1 $background1 $foreground $yellow      $background2
 client.background       $background1
