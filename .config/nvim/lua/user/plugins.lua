@@ -128,10 +128,8 @@ require("lazy").setup({
 			-- if set to 'numbers', will show buffer index in the tabline
 			-- if set to 'both', will show buffer index and icons in the tabline
 			icons = "numbers",
-			-- icon_separator_active = "▎",
-			-- icon_separator_inactive = "▎",
-			icon_separator_active = "",
-			icon_separator_inactive = "",
+			icon_separator_active = "▎",
+			icon_separator_inactive = " ",
 			icon_close_tab_modified = "●",
 			insert_at_end = true,
 		},
@@ -271,6 +269,15 @@ require("lazy").setup({
 			end,
 		} },
 	},
+
+	{ "mbbill/undotree", keys = {
+		{
+			"<leader>ut",
+			function()
+				vim.cmd([[UndotreeToggle]])
+			end,
+		},
+	} },
 
 	-- colorschemes
 	{ "nanotech/jellybeans.vim", lazy = true },

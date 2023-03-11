@@ -55,6 +55,9 @@ export PATH="$PATH:$NPM_GLOBAL/bin"
 # otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_GLOBAL/share/man"
 
+# chat gpt
+export OPENAI_KEY=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
+
 # ================ auto start ================
 
 # auto startx
@@ -89,7 +92,7 @@ alias ....='cd ../../..'
 
 # verbose
 alias rm='rm -v'
-alias rmf='rm -rf'
+alias rmf='rm -rfI'
 alias cp='cp -vi'
 alias mv='mv -vi'
 

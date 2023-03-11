@@ -8,7 +8,7 @@ mason.setup({
 	ensure_installed = {
 		"prettierd",
 		"eslint_d",
-    "stylua",
+		"stylua",
 	},
 })
 
@@ -20,5 +20,6 @@ null.setup({
 		fmt.prettierd,
 		fmt.eslint_d,
 		fmt.stylua,
+		dgn.eslint_d,
 	},
 })

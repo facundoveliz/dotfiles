@@ -5,7 +5,7 @@ set $term kitty
 # ================ apps ================
 
 # open applications on specific workspaces
-assign [title="(?i)discord"] → $ws3
+# assign [title="(?i)discord"] → $ws3
 
 # open specific applications in floating mode
 for_window [class="(?i)feh"] floating enable, move position center
@@ -31,7 +31,7 @@ exec_always --no-startup-id dunst
 exec_always --no-startup-id easyeffects --gapplication-service
 exec_always --no-startup-id xmodmap -e 'keycode 135 = Super_R' && xset -r 135
 
-# exec_always --no-startup-id node ~/Dev/automation-scripts/todoist-notifier/index.js &
+exec_always --no-startup-id node ~/Dev/automation-scripts/todoist-notifier/index.js &
 
 # startup programs
 # exec --no-startup-id discord
@@ -42,17 +42,11 @@ exec_always --no-startup-id xmodmap -e 'keycode 135 = Super_R' && xset -r 135
 floating_modifier $mod
 
 bindsym $mod+Return             exec --no-startup-id $term
-bindsym $mod+c                  exec --no-startup-id brave
-bindsym $mod+Shift+c            exec --no-startup-id brave --incognito
+bindsym $mod+c                  exec --no-startup-id google-chrome-stable
+bindsym $mod+Shift+c            exec --no-startup-id google-chrome-stable --incognito
 bindsym $mod+x                  exec --no-startup-id code
 bindsym $mod+F9                 exec --no-startup-id pavucontrol
 bindsym $mod+g                  exec --no-startup-id gnome-calculator
-
-# browser quick-acces
-bindsym $mod+semicolon mode "browser-quick-access"
-mode "browser-quick-access"{
-  bindsym m                     exec --no-startup-id brave --app-url "https://www.instagram.com/p/CTklpgeF61n/" --app-url "https://twitter.com/meandwh/status/1616547356920389632"; mode "default"
-}
 
 # file manager
 bindsym $mod+t                  exec --no-startup-id thunar
@@ -69,7 +63,7 @@ bindsym $mod+d                  exec --no-startup-id dmenu_run; mode "default"
 bindsym $mod+comma mode "dmenu-scripts"
 mode "dmenu-scripts"{
   bindsym p                  exec --no-startup-id dmenu-power; mode "default"
-  bindsym m                  exec --no-startup-id sh -c 'passmenu && clipdel -d "$(xsel -b)"'; mode "default"
+  bindsym m                  exec --no-startup-id sh -c 'passmenu2 && clipdel -d "$(xsel -b)"'; mode "default"
   bindsym c                  exec --no-startup-id clipmenu -i; mode "default"
   bindsym k                  exec --no-startup-id dmenu-kill; mode "default"
   bindsym e                  exec --no-startup-id dmenu-emoji; mode "default"
@@ -77,12 +71,11 @@ mode "dmenu-scripts"{
   bindsym Escape mode "default"
 }
 
-# flameshot
+# screenshots
 bindsym Print                   exec flameshot gui -c -p "/mnt/1TB/Images/Screenshots/"
 bindsym Shift+Print             exec flameshot screen -c -p "/mnt/1TB/Images/Screenshots/"
-
 # copy screenshot text to clipboard with OCR
-bindsym $mod+F10                exec flameshot gui -r -s | tesseract - - -l spa+eng | xclip -selection clipboard
+bindsym Ctrl+Shift+Print        exec flameshot gui -r -s | tesseract - - -l spa+eng | xclip -selection clipboard
 
 # change keyboard layout
 bindsym $mod+F12                exec --no-startup-id setxkbmap latam
@@ -146,6 +139,8 @@ bindsym $mod+q kill
 
 bindsym $mod+a focus parent
 bindsym $mod+z focus child
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
 
 # split
 bindsym $mod+Shift+v split h
@@ -247,8 +242,9 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # ================ styling ================
 set $background1 #1F1F28
-set $background2 #606069
-set $foreground #DDD8BB
+set $background2 #31313a
+set $foreground1 #DDD8BB
+set $foreground2 #5c5c65
 set $red #E46A78
 set $orange #E5C283
 set $yellow #E5C283
@@ -258,11 +254,11 @@ set $cyan #7BC2DF
 set $magenta #A98FD2
 
 # class                 border       bground      text         indicator    child_border
-client.focused          $background1 $background1 $foreground $yellow      $yellow
-client.focused_inactive $background1 $background1 $foreground $background2 $background2
-client.unfocused        $background1 $background1 $background2 $background2 $background2
-client.urgent           $background1 $background1 $foreground $yellow      $background2
-client.placeholder      $background1 $background1 $foreground $yellow      $background2
+client.focused          $background1 $background1 $foreground1 $yellow      $yellow
+client.focused_inactive $background1 $background1 $foreground1 $background2 $background2
+client.unfocused        $background1 $background1 $foreground2 $background2 $background2
+client.urgent           $background1 $background1 $foreground1 $yellow      $foreground2
+client.placeholder      $background1 $background1 $foreground1 $yellow      $foreground2
 client.background       $background1
 
 # window gaps, the bottom gaps are dependly of the bar
