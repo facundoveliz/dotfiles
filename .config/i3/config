@@ -1,11 +1,11 @@
 # ================ vars ================
 set $mod Mod4
-set $term kitty
+set $term st
 
 # ================ apps ================
 
 # open applications on specific workspaces
-# assign [title="(?i)discord"] → $ws3
+assign [title="(?i)discord"] → $ws3
 
 # open specific applications in floating mode
 for_window [class="(?i)feh"] floating enable, move position center
@@ -31,19 +31,23 @@ exec_always --no-startup-id dunst
 exec_always --no-startup-id easyeffects --gapplication-service
 exec_always --no-startup-id xmodmap -e 'keycode 135 = Super_R' && xset -r 135
 
-exec_always --no-startup-id node ~/Dev/automation-scripts/todoist-notifier/index.js &
+# exec_always --no-startup-id node ~/Dev/automation-scripts/render-caffeine/index.js &
 
 # startup programs
-# exec --no-startup-id discord
+exec --no-startup-id discord
 
 # ================ keybindings ================
+
+# utils
+# copy current selection without saving it in clipmenu
+bindsym $mod+Shift+c            exec --no-startup-id clipctl disable && xclip -out -selection primary | xclip -in -selection clipboard && clipctl enable
 
 # use mouse+$mod to drag floating windows
 floating_modifier $mod
 
 bindsym $mod+Return             exec --no-startup-id $term
-bindsym $mod+c                  exec --no-startup-id google-chrome-stable
-bindsym $mod+Shift+c            exec --no-startup-id google-chrome-stable --incognito
+bindsym $mod+b                  exec --no-startup-id google-chrome-stable
+bindsym $mod+Shift+b            exec --no-startup-id google-chrome-stable --incognito
 bindsym $mod+x                  exec --no-startup-id code
 bindsym $mod+F9                 exec --no-startup-id pavucontrol
 bindsym $mod+g                  exec --no-startup-id gnome-calculator
@@ -59,17 +63,13 @@ mode "thunar-bookmarks"{
 }
 
 # dmenu
-bindsym $mod+d                  exec --no-startup-id dmenu_run; mode "default"
-bindsym $mod+comma mode "dmenu-scripts"
-mode "dmenu-scripts"{
-  bindsym p                  exec --no-startup-id dmenu-power; mode "default"
-  bindsym m                  exec --no-startup-id sh -c 'passmenu2 && clipdel -d "$(xsel -b)"'; mode "default"
-  bindsym c                  exec --no-startup-id clipmenu -i; mode "default"
-  bindsym k                  exec --no-startup-id dmenu-kill; mode "default"
-  bindsym e                  exec --no-startup-id dmenu-emoji; mode "default"
-  bindsym b                  exec --no-startup-id dmenu-zathura; mode "default"
-  bindsym Escape mode "default"
-}
+bindsym $mod+d                  exec --no-startup-id dmenu_run
+bindsym $mod+p                  exec --no-startup-id dmenu_power
+bindsym $mod+c                  exec --no-startup-id clipmenu -i
+bindsym $mod+Tab                exec --no-startup-id dmenu_window
+bindsym $mod+Menu               exec --no-startup-id dmenu_menus
+bindsym $mod+Delete             exec --no-startup-id dmenu_kill
+bindsym $mod+BackSpace          exec --no-startup-id sh -c 'passmenu2 && clipdel -d "$(xsel -b)"'
 
 # screenshots
 bindsym Print                   exec flameshot gui -c -p "/mnt/1TB/Images/Screenshots/"

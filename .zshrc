@@ -55,8 +55,11 @@ export PATH="$PATH:$NPM_GLOBAL/bin"
 # otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
 export MANPATH="${MANPATH-$(manpath)}:$NPM_GLOBAL/share/man"
 
-# chat gpt
-export OPENAI_KEY=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
+# detaspace
+export PATH="/home/facundo/.detaspace/bin:$PATH"
+
+# spotify adblock
+export spotify="LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify"
 
 # ================ auto start ================
 
@@ -99,6 +102,8 @@ alias mv='mv -vi'
 # ls replacement
 alias ls='exa --color=auto --group-directories-first'
 alias la='exa -ahl --color=always --group-directories-first --sort extension'
+
+alias discord='LIBVA_DRIVER_NAME=radeonsi discord --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy'
 
 # ================ functions ================
 

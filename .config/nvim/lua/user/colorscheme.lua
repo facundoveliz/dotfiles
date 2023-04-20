@@ -14,6 +14,8 @@ end
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "None", fg = "None" })
 vim.api.nvim_set_hl(0, "FloatBorder", { bg = "None" })
 
+vim.g.colorizer_disable_bufleave = 1
+
 -- remove background color for fold column
 vim.api.nvim_set_hl(0, "Folded", { bg = "None" })
 

@@ -5,11 +5,15 @@ udiskie &
 setxkbmap -layout us
 xset s off
 xset -dpms
-xset r rate 350 60
+xset r rate 351 60
 xgamma -gamma 1.2
 
+until i3; do
+  sleep 1
+done
+
 # scripts
-node ~/Dev/automation-scripts/todoist-notifier/index.js &
+# node ~/Dev/automation-scripts/todoist-notifier/index.js &
 # node ~/Dev/automation-scripts/todoist-creator/index.js &
 
 # some default apps

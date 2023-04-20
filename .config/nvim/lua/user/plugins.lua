@@ -121,16 +121,16 @@ require("lazy").setup({
 		opts = {
 			animation = false,
 			auto_hide = true,
-			closable = false, -- Enable/disable close button
 			highlight_alternate = false, -- Disable highlighting alternate buffers
 			highlight_visible = true, -- Enable highlighting visible buffers
 			-- Enable/disable icons
 			-- if set to 'numbers', will show buffer index in the tabline
 			-- if set to 'both', will show buffer index and icons in the tabline
-			icons = "numbers",
-			icon_separator_active = "▎",
-			icon_separator_inactive = " ",
-			icon_close_tab_modified = "●",
+			icons = { current = { filetype = { enabled = false }, button = {
+				enabled = false,
+			} } },
+			icon_separator_right = "▎",
+			icon_separator_left = " ",
 			insert_at_end = true,
 		},
 	},
@@ -181,12 +181,10 @@ require("lazy").setup({
 	--color preview
 	{
 		"chrisbra/Colorizer",
+		setup = function() end,
 		keys = {
 			{ "<leader>cc", ":ColorToggle<CR>" },
 		},
-		setup = function()
-			vim.g.colorizer_disable_bufleave = 1
-		end,
 	},
 
 	--comment lines easily
