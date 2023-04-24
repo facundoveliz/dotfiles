@@ -24,6 +24,7 @@ declare -a options=(
 "Shutdown"
 "Suspend"
 "Hibernate"
+"Hibernate to Windows"
 "Lock screen"
 "Logout"
 "Quit"
@@ -83,6 +84,13 @@ case $choice in
     'Hibernate')
       if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
           systemctl hibernate
+      else
+          output "User chose not to hibernate." && exit 0
+      fi
+      ;;
+    'Hibernate to Windows')
+      if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
+          systemctl hibernate --boot-loader-entry=auto-windows
       else
           output "User chose not to hibernate." && exit 0
       fi

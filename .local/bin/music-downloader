@@ -5,7 +5,7 @@ read name
 sync_file="`echo $name | tr ' ' '_'`.sync.spotdl"
 echo "Playlist URL"
 read url
-mkdir ~/Music/"$name"
-cd ~/Music/"$name"
+mkdir /mnt/1TB/Music/"$name"
+cd /mnt/1TB/Music/"$name"
 spotdl sync $url --save-file $sync_file --format flac
-echo "$sync_file" >> ~/Music
+echo "$sync_file" >> /mnt/1TB/Music

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+clipctl disable
+
 shopt -s nullglob globstar
 
 typeit=0
@@ -57,3 +59,5 @@ while [ "$DONE" -eq 0 ] ; do
     STARTDIR="$BASEDIR/$SELECTION"
   fi
 done
+
+clipctl disable

@@ -82,15 +82,7 @@ The current best theme is materia, but I also used numix
 
 ## Faster hibernate
 
-.xinitrc
-
-```
-until i3; do
-  sleep 1
-done
-```
-
-Then create an sleep hook called 'hibernate.service'
+Create an sleep hook called 'hibernate.service'
 
 ```
 [Unit]
@@ -101,7 +93,7 @@ StopWhenUnneeded=yes
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=notify-send testing ; pkill -f i3 ; sync; echo 3. > /proc/sys/vm/drop_caches
+ExecStart=sync; echo 3. > /proc/sys/vm/drop_caches
 
 [Install]
 WantedBy=hibernate.target

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for list in ~/Music/*; do
+for list in /mnt/1TB/Music/*; do
   cd "$list"
   spotdl sync *.spotdl --format flac
 done
