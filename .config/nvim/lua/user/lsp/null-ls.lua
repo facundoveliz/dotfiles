@@ -9,6 +9,7 @@ mason.setup({
 		"prettierd",
 		"eslint_d",
 		"stylua",
+		"black",
 	},
 })
 
@@ -20,6 +21,7 @@ null.setup({
 		fmt.prettierd,
 		fmt.eslint_d,
 		fmt.stylua,
+		fmt.black,
 		dgn.eslint_d,
 	},
 })

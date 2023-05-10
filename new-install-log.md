@@ -78,6 +78,10 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 The current best theme is materia, but I also used numix
 
+```
+https://github.com/Ferdi265/numix-solarized-gtk-theme
+```
+
 # Configs
 
 ## Faster hibernate

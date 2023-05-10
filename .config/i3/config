@@ -33,7 +33,7 @@ exec_always --no-startup-id xmodmap -e 'keycode 135 = Super_R' && xset -r 135
 
 # exec_always --no-startup-id node ~/Dev/automation-scripts/render-caffeine/index.js &
 
-# startup programs
+# ================ autostart ================
 exec --no-startup-id discord
 
 # ================ keybindings ================
@@ -69,7 +69,7 @@ bindsym $mod+c                  exec --no-startup-id clipmenu -i
 bindsym $mod+Tab                exec --no-startup-id dmenu_window
 bindsym $mod+Menu               exec --no-startup-id dmenu_menus
 bindsym $mod+Delete             exec --no-startup-id dmenu_kill
-bindsym $mod+BackSpace          exec --no-startup-id sh -c 'passmenu2 && clipdel -d "$(xsel -b)"'
+bindsym $mod+BackSpace          exec --no-startup-id sh -c 'passmenu && clipdel -d "$(xsel -b)"'
 
 # screenshots
 bindsym Print                   exec flameshot gui -c -p "/mnt/1TB/Images/Screenshots/"
@@ -241,17 +241,17 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # ================ styling ================
-set $background1 #1F1F28
-set $background2 #31313a
-set $foreground1 #DDD8BB
+set $background1 #141b1e
+set $background2 #10171a
+set $foreground #9ea1a1
 set $foreground2 #5c5c65
-set $red #E46A78
-set $orange #E5C283
-set $yellow #E5C283
-set $green #9EC967
-set $blue #7EB3C9
-set $cyan #7BC2DF
-set $magenta #A98FD2
+set $red #e86b6b
+set $orange #eecc64
+set $yellow #f4d67a
+set $green #75bf65
+set $blue #55aaeb
+set $cyan #4dbcde
+set $magenta #c372d7
 
 # class                 border       bground      text         indicator    child_border
 client.focused          $background1 $background1 $foreground1 $yellow      $yellow

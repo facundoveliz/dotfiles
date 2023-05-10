@@ -51,6 +51,9 @@ keymap("n", "<leader><leader>s", "<cmd>source %<CR>", opts)
 -- use C-c to toggle hlsearch in normal mode
 keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
 
+-- netrw
+-- keymap("n", "<C-b>", "<Esc>:Lex<CR>:vertical resize 30<cr>", opts)
+
 -- barbar
 keymap("n", "<S-l>", "<Cmd>BufferNext<CR>", opts)
 keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)

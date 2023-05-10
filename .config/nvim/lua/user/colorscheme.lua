@@ -2,7 +2,7 @@ vim.g.jellybeans_overrides = {
 	SignColumn = { ctermbg = "none", guibg = "none" },
 }
 
-local colorscheme = "kanagawa"
+local colorscheme = "everblush"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then

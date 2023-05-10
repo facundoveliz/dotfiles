@@ -65,7 +65,7 @@ require("lazy").setup({
 						["<C-k>"] = function(...)
 							return require("telescope.actions").move_selection_previous(...)
 						end,
-						["<C-h>"] = function(...)
+						["<C-s>"] = function(...)
 							return require("telescope.actions").select_horizontal(...)
 						end,
 						["<C-v>"] = function(...)
@@ -121,7 +121,7 @@ require("lazy").setup({
 		opts = {
 			animation = false,
 			auto_hide = true,
-			highlight_alternate = false, -- Disable highlighting alternate buffers
+			highlight_alternate = true, -- Disable highlighting alternate buffers
 			highlight_visible = true, -- Enable highlighting visible buffers
 			-- Enable/disable icons
 			-- if set to 'numbers', will show buffer index in the tabline
@@ -167,8 +167,6 @@ require("lazy").setup({
 			show_current_context = false,
 		},
 	},
-
-	"iamcco/markdown-preview.nvim",
 
 	{ "windwp/nvim-autopairs", config = true },
 
@@ -281,9 +279,12 @@ require("lazy").setup({
 	{ "nanotech/jellybeans.vim", lazy = true },
 	{ "rose-pine/neovim", lazy = true },
 	{ "rebelot/kanagawa.nvim", lazy = true },
+	{ "nyoom-engineering/oxocarbon.nvim", lazy = true },
+	{ "Everblush/nvim", name = "everblush" },
 	{
 		"ellisonleao/gruvbox.nvim",
 		lazy = true,
+		config = true,
 		opts = {
 			contrast = "hard", -- can be "hard", "soft" or empty string
 		},

@@ -61,6 +61,9 @@ export PATH="/home/facundo/.detaspace/bin:$PATH"
 # spotify adblock
 export spotify="LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify"
 
+# pipewire sound crackling fix
+export PULSE_LATENCY_MSEC=60 set
+
 # ================ auto start ================
 
 # auto startx
