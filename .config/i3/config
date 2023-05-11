@@ -152,8 +152,8 @@ bindsym XF86AudioPause          exec --no-startup-id playerctl play-pause
 bindsym XF86AudioStop           exec --no-startup-id playerctl stop
 bindsym XF86AudioNext           exec --no-startup-id playerctl next
 bindsym XF86AudioPrev           exec --no-startup-id playerctl previous
-bindsym XF86AudioRaiseVolume    exec --no-startup-id amixer -D pulse sset Master '2%+'
-bindsym XF86AudioLowerVolume    exec --no-startup-id amixer -D pulse sset Master '2%-'
+bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume 0 +2%
+bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume 0 -2%
 
 # ================ workspaces ================
 
