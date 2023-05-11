@@ -120,16 +120,18 @@ require("lazy").setup({
 		event = "VeryLazy",
 		opts = {
 			options = {
-				disabled_filetypes = { "dashboard", "neo-tree", "Outline" },
+				disabled_filetypes = { "neo-tree", "Outline" },
 				theme = "auto",
-				icons_enabled = true,
+				icons_enabled = false,
+				component_separators = { left = "", right = "" },
+				section_separators = { left = "", right = "" },
 			},
 			sections = {
 				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_b = { "branch" },
 				lualine_c = { "filename" },
 
-				lualine_x = { "encoding", "fileformat", "filetype" },
+				lualine_x = { "filetype" },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
 			},
