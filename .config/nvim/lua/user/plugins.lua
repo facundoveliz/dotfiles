@@ -38,7 +38,8 @@ require("lazy").setup({
 		cmd = "Telescope",
 		dependencies = "nvim-lua/popup.nvim",
 		keys = {
-			{ "<leader>ff", "<cmd>execute 'NeoTreeClose' | Telescope find_files hidden=true<CR>" },
+			-- { "<leader>ff", "<cmd>execute 'NeoTreeClose' | Telescope find_files hidden=true<CR>" },
+			{ "<leader>ff", "<cmd>Telescope find_files hidden=true<CR>" },
 			{ "<leader>fg", "<cmd>Telescope live_grep hidden=true<CR>" },
 			{ "<leader>fh", "<cmd>Telescope help_tags<CR>" },
 			{ "<leader>fo", "<cmd>Telescope oldfiles hidden=true<CR>" },
@@ -112,27 +113,6 @@ require("lazy").setup({
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)
 		end,
-	},
-
-	{
-		"romgrk/barbar.nvim",
-		dependencies = "nvim-tree/nvim-web-devicons",
-		event = "VeryLazy",
-		opts = {
-			animation = false,
-			auto_hide = true,
-			highlight_alternate = true, -- Disable highlighting alternate buffers
-			highlight_visible = true, -- Enable highlighting visible buffers
-			-- Enable/disable icons
-			-- if set to 'numbers', will show buffer index in the tabline
-			-- if set to 'both', will show buffer index and icons in the tabline
-			icons = { current = { filetype = { enabled = false }, button = {
-				enabled = false,
-			} } },
-			icon_separator_right = "▎",
-			icon_separator_left = " ",
-			insert_at_end = true,
-		},
 	},
 
 	{

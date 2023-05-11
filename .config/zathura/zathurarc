@@ -28,32 +28,32 @@ map C recolor
 
 set font "JetBrainsMono Nerd Font 12"
 
-set default-bg "#141b1e" #00
-set default-fg "#c8cbcb" #01
+set default-bg "#151515" #00
+set default-fg "#dedede" #01
 
-set recolor-lightcolor \#141b1e
+set recolor-lightcolor \#151515
 
-set statusbar-fg "#c8cbcb" #04
-set statusbar-bg "#141b1e" #01
+set statusbar-fg "#dedede" #04
+set statusbar-bg "#151515" #01
 
-set inputbar-bg "#141b1e" #00 currently not used
-set inputbar-fg "#141b1e" #02
+set inputbar-bg "#151515" #00 currently not used
+set inputbar-fg "#151515" #02
 
 set notification-error-bg "#cf6a4c" #08
-set notification-error-fg "#141b1e" #00
+set notification-error-fg "#151515" #00
 
 set notification-warning-bg "#cf6a4c" #08
-set notification-warning-fg "#141b1e" #00
+set notification-warning-fg "#151515" #00
 
 set highlight-color "#fad07a" #0A
 set highlight-active-color "#8fbfdc" #0D
 
-set completion-highlight-fg "#141b1e" #02
+set completion-highlight-fg "#151515" #02
 set completion-highlight-bg "#799d6a" #0C
 
 set completion-bg "#303030" #02
 set completion-fg "#E0E0E0" #0C
 
 set notification-bg "#799d6a" #0B
-set notification-fg "#141b1e" #00
+set notification-fg "#151515" #00
 

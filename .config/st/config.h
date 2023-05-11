@@ -5,8 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "JetBrainsMono:size=10";
-static char *font2[] = { "JetBrainsMono:size=10" };
+static char *font = "Gohu GohuFont:size=10";
+static char *font2[] = { "Gohu GohuFont:size=10" };
 static int borderpx = 0;
 
 /*
@@ -118,30 +118,34 @@ float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-  "#141b1e", /* hard contrast: #1d2021 / soft contrast: #32302f */
-  "#ef7d7d",
-  "#8ccf7e",
-  "#f4d67a",
-  "#71baf2",
-  "#ce89df",
-  "#67cbe7",
-  "#616769",
-  "#3b4244",
-  "#e86b6b",
-  "#75bf65",
-  "#eecc64",
-  "#55aaeb",
-  "#c372d7",
-  "#4dbcde",
-  "#3b4244",
-  [255] = 0,
-  /* more colors can be added after 255 to use with DefaultXX */
-  "#c8cbcb", /* 256 -> cursor */
-  "#141b1e", /* 257 -> rev cursor*/
-  "#141b1e", /* 258 -> bg */
-  "#9ea1a1", /* 259 -> fg */
-};
+	/* 8 normal colors */
+  "#151515",
+	"#b85335",
+	"#799d6a",
+	"#ffb964",
+	"#667899",
+	"#8787af",
+	"#668799",
+	"#888888",
 
+	/* 8 bright colors */
+	"#e8e8d3",
+	"#cf6a4c",
+	"#99ad6a",
+	"#fad07a",
+	"#8197bf",
+	"#c6b6ee",
+	"#8fbfdc",
+	"#e8e8d3",
+
+	[255] = 0,
+
+	/* more colors can be added after 255 to use with DefaultXX */
+	"#888888",
+	"#202020",
+	"#151515", /* default background colour */
+	"#dedede", /* default foreground colour */
+};
 
 /*
  * Default colors (colorname index)
@@ -237,7 +241,7 @@ static MouseShortcut mshortcuts[] = {
 
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
-#define TERMMOD (Mod4Mask|ShiftMask)
+#define TERMMOD (Mod1Mask|ShiftMask)
 
 MouseKey mkeys[] = {
   /* button               mask            function        argument */
@@ -261,23 +265,29 @@ static Shortcut shortcuts[] = {
   { ControlMask,          XK_Print,       toggleprinter,  {.i =  0} },
   { ShiftMask,            XK_Print,       printscreen,    {.i =  0} },
   { XK_ANY_MOD,           XK_Print,       printsel,       {.i =  0} },
-  { MODKEY,              XK_comma,       zoom,           {.f = +1} },
-  { MODKEY,              XK_period,        zoom,           {.f = -1} },
-  { MODKEY,               XK_g,        zoomreset,      {.f =  0} },
+	{ TERMMOD,              XK_Up,          zoom,           {.f = +1} },
+	{ TERMMOD,              XK_Down,        zoom,           {.f = -1} },
+	{ TERMMOD,              XK_K,           zoom,           {.f = +1} },
+	{ TERMMOD,              XK_J,           zoom,           {.f = -1} },
+	{ TERMMOD,              XK_U,           zoom,           {.f = +2} },
+	{ TERMMOD,              XK_D,           zoom,           {.f = -2} },
+	{ TERMMOD,              XK_Home,        zoomreset,      {.f =  0} },
   { ControlMask | ShiftMask,               XK_C,           clipcopy,       {.i =  0} },
   { ShiftMask,            XK_Insert,      clippaste,      {.i =  0} },
   { ControlMask | ShiftMask,               XK_V,           clippaste,      {.i =  0} },
   { XK_ANY_MOD,		Button2,	selpaste,	{.i =  0} },
   { MODKEY,               XK_Num_Lock,    numlock,        {.i =  0} },
   { ControlMask | ShiftMask,               XK_U,           iso14755,       {.i =  0} },
-  { ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
-  { ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
-  { MODKEY,               XK_Page_Up,     kscrollup,      {.i = -1} },
-  { MODKEY,               XK_Page_Down,   kscrolldown,    {.i = -1} },
-  { MODKEY,               XK_Up,          kscrollup,      {.i =  1} },
-  { MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
-  { MODKEY,               XK_u,           kscrollup,      {.i = -1} },
-  { MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
+	{ ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ MODKEY,               XK_Page_Up,     kscrollup,      {.i = -1} },
+	{ MODKEY,               XK_Page_Down,   kscrolldown,    {.i = -1} },
+	{ MODKEY,               XK_k,           kscrollup,      {.i =  1} },
+	{ MODKEY,               XK_j,           kscrolldown,    {.i =  1} },
+	{ MODKEY,               XK_Up,          kscrollup,      {.i =  1} },
+	{ MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
+	{ MODKEY,               XK_u,           kscrollup,      {.i = -1} },
+	{ MODKEY,               XK_d,           kscrolldown,    {.i = -1} },
   { MODKEY,		XK_s,		changealpha,	{.f = -0.05} },
   { MODKEY,		XK_a,		changealpha,	{.f = +0.05} },
   { MODKEY,		XK_m,		changealpha,	{.f = +2.00} },
