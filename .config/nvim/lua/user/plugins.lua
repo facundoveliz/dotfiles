@@ -40,6 +40,7 @@ require("lazy").setup({
 		keys = {
 			-- { "<leader>ff", "<cmd>execute 'NeoTreeClose' | Telescope find_files hidden=true<CR>" },
 			{ "<leader>ff", "<cmd>Telescope find_files hidden=true<CR>" },
+			{ "<TAB>", "<cmd>Telescope buffers<CR>" },
 			{ "<leader>fg", "<cmd>Telescope live_grep hidden=true<CR>" },
 			{ "<leader>fh", "<cmd>Telescope help_tags<CR>" },
 			{ "<leader>fo", "<cmd>Telescope oldfiles hidden=true<CR>" },
