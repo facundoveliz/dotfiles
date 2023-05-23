@@ -53,7 +53,7 @@ keymap("n", "dn", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>
 keymap("n", "dp", '<cmd>lua vim.diagnostic.goto_prev({ border = "rounded" })<CR>', opts)
 keymap("n", "dl", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
-local servers = { "lua_ls", "tsserver" }
+local servers = { "lua_ls", "tsserver", "tailwindcss" }
 
 mason.setup()
 mason_lspconfig.setup({
