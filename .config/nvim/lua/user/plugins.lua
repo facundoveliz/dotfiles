@@ -218,6 +218,27 @@ require("lazy").setup({
 		},
 	},
 
+	{
+		"romgrk/barbar.nvim",
+		dependencies = {
+			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
+		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+		opts = {
+			animation = false,
+			custom_colors = false,
+			sidebar_filetypes = {
+				undotree = { text = "undotree" },
+			},
+			filetype = {
+				enabled = true,
+			},
+		},
+	},
+
 	{ "ziontee113/color-picker.nvim", keys = {
 		{ "<leader>pc", "<cmd>PickColor<cr>" },
 	}, config = true },
@@ -266,8 +287,8 @@ require("lazy").setup({
 	{ "Everblush/nvim", name = "everblush" },
 	{
 		"ellisonleao/gruvbox.nvim",
-		lazy = true,
 		config = true,
+		lazy = true,
 		opts = {
 			contrast = "hard", -- can be "hard", "soft" or empty string
 		},

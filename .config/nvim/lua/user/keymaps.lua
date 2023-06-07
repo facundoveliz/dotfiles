@@ -54,8 +54,12 @@ keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
 -- netrw
 -- keymap("n", "<C-b>", "<Esc>:Lex<CR>:vertical resize 30<cr>", opts)
 
-keymap("n", "<S-l>", "<cmd>:bnext<CR>", opts)
-keymap("n", "<S-h>", "<cmd>:bprev<CR>", opts)
+-- barbar
+keymap("n", "<S-l>", "<Cmd>BufferNext<CR>", opts)
+keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
+-- NOTE: use this if the barbar isn't installed
+-- keymap("n", "<S-l>", "<cmd>:bnext<CR>", opts)
+-- keymap("n", "<S-h>", "<cmd>:bprev<CR>", opts)
 
 -- reorder buffers
 keymap("n", "<C-A-l>", "<Cmd>BufferMoveNext<CR>", opts)

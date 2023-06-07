@@ -139,6 +139,8 @@ To this
 ExecStart=-/sbin/agetty -a USERNAME %I $TERM
 ```
 
+# Fix Windows 10 dualboot time error
+
 ```
 sudo timedatectl set-local-rtc 1 --adjust-system-clock
 ```
