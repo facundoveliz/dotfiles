@@ -1,8 +1,4 @@
-vim.g.jellybeans_overrides = {
-	SignColumn = { ctermbg = "none", guibg = "none" },
-}
-
-local colorscheme = "oxocarbon"
+local colorscheme = "rose-pine"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then

@@ -23,13 +23,11 @@ for_window [window_role="pop-up"] floating enable, move position center
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id source ~/.fehbg
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id setxkbmap -option caps:escape
 exec_always --no-startup-id picom
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id clipmenud
 exec_always --no-startup-id dunst
 exec_always --no-startup-id easyeffects --gapplication-service
-exec_always --no-startup-id xmodmap -e 'keycode 135 = Super_R' && xset -r 135
 
 # exec_always --no-startup-id node ~/Dev/automation-scripts/render-caffeine/index.js &
 

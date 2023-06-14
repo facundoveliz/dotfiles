@@ -161,6 +161,10 @@ function dl() {
   yt-dlp $@ --exec "mv {} ~/Downloads && thunar ~/Downloads && exit && notify-send 'yt-dlp' 'Download finished'"
 }
 
+function dl-music() {
+  yt-dlp $@ -x --audio-format flac --exec "mv {} /mnt/1TB/Music/misc && notify-send 'yt-dlp' 'Download finished and moved to Music folder'"
+}
+
 # movie/tv-show torrenting
 function torrent() {
   webtorrent "$@" -o /mnt/1TB/Media -d 6000 -u 700 --on-done "notify-send 'Webtorrent' 'The torrent finished downloading'"

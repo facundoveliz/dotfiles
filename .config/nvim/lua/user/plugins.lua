@@ -230,8 +230,23 @@ require("lazy").setup({
 		opts = {
 			animation = false,
 			custom_colors = false,
+			icons = {
+				button = "",
+				inactive = {
+					separator = {
+						left = "",
+						right = "",
+					},
+				},
+				separator = {
+					left = "",
+					right = "",
+				},
+				separator_at_end = false,
+			},
 			sidebar_filetypes = {
 				undotree = { text = "undotree" },
+				["neo-tree"] = { event = "BufWipeout" },
 			},
 			filetype = {
 				enabled = true,
@@ -284,7 +299,8 @@ require("lazy").setup({
 	{ "rose-pine/neovim", lazy = true },
 	{ "rebelot/kanagawa.nvim", lazy = true },
 	{ "nyoom-engineering/oxocarbon.nvim", lazy = true },
-	{ "Everblush/nvim", name = "everblush" },
+	{ "Everblush/nvim", lazy = true },
+	{ "Mofiqul/vscode.nvim", lazy = false },
 	{
 		"ellisonleao/gruvbox.nvim",
 		config = true,
