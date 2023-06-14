@@ -2,7 +2,7 @@ local lsp = require("lspconfig")
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 
-local U = require("user.lsp.utils")
+local U = require("plugins.lsp.utils")
 
 local flags = {
 	allow_incremental_sync = true,

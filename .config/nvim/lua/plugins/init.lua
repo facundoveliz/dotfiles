@@ -11,6 +11,8 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.g.mapleader = " "
+
 require("lazy").setup({
 	-- LSP
 	"williamboman/mason.nvim", --simple to use language server installer
@@ -296,11 +298,11 @@ require("lazy").setup({
 
 	-- colorschemes
 	{ "nanotech/jellybeans.vim", lazy = true },
-	{ "rose-pine/neovim", lazy = true },
+	{ "rose-pine/neovim", lazy = false },
 	{ "rebelot/kanagawa.nvim", lazy = true },
 	{ "nyoom-engineering/oxocarbon.nvim", lazy = true },
 	{ "Everblush/nvim", lazy = true },
-	{ "Mofiqul/vscode.nvim", lazy = false },
+	{ "Mofiqul/vscode.nvim", lazy = true },
 	{
 		"ellisonleao/gruvbox.nvim",
 		config = true,

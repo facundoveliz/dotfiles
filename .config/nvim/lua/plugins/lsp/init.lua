@@ -3,5 +3,5 @@ if not status_ok then
 	return
 end
 
-require("user.lsp.servers")
-require("user.lsp.null-ls")
+require("plugins.lsp.servers")
+require("plugins.lsp.null-ls")

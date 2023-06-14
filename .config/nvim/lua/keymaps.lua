@@ -2,8 +2,6 @@ local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
 keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- easier navigation between split windows
 keymap("n", "<C-h>", "<C-w>h", opts)
@@ -51,16 +49,16 @@ keymap("n", "<leader><leader>s", "<cmd>source %<CR>", opts)
 -- use C-c to toggle hlsearch in normal mode
 keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
 
--- netrw
--- keymap("n", "<C-b>", "<Esc>:Lex<CR>:vertical resize 30<cr>", opts)
+-- lazy
+keymap("n", "<leader>l", "<cmd>:Lazy<cr>", opts)
+
+-- use this if the barbar isn't installed
+-- keymap("n", "<S-l>", "<cmd>:bnext<CR>", opts)
+-- keymap("n", "<S-h>", "<cmd>:bprev<CR>", opts)
 
 -- barbar
--- keymap("n", "<S-l>", "<Cmd>BufferNext<CR>", opts)
--- keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
--- NOTE: use this if the barbar isn't installed
-keymap("n", "<S-l>", "<cmd>:bnext<CR>", opts)
-keymap("n", "<S-h>", "<cmd>:bprev<CR>", opts)
-
+keymap("n", "<S-l>", "<Cmd>BufferNext<CR>", opts)
+keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
 -- reorder buffers
 keymap("n", "<C-A-l>", "<Cmd>BufferMoveNext<CR>", opts)
 keymap("n", "<C-A-h>", "<Cmd>BufferMovePrevious<CR>", opts)
@@ -80,8 +78,3 @@ keymap("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
 -- close buffer without closing the window
 keymap("n", "tc", "<cmd>bp|bd #<CR>", opts)
 keymap("n", "tx", "<cmd>bp|bd! #<CR>", opts)
-
-vim.cmd([[
-" replace all ocurrences, similar to C-d in vs****
-  vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
-]])
