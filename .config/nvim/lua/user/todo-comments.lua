@@ -1,0 +1,9 @@
+return {
+	"folke/todo-comments.nvim",
+	cmd = { "TodoTrouble", "TodoTelescope" },
+	event = { "BufReadPost", "BufNewFile" },
+	config = true,
+	keys = {
+		{ "<leader>ft", "<cmd>TodoTelescope<CR>" },
+	},
+}

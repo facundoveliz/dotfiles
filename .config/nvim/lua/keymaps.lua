@@ -52,10 +52,9 @@ keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
 -- lazy
 keymap("n", "<leader>l", "<cmd>:Lazy<cr>", opts)
 
--- use this if the barbar isn't installed
+-- buffer ordering without barbar
 -- keymap("n", "<S-l>", "<cmd>:bnext<CR>", opts)
 -- keymap("n", "<S-h>", "<cmd>:bprev<CR>", opts)
-
 -- barbar
 keymap("n", "<S-l>", "<Cmd>BufferNext<CR>", opts)
 keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
