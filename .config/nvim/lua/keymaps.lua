@@ -53,14 +53,14 @@ keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
 keymap("n", "<leader>l", "<cmd>:Lazy<cr>", opts)
 
 -- buffer ordering without barbar
-keymap("n", "<S-l>", "<cmd>:bnext<CR>", opts)
-keymap("n", "<S-h>", "<cmd>:bprev<CR>", opts)
+-- keymap("n", "<S-l>", "<cmd>:bnext<CR>", opts)
+-- keymap("n", "<S-h>", "<cmd>:bprev<CR>", opts)
 -- barbar
--- keymap("n", "<S-l>", "<Cmd>BufferNext<CR>", opts)
--- keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
+keymap("n", "<S-l>", "<Cmd>BufferNext<CR>", opts)
+keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
 -- reorder buffers
--- keymap("n", "<C-A-l>", "<Cmd>BufferMoveNext<CR>", opts)
--- keymap("n", "<C-A-h>", "<Cmd>BufferMovePrevious<CR>", opts)
+keymap("n", "<C-A-l>", "<Cmd>BufferMoveNext<CR>", opts)
+keymap("n", "<C-A-h>", "<Cmd>BufferMovePrevious<CR>", opts)
 
 -- goto buffer in position
 keymap("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)

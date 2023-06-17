@@ -1,5 +1,5 @@
 local M = {
-  "EdenEast/nightfox.nvim",
+  "aktersnurra/no-clown-fiesta.nvim",
   lazy = false,
   priority = 1000,
 }
@@ -10,7 +10,7 @@ local M = {
 -- 	priority = 1000,
 -- }
 
-M.name = "carbonfox"
+M.name = "no-clown-fiesta"
 
 function M.config()
   local status_ok, _ = pcall(vim.cmd.colorscheme, M.name)
