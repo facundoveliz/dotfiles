@@ -1,9 +1,0 @@
-#!/bin/sh
-
-dir="$HOME"'/.dotfiles'
-
-cd $dir || notify-send 'Dotfiles update' 'No .dotfiles directory founded'
-
-git add .
-git commit -m 'automatic daily update'
-git push
