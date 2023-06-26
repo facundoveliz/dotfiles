@@ -12,7 +12,7 @@ for_window [class="(?i)feh"] floating enable, move position center
 for_window [class="(?i)Pavucontrol"] floating enable, move position center
 for_window [class="(?i)Lxappearance"] floating enable, move position center
 for_window [class="Galculator"] floating enable, move position center
-for_window [class="gnome-calculator"] floating enable, move position center
+for_window [class="Qalculate-gtk"] floating enable, move position center
 for_window [class="(?i)gcolor3"] floating enable, move position center
 for_window [class="Chromium-browser"] floating enable, move position center
 for_window [title="Friends List"] floating enable, move position center
@@ -48,7 +48,7 @@ bindsym $mod+b                  exec --no-startup-id google-chrome-stable
 bindsym $mod+Shift+b            exec --no-startup-id google-chrome-stable --incognito
 bindsym $mod+x                  exec --no-startup-id code
 bindsym $mod+F9                 exec --no-startup-id pavucontrol
-bindsym $mod+g                  exec --no-startup-id gnome-calculator
+bindsym $mod+g                  exec --no-startup-id qalculate-gtk
 
 # file manager
 bindsym $mod+t                  exec --no-startup-id thunar
