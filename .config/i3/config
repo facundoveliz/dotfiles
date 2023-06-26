@@ -20,7 +20,7 @@ for_window [title="(?i)Steam - News"] floating enable, move position center
 for_window [window_role="pop-up"] floating enable, move position center
 
 # autostart
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id source ~/.fehbg
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id picom
@@ -251,13 +251,17 @@ set $cyan #8197bf
 set $magenta #c6b6ee
 
 # class                 border       bground      text         indicator    child_border
-client.focused          $background1 $background1 $foreground1 $yellow      $yellow
-client.focused_inactive $background1 $background1 $foreground1 $background2 $background2
-client.unfocused        $background1 $background1 $foreground2 $background2 $background2
-client.urgent           $background1 $background1 $foreground1 $yellow      $foreground2
-client.placeholder      $background1 $background1 $foreground1 $yellow      $foreground2
-client.background       $background1
+# client.focused          $background1 $background1 $foreground1 $yellow      $yellow
+# client.focused_inactive $background1 $background1 $foreground1 $background2 $background2
+# client.unfocused        $background1 $background1 $foreground2 $background2 $background2
+# client.urgent           $background1 $background1 $foreground1 $yellow      $foreground2
+# client.placeholder      $background1 $background1 $foreground1 $yellow      $foreground2
+# client.background       $background1
 
 # window gaps, the bottom gaps are dependly of the bar
 gaps inner 0
-gaps bottom 20
+gaps bottom 0
+
+bar {
+  status_command i3status
+}

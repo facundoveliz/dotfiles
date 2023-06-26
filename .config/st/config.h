@@ -119,32 +119,32 @@ float alpha = 1.0;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
 	/* 8 normal colors */
-  "#151515",
-	"#b85335",
-	"#799d6a",
-	"#ffb964",
-	"#667899",
-	"#8787af",
-	"#668799",
-	"#888888",
+  "#1d2021",
+	"#cc241d",
+	"#98971a",
+	"#d79921",
+	"#458588",
+	"#b16286",
+	"#689d6a",
+	"#a89984",
 
 	/* 8 bright colors */
-	"#e8e8d3",
-	"#cf6a4c",
-	"#99ad6a",
-	"#fad07a",
-	"#8197bf",
-	"#c6b6ee",
-	"#8fbfdc",
-	"#e8e8d3",
+	"#ebdbb2",
+	"#fb4934",
+	"#b8bb26",
+	"#fabd2f",
+	"#83a598",
+	"#d3869b",
+	"#8ec07c",
+	"#928374",
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#888888",
 	"#202020",
-	"#151515", /* default background colour */
-	"#dedede", /* default foreground colour */
+	"#1d2021", /* default background colour */
+	"#ebdbb2", /* default foreground colour */
 };
 
 /*
@@ -282,8 +282,6 @@ static Shortcut shortcuts[] = {
 	{ ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 	{ MODKEY,               XK_Page_Up,     kscrollup,      {.i = -1} },
 	{ MODKEY,               XK_Page_Down,   kscrolldown,    {.i = -1} },
-	{ MODKEY,               XK_k,           kscrollup,      {.i =  1} },
-	{ MODKEY,               XK_j,           kscrolldown,    {.i =  1} },
 	{ MODKEY,               XK_Up,          kscrollup,      {.i =  1} },
 	{ MODKEY,               XK_Down,        kscrolldown,    {.i =  1} },
 	{ MODKEY,               XK_u,           kscrollup,      {.i = -1} },
