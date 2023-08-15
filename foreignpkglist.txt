@@ -1,0 +1,17 @@
+gohufont
+goverlay-bin
+heidisql
+jmtpfs
+mobalytics-desktop
+mongodb-bin
+mongodb-compass
+nbtexplorer-bin
+notion-app
+nvim-packer-git
+pandoc-bin
+protontricks
+stremio-beta
+tomate-gtk
+webkit2gtk-5.0
+webtorrent-cli
+yay-bin
