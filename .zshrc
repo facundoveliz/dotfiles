@@ -28,14 +28,12 @@ eval "$(zoxide init zsh)"
 
 # paths
 export PATH=$PATH":$HOME/.local/bin"
+export PATH=$PATH":$HOME/.cargo/bin"
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
 export UPDATE_ZSH_DAYS=7
 source $ZSH/oh-my-zsh.sh
-
-# scripts path
-export PATH="$HOME/.local/bin:$PATH"
 
 # default apps
 export EDITOR="nvim"

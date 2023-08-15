@@ -11,7 +11,7 @@ xmodmap -e 'keycode 135 = Super_R' && xset -r 135
 setxkbmap -option caps:escape
 
 # scripts
-# node ~/Dev/automation-scripts/todoist-notifier/index.js &
+node ~/Dev/automation-scripts/todoist-notifier/index.js &
 # node ~/Dev/automation-scripts/todoist-creator/index.js &
 
 # some default apps
