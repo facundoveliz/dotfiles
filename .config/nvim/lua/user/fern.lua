@@ -24,7 +24,7 @@ local M = {
 }
 
 vim.g["fern#renderer"] = "nerdfont"
-vim.g["fern#default_hidden"] = 0
+vim.g["fern#default_hidden"] = 1
 vim.g["fern#disable_default_mappings"] = 1
 
 vim.cmd([[
