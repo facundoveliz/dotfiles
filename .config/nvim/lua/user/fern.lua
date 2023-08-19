@@ -40,12 +40,13 @@ function! FernInit() abort
   nmap <buffer> s <Plug>(fern-action-open:split)
   nmap <buffer> v <Plug>(fern-action-open:vsplit)
   nmap <buffer> n <Plug>(fern-action-new-path)
-  nmap <buffer> d <Plug>(fern-action-remove)
-  nmap <buffer> m <Plug>(fern-action-move)
+  nmap <buffer> dd <Plug>(fern-action-remove)
   nmap <buffer> r <Plug>(fern-action-rename)
   nmap <buffer> h <Plug>(fern-action-hidden-toggle)
-  nmap <buffer> R <Plug>(fern-action-reload)
+  nmap <buffer> R <Plug>(fern-action-reload:all)
+  nmap <buffer> m <Plug>(fern-action-clipboard-move)
   nmap <buffer> y <Plug>(fern-action-clipboard-copy)
+  nmap <buffer> p <Plug>(fern-action-clipboard-paste)
   nmap <buffer> ` <Plug>(fern-action-mark:toggle)
 endfunction
 
