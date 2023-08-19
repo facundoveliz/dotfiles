@@ -45,6 +45,19 @@ vim.cmd([[
   augroup END
 ]])
 
+vim.cmd([[
+  function! s:init_fern() abort
+    " Use 'select' instead of 'edit' for default 'open' action
+    nmap <buffer> <Plug>(fern-action-open) <Plug>(fern-action-open:select)
+  endfunction
+
+  augroup fern-custom
+    autocmd! *
+    autocmd FileType fern call s:init_fern()
+  augroup END
+]])
+
+
 -- replace all ocurrences, similar to C-d in vs****
 vim.cmd([[
   vnoremap <C-r> "hy:%s/<C-r>h//g<left><left>
