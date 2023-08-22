@@ -44,8 +44,8 @@ bindsym $mod+Shift+c            exec --no-startup-id clipctl disable && xclip -o
 floating_modifier $mod
 
 bindsym $mod+Return             exec --no-startup-id $term
-bindsym $mod+b                  exec --no-startup-id google-chrome-stable
-bindsym $mod+Shift+b            exec --no-startup-id google-chrome-stable --incognito
+bindsym $mod+b                  exec --no-startup-id librewolf
+bindsym $mod+Shift+b            exec --no-startup-id librewolf --private-window
 bindsym $mod+x                  exec --no-startup-id code
 bindsym $mod+F9                 exec --no-startup-id pavucontrol
 bindsym $mod+g                  exec --no-startup-id qalculate-gtk
