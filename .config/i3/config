@@ -69,6 +69,7 @@ bindsym $mod+c                  exec --no-startup-id clipmenu -i
 bindsym $mod+Tab                exec --no-startup-id dmenu_window
 bindsym $mod+Menu               exec --no-startup-id dmenu_menus
 bindsym $mod+Delete             exec --no-startup-id dmenu_kill
+bindsym $mod+Shift+w                  exec --no-startup-id dmenu_networkmanager
 bindsym $mod+BackSpace          exec --no-startup-id sh -c 'passmenu && clipdel -d "$(xsel -b)"'
 
 # screenshots
