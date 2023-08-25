@@ -53,13 +53,6 @@ bindsym $mod+g                  exec --no-startup-id qalculate-gtk
 
 # file manager
 bindsym $mod+t                  exec --no-startup-id thunar
-bindsym $mod+period mode "thunar-bookmarks"
-mode "thunar-bookmarks"{
-  bindsym m                     exec --no-startup-id thunar /mnt/1TB/Media; mode "default"
-  bindsym w                     exec --no-startup-id thunar /mnt/1TB/Images/Wallpapers; mode "default"
-  bindsym s                     exec --no-startup-id thunar /mnt/1TB/Images/Screenshots; mode "default"
-  bindsym Escape mode "default"
-}
 
 # dmenu
 bindsym $mod+d                  exec --no-startup-id dmenu_run
@@ -74,8 +67,8 @@ bindsym $mod+Control+b          exec --no-startup-id dmenu_bluetooth
 bindsym $mod+BackSpace          exec --no-startup-id sh -c 'passmenu && clipdel -d "$(xsel -b)"'
 
 # screenshots
-bindsym Print                   exec flameshot gui -c -p "/mnt/1TB/Images/Screenshots/"
-bindsym Shift+Print             exec flameshot screen -c -p "/mnt/1TB/Images/Screenshots/"
+bindsym Print                   exec flameshot gui -c -p "/home/facundo/Images/Screenshots/"
+bindsym Shift+Print             exec flameshot screen -c -p "/home/facundo/Images/Screenshots/"
 # copy screenshot text to clipboard with OCR
 bindsym Ctrl+Shift+Print        exec flameshot gui -r -s | tesseract - - -l spa+eng | xclip -selection clipboard
 
