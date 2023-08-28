@@ -1,26 +1,27 @@
 local M = {
-	"lambdalisue/fern.vim",
-	event = { "VimEnter", "InsertEnter", "BufReadPre", "BufAdd", "BufNew", "BufReadPost" },
-	keys = {
-		{ "<C-b>", ":Fern . -drawer -toggle<CR>" },
-	},
-	dependencies = {
-		{
-			"lambdalisue/fern-git-status.vim",
-			event = "VeryLazy",
-		},
-		{
-			"lambdalisue/nerdfont.vim",
-			event = "VeryLazy",
-		},
-		{
-			"lambdalisue/fern-renderer-nerdfont.vim",
-		},
-		{
-			"lambdalisue/fern-hijack.vim",
-			event = "VeryLazy",
-		},
-	},
+  "lambdalisue/fern.vim",
+  event = { "VimEnter", "InsertEnter", "BufReadPre", "BufAdd", "BufNew", "BufReadPost" },
+  keys = {
+    { "<C-b>", ":Fern . -drawer -toggle<CR>" },
+    { "<C-B>", ":Fern . -reveal=% -drawer -toggle<CR>" },
+  },
+  dependencies = {
+    {
+      "lambdalisue/fern-git-status.vim",
+      event = "VeryLazy",
+    },
+    {
+      "lambdalisue/nerdfont.vim",
+      event = "VeryLazy",
+    },
+    {
+      "lambdalisue/fern-renderer-nerdfont.vim",
+    },
+    {
+      "lambdalisue/fern-hijack.vim",
+      event = "VeryLazy",
+    },
+  },
 }
 
 vim.g["fern#renderer"] = "nerdfont"
