@@ -5,6 +5,8 @@
 [commit]
   sign = true
   gpgSign = true
+[core]
+	editor = nvim
 
 [alias]
   gc = git clone
