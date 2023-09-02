@@ -18,7 +18,6 @@ function M.config()
 
 	configs.setup({
 		ensure_installed = {
-			"bash",
 			"html",
 			"javascript",
 			"tsx",

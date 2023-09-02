@@ -1,10 +1,10 @@
 local M = {
-	"rose-pine/neovim",
-	lazy = false,
-	priority = 1000,
+  "nyoom-engineering/oxocarbon.nvim",
+  lazy = false,
+  priority = 1000,
 }
 
-M.name = "rose-pine"
+M.name = "oxocarbon"
 
 function M.config()
   local status_ok, _ = pcall(vim.cmd.colorscheme, M.name)
