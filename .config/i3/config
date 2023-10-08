@@ -15,6 +15,7 @@ for_window [class="Galculator"] floating enable, move position center
 for_window [class="Qalculate-gtk"] floating enable, move position center
 for_window [class="(?i)gcolor3"] floating enable, move position center
 for_window [class="Chromium-browser"] floating enable, move position center
+for_window [class="(?i)Minecraft"] floating enable, move position center
 for_window [title="Friends List"] floating enable, move position center
 for_window [title="(?i)Steam - News"] floating enable, move position center
 for_window [window_role="pop-up"] floating enable, move position center
@@ -44,8 +45,8 @@ bindsym $mod+Shift+c            exec --no-startup-id clipctl disable && xclip -o
 floating_modifier $mod
 
 bindsym $mod+Return             exec --no-startup-id $term
-bindsym $mod+b                  exec --no-startup-id librewolf
-bindsym $mod+Shift+b            exec --no-startup-id librewolf --private-window
+bindsym $mod+b                  exec --no-startup-id brave
+bindsym $mod+Shift+b            exec --no-startup-id brave --incognito
 bindsym $mod+x                  exec --no-startup-id code
 bindsym $mod+F9                 exec --no-startup-id pavucontrol
 bindsym $mod+g                  exec --no-startup-id qalculate-gtk
