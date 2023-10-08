@@ -22,8 +22,8 @@ function M.config()
       }),
       formatting.black.with({ extra_args = { "--fast" } }),
       formatting.stylua,
-      formatting.eslint,
-      diagnostics.eslint,
+      formatting.eslint_d,
+      diagnostics.eslint_d,
     },
   })
 end
