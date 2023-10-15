@@ -17,5 +17,7 @@ node ~/Dev/automation-scripts/todoist-notifier/index.js &
 # some default apps
 xdg-mime default thunar.desktop inode/directory application/x-gnome-saved-search
 
+# export DESKTOP_SESSION=plasma
+# exec startplasma-x11
 exec i3
 # exec herbstluftwm --locked
