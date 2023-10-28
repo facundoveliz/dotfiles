@@ -76,7 +76,6 @@ bindkey '^H' backward-kill-word
 # ================ aliases ================
 
 # misc
-alias vim='nvim'
 alias pac='sudo pacman --color=always'
 alias h='history'
 alias clipboard='xclip -selection clipboard' # copy command output when used on a pipe
