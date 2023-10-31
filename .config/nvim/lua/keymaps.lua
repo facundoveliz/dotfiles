@@ -1,6 +1,9 @@
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
+-- make sure to set `mapleader` before lazy so your mappings are correct
+vim.g.mapleader = " "
+
 keymap("", "<Space>", "<Nop>", opts)
 
 -- easier navigation between split windows
