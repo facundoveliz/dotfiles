@@ -1,16 +1,18 @@
 local M = {
   "nvim-telescope/telescope.nvim",
   dependencies = { { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true } },
-  commit = "74ce793a60759e3db0d265174f137fb627430355",
   lazy = true,
   cmd = "Telescope",
 }
 
 function M.config()
+  local icons = require "user.icons"
   local actions = require "telescope.actions"
 
   require("telescope").setup {
     defaults = {
+      prompt_prefix = icons.ui.Telescope .. " ",
+      selection_caret = icons.ui.Forward .. " ",
       entry_prefix = "   ",
       initial_mode = "insert",
       selection_strategy = "reset",
@@ -61,26 +63,6 @@ function M.config()
         theme = "dropdown",
         previewer = false,
       },
-
-      buffers = {
-        theme = "dropdown",
-        previewer = false,
-        initial_mode = "normal",
-        mappings = {
-          i = {
-            ["<C-d>"] = actions.delete_buffer,
-          },
-          n = {
-            ["dd"] = actions.delete_buffer,
-          },
-        },
-      },
-
-      planets = {
-        show_pluto = true,
-        show_moon = true,
-      },
-
       colorscheme = {
         enable_preview = true,
       },

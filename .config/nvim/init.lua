@@ -1,49 +1,23 @@
-require("options")
-require("keymaps")
-require("autocommands")
-
--- bootstrap plugins & lazy.nvim
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim" -- path where its going to be installed
-
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  }
-end
-
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup("plugins", {
-  install = { colorscheme = { require("plugins.colorscheme").name } },
-  defaults = { lazy = true },
-  ui = { wrap = "true" },
-  change_detection = { enabled = true },
-  rtp = {
-    disabled_plugins = {
-      "2html_plugin",
-      "getscript",
-      "getscriptPlugin",
-      "gzip",
-      "logipat",
-      "netrw",
-      "netrwPlugin",
-      "netrwSettings",
-      "netrwFileHandlers",
-      "matchit",
-      "tar",
-      "tarPlugin",
-      "rrhelper",
-      "spellfile_plugin",
-      "vimball",
-      "vimballPlugin",
-      "zip",
-      "zipPlugin",
-    },
-  },
-  debug = false,
-})
+require "user.launch"
+require "user.options"
+require "user.keymaps"
+require "user.autocmds"
+spec "user.colorscheme"
+spec "user.treesitter"
+spec "user.undotree"
+spec "user.barbar"
+spec "user.mason"
+spec "user.lspconfig"
+spec "user.null-ls"
+spec "user.telescope"
+spec "user.nvimtree"
+spec "user.lualine"
+spec "user.cmp"
+spec "user.autopairs"
+spec "user.comment"
+spec "user.indentline"
+spec "user.project"
+spec "user.surround"
+spec "user.whichkey"
+spec "user.bufdelete"
+require "user.lazy"

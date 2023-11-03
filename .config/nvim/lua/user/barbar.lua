@@ -14,7 +14,6 @@ M.opts = {
 	animation = false,
 	custom_colors = false,
 	sidebar_filetypes = {
-		fern = { text = "" },
 		undotree = { text = "undotree" },
 	},
 	icons = {
