@@ -15,6 +15,7 @@ function M.config()
         extra_filetypes = { "toml" },
       }),
       formatting.eslint_d,
+      formatting.black,
       diagnostics.eslint_d
     },
   }
