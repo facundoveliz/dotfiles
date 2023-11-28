@@ -118,43 +118,32 @@ float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-  "#161616",
-	"#ee5396",
-	"#33b1ff",
-	"#ff7eb6",
-	"#42be65",
-	"#be95ff",
-	"#82cfff",
-	"#f2f4f8",
-
-	/* 8 bright colors */
-	"#f2f4f8",
-	"#ee5396",
-	"#33b1ff",
-	"#ff7eb6",
-	"#42be65",
-	"#be95ff",
-	"#82cfff",
-	"#dde1e6",
-
-	[255] = 0,
-
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#525252",
-	"#161616",
-	"#161616", /* default background colour */
-	"#f2f4f8", /* default foreground colour */
+	"#282828", /* hard contrast: #1d2021 / soft contrast: #32302f */
+	"#cc241d",
+	"#98971a",
+	"#d79921",
+	"#458588",
+	"#b16286",
+	"#689d6a",
+	"#a89984",
+	"#928374",
+	"#fb4934",
+	"#b8bb26",
+	"#fabd2f",
+	"#83a598",
+	"#d3869b",
+	"#8ec07c",
+	"#ebdbb2",
 };
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 259;
-unsigned int defaultbg = 258;
-unsigned int defaultcs = 256;
-unsigned int defaultrcs = 257;
+unsigned int defaultfg = 15;
+unsigned int defaultbg = 0;
+unsigned int defaultcs = 15;
+unsigned int defaultrcs = 15;
 
 /*
  * https://invisible-island.net/xterm/ctlseqs/ctlseqs.html#h4-Functions-using-CSI-_-ordered-by-the-final-character-lparen-s-rparen:CSI-Ps-SP-q.1D81
