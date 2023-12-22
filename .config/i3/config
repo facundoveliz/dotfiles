@@ -223,6 +223,9 @@ for_window [class="^.*"] border pixel 2
 # will disable borders when there is only one window in screen
 smart_borders on
 
+# disable mouse following focus
+# mouse_warping none
+
 # toggle tiling / floating
 bindsym $mod+s floating toggle; move position center
 
