@@ -4,7 +4,6 @@ local opts = { noremap = true, silent = true }
 -- set leader key
 keymap("n", "<Space>", "", opts)
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- easier navigation between split windows
 keymap("n", "<C-h>", "<C-w>h", opts)
