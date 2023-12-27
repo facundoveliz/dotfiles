@@ -257,6 +257,7 @@ set $magenta #c6b6ee
 # client.background       $background1
 
 # window gaps, the bottom gaps are dependly of the bar
+gaps outer 0
 gaps inner 0
 gaps bottom 0
 
