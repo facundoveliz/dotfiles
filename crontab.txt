@@ -1,0 +1,16 @@
+# backup misc stuff to google drive
+*/15 * * * * ./local/bin/gdrive-rclone-backup
+
+# todoist notifier
+*/15 * * * * node ./Dev/automation-scripts/todoist-notifier/index.js
+
+# update contents of cv repo to portfolio
+*/60 * * * * rsync -av --update ./Dev/cv/cv-es.pdf ./Dev/portfolio/public/cv-es.pdf
+*/60 * * * * rsync -av --update ./Dev/cv/cv-eng.pdf ./Dev/portfolio/public/cv-eng.pdf
+
+# backup crontab
+*/60 * * * * crontab -l > ~/.dotfiles/crontab.txt
+
+# daily stuff that i forgot to do
+0 00 * * *   node ./Dev/automation-scripts/todoist-creator/index.js
+0 12 * * *   node ./Dev/automation-scripts/todoist-creator/index.js
