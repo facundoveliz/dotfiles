@@ -1,0 +1,38 @@
+""" Map leader to space ---------------------
+let mapleader=" "
+
+""" Plugins  --------------------------------
+set surround
+
+set NERDTree
+map <C-b> :NERDTree<CR>
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+
+""" Common settings -------------------------
+set incsearch
+set cursorline
+set relativenumber
+set ignorecase
+set smartcase
+
+""" Mappings --------------------------------
+" easier navigation between split windows
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" use alt + hjkl to resize windows
+nmap <M-h> :vertical resize -2<CR>
+nmap <M-j> :resize +2<CR>
+nmap <M-k> :resize -2<CR>
+nmap <M-l> :vertical resize +2<CR>
+
+" keep cursor centered
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
+nmap g* g*zz
+nmap g# g#zz

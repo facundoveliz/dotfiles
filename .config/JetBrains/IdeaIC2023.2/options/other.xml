@@ -1,0 +1,65 @@
+<application>
+  <component name="NotRoamableUiSettings">
+    <option name="presentationModeIdeScale" value="1.75" />
+    <option name="overrideLafFontsWasMigrated" value="true" />
+  </component>
+  <component name="PropertyService"><![CDATA[{
+  "keyToString": {
+    "InstalledPluginsSearchHistory": "thenm",
+    "LAST_CALCULATED_COLOR_INDEX_KEY": "3",
+    "MarketplacePluginsSearchHistory": "/organization:JetBrains Marketplace Licensing",
+    "NewProjectWizard.generateOnboardingTips": "true",
+    "NewProjectWizard.groupIdState": "org.example",
+    "NextRunPlatformUpdateBuild": "IC-232.10227.8",
+    "NextRunPlatformUpdateVersion": "2023.2.5",
+    "NonModalCommitCustomization.IsApplied": "true",
+    "PluginConfigurable.selectionTab": "1",
+    "SettingsSearchHistory": "theme",
+    "appcds.runOnSecondStart": "IC-232.10203.10-da956ac9b2e432915132dd6a00ca32cd8eba129e900826caf63e7d8d4ef93ca0",
+    "ask.about.ctrl.y.shortcut.v2": "true",
+    "build.toolwindow.Build Output.selection.state": "com.intellij.build.BuildTreeConsoleView",
+    "bundled.plugins.list.saved.version": "IC-232.10203.10",
+    "com.intellij.ide.projectWizard.generators.JavaNewProjectWizard$Step.selectedStep": "IntelliJ",
+    "com.intellij.ide.wizard.NewProjectWizardLanguageStep.selectedStep": "Java",
+    "defaultJdkConfigured": "true",
+    "experimental.ui.on.first.startup": "true",
+    "experimental.ui.used.version": "232.10203.10",
+    "fileTypeChangedCounter": "1",
+    "fontSizeToResetConsole": "12.0",
+    "fontSizeToResetEditor": "12.0",
+    "gotit.previous.run": "IC-232.10203.10",
+    "ide.memory.adjusted": "true",
+    "ideavim.statistics.timestamp": "1704217305640",
+    "installed.kotlin.plugin.version": "232-1.9.0-release-358-IJ10203.10",
+    "jdk.selected.JAVA_MODULE": "21",
+    "last_opened_file_path": "/home/facundo/Dev",
+    "migrate.android.sdk.path.to.roamable.storage": "false",
+    "migrated.non.roamable.values.from.general.settings": "true",
+    "onboarding.generation.number": "1",
+    "previousColorScheme": "_@user_Dark",
+    "project.wizard.group": "NPW.simple-project",
+    "registry.to.advanced.settings.migration.build": "IC-232.10203.10",
+    "tasks.pass.word.conversion.enforced": "true"
+  },
+  "keyToStringList": {
+    "file.chooser.recent.files": [
+      "/home/facundo/Dev"
+    ],
+    "fileTypeDetectors": [
+      "com.intellij.ide.scratch.ScratchFileServiceImpl$Detector",
+      "com.android.tools.idea.sqlite.fileType.SqliteFileTypeDetector",
+      "com.android.tools.idea.profilers.capture.MemoryCaptureFileType$Detector",
+      "org.jetbrains.plugins.textmate.TextMateFileType$TextMateFileDetector"
+    ]
+  }
+}]]></component>
+  <component name="ShownTips">{
+  &quot;shownTips&quot;: {
+    &quot;FocusProjectToolWindow&quot;: 1704169366086
+  },
+  &quot;proposedTips&quot;: {
+    &quot;FocusProjectToolWindow&quot;: 1704169366010
+  },
+  &quot;tipsOrderSeed&quot;: 1704169365980
+}</component>
+</application>

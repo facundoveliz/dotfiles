@@ -1,0 +1,26 @@
+<application>
+  <component name="RecentProjectsManager">
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/Dev/testing">
+          <value>
+            <RecentProjectMetaInfo frameTitle="testing – Main.java" opened="true" projectWorkspaceId="2aNoYqjSGhIlRr279XW8q3T4rOv">
+              <option name="activationTimestamp" value="1704217598996" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="build" value="IC-232.10203.10" />
+              <option name="buildTimestamp" value="1698573432484" />
+              <option name="colorInfo">
+                <RecentProjectColorInfo associatedIndex="3" />
+              </option>
+              <frame x="-2" y="0" width="1604" height="883" />
+              <option name="productionCode" value="IC" />
+              <option name="projectOpenTimestamp" value="1704168448198" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="lastOpenedProject" value="$USER_HOME$/Dev/testing" />
+    <option name="lastProjectLocation" value="$USER_HOME$/Dev" />
+  </component>
+</application>

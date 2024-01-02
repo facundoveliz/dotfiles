@@ -1,0 +1,91 @@
+<application>
+  <component name="ActionsLocalSummary">
+    <e n="ActivateProjectToolWindow">
+      <i c="1" l="1704217379682" />
+    </e>
+    <e n="ContextHelp">
+      <i c="1" l="1704216498777" />
+    </e>
+    <e n="EditorBackSpace">
+      <i c="4" l="1704169556646" />
+    </e>
+    <e n="EditorChooseLookupItem">
+      <i c="1" l="1704170261017" />
+    </e>
+    <e n="EditorCopy">
+      <i c="1" l="1704168675506" />
+    </e>
+    <e n="EditorCut">
+      <i c="1" l="1704168611209" />
+    </e>
+    <e n="EditorEnter">
+      <i c="4" l="1704168620343" />
+    </e>
+    <e n="EditorEscape">
+      <i c="8" l="1704217288230" />
+    </e>
+    <e n="EditorLineEnd">
+      <i c="1" l="1704168618766" />
+    </e>
+    <e n="EditorPaste">
+      <i c="2" l="1704168619614" />
+    </e>
+    <e n="EditorUp">
+      <i c="4" l="1704168622980" />
+    </e>
+    <e n="Run">
+      <i c="2" l="1704168671154" />
+    </e>
+    <e n="SearchEverywhere">
+      <i c="1" l="1704168458016" />
+    </e>
+    <e n="SettingsEntryPoint">
+      <i c="1" l="1704169608233" />
+    </e>
+    <e n="ShowSettings">
+      <i c="4" l="1704169614810" />
+    </e>
+    <e n="Tree-selectNext">
+      <i c="16" l="1704217387997" />
+    </e>
+    <e n="Tree-selectPrevious">
+      <i c="14" l="1704217392123" />
+    </e>
+    <e n="WelcomeScreen.CreateNewProject">
+      <i c="2" l="1704168423807" />
+    </e>
+    <e n="WelcomeScreen.OpenProject">
+      <i c="1" l="1704168420200" />
+    </e>
+    <e n="com.intellij.execution.lineMarker.LineMarkerActionWrapper">
+      <i c="2" l="1704168668533" />
+    </e>
+    <e n="com.intellij.ide.plugins.newui.SelectionBasedPluginModelAction$UninstallAction">
+      <i c="1" l="1704169462024" />
+    </e>
+    <e n="com.intellij.notification.NotificationAction$Simple">
+      <i c="1" l="1704169586822" />
+    </e>
+    <e n="com.intellij.openapi.actionSystem.AnActionWrapper">
+      <i c="69" l="1704217600239" />
+    </e>
+    <e n="com.intellij.openapi.project.DumbAwareAction$SimpleDumbAwareAction">
+      <i c="1" l="1704168459557" />
+    </e>
+    <e n="com.intellij.openapi.wm.impl.customFrameDecorations.header.toolbar.MainMenuButton$ShowMenuAction">
+      <i c="8" l="1704216866135" />
+    </e>
+    <e n="com.intellij.toolWindow.ShowMoreToolWindowsAction">
+      <i c="1" l="1704169581503" />
+    </e>
+    <e n="com.intellij.xdebugger.impl.breakpoints.RemoveBreakpointGutterIconAction">
+      <i c="1" l="1704168644571" />
+    </e>
+    <e n="com.maddyhome.idea.vim.extension.nerdtree.NerdTree$NerdDispatcher">
+      <i c="35" l="1704217392123" />
+    </e>
+    <e n="com.maddyhome.idea.vim.ui.ex.ExShortcutKeyAction">
+      <i c="2" l="1704217379664" />
+    </e>
+  </component>
+</application>
