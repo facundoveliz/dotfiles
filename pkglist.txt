@@ -45,6 +45,7 @@ java17-openjfx
 jdk-openjdk
 jdk17-openjdk
 jdk8-openjdk
+jdtls
 lazygit
 leafpad
 lib32-gamemode
