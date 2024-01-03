@@ -51,6 +51,7 @@ function M.config()
     "cssls",
     "html",
     "tsserver",
+    "jdtls",
     "astro",
     "pyright",
     "bashls",
