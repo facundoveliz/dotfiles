@@ -1,24 +1,26 @@
-require "user.launch"
-require "user.options"
-require "user.keymaps"
-require "user.autocmds"
-spec "user.colorscheme"
-spec "user.treesitter"
-spec "user.undotree"
-spec "user.barbar"
-spec "user.mason"
-spec "user.lspconfig"
-spec "user.null-ls"
-spec "user.nvim-jdtls"
-spec "user.telescope"
-spec "user.nvimtree"
-spec "user.lualine"
-spec "user.cmp"
-spec "user.autopairs"
-spec "user.comment"
-spec "user.project"
-spec "user.surround"
-spec "user.vimtex"
-spec "user.whichkey"
-spec "user.bufdelete"
-require "user.lazy"
+require("user.launch")
+require("user.options")
+require("user.keymaps")
+require("user.autocmds")
+spec("user.colorscheme")
+spec("user.colorizer")
+spec("user.colorpicker")
+spec("user.treesitter")
+spec("user.undotree")
+spec("user.barbar")
+spec("user.mason")
+spec("user.lspconfig")
+spec("user.null-ls")
+spec("user.nvim-jdtls")
+spec("user.telescope")
+spec("user.nvimtree")
+spec("user.lualine")
+spec("user.cmp")
+spec("user.autopairs")
+spec("user.comment")
+spec("user.project")
+spec("user.surround")
+spec("user.vimtex")
+spec("user.whichkey")
+spec("user.bufdelete")
+require("user.lazy")
