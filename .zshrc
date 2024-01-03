@@ -83,7 +83,6 @@ alias tmp='cd $(mktemp -d)' # create temporal folder and cd into it
 alias please='sudo $(history -p !!)'
 alias lg='lazygit'
 alias update='sudo pacman -Syyu --noconfirm && yay -Syyu --noconfirm'
-alias watchjava='function _watchjava() { while inotifywait -r -e modify,create,delete $(find . -name "*.java" | grep -v "/target/") ; do mvn compile exec:java -Dexec.mainClass="$1" | egrep -v "(^\[INFO\]|^\[DEBUG\])"; done }; _watchjava'
 
 # listen mic
 alias lm='pactl load-module module-loopback latency_msec=1'
@@ -167,6 +166,15 @@ function dl-music() {
 function torrent() {
   webtorrent "$@" -o /mnt/1TB/Media -d 6000 -u 700 --on-done "notify-send 'Webtorrent' 'The torrent finished downloading'"
 }
+
+# nodemon for java
+function watchjava() {
+  local main_class="$1"
+  while inotifywait -r -e modify,create,delete $(find . -name "*.java" | grep -v "/target/") ; do
+      mvn compile exec:java -Dexec.mainClass="$main_class" | egrep -v "(^\[INFO\]|^\[DEBUG\])"
+  done
+}
+
 
 # Loads FZF keybindings, replacing native reverse search etc with FZF
 [[ -e "/usr/share/fzf/key-bindings.zsh" ]] \
