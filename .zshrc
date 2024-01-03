@@ -83,6 +83,7 @@ alias tmp='cd $(mktemp -d)' # create temporal folder and cd into it
 alias please='sudo $(history -p !!)'
 alias lg='lazygit'
 alias update='sudo pacman -Syyu --noconfirm && yay -Syyu --noconfirm'
+alias watchjava='function _watchjava() { while inotifywait -r -e modify,create,delete $(find . -name "*.java" | grep -v "/target/") ; do mvn compile exec:java -Dexec.mainClass="$1" | egrep -v "(^\[INFO\]|^\[DEBUG\])"; done }; _watchjava'
 
 # listen mic
 alias lm='pactl load-module module-loopback latency_msec=1'
