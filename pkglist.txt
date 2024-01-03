@@ -16,6 +16,7 @@ discord-screenaudio
 discord_arch_electron
 docker
 dosfstools
+droidcam
 dunst
 dust
 easyeffects
@@ -41,7 +42,6 @@ i3-wm
 i3status
 inotify-tools
 intellij-idea-community-edition
-java17-openjfx
 jdk-openjdk
 jdk17-openjdk
 jdk8-openjdk
@@ -82,6 +82,7 @@ man-db
 man-pages
 mangohud
 mariadb
+maven
 mpv
 neofetch
 neovim
@@ -92,6 +93,7 @@ noto-fonts-emoji
 npm
 nscde
 ntfs-3g
+obs-studio
 obsidian
 p7zip
 pacman-contrib
@@ -145,8 +147,6 @@ udisks2
 unarchiver
 unrar
 unzip
-v4l2loopback-dkms
-v4l2loopback-utils
 vim
 virtualbox
 virtualbox-guest-iso
