@@ -38,9 +38,6 @@ keymap("n", "<S-w>", ":w<CR>", opts)
 -- use C-c to toggle hlsearch in normal mode
 keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
 
--- lazy
-keymap("n", "<leader>l", "<cmd>:Lazy<cr>", opts)
-
 -- stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
@@ -52,8 +49,15 @@ keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
 keymap("n", "<C-A-l>", "<Cmd>BufferMoveNext<CR>", opts)
 keymap("n", "<C-A-h>", "<Cmd>BufferMovePrevious<CR>", opts)
 
-vim.cmd [[:amenu 10.100 mousemenu.Goto\ Definition <cmd>lua vim.lsp.buf.definition()<CR>]]
-vim.cmd [[:amenu 10.110 mousemenu.References <cmd>lua vim.lsp.buf.references()<CR>]]
+-- telescope
+keymap("n", "<leader>ff", "<cmd>Telescope find_files hidden=true follow=true<cr>", opts)
+keymap("n", "<leader>fg", "<cmd>Telescope live_grep hidden=true<cr>", opts)
+keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
+keymap("n", "<leader>fr", "<cmd>Telescope resume<cr>", opts)
+keymap("n", "<leader>fo", "<cmd>Telescope oldfiles hidden=true<cr>", opts)
 
-vim.keymap.set("n", "<RightMouse>", "<cmd>:popup mousemenu<CR>")
-vim.keymap.set("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
+-- neotree
+keymap("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", opts)
+
+-- lazy
+keymap("n", "<leader>l", "<cmd>:Lazy<cr>", opts)

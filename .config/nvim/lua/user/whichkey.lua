@@ -5,31 +5,6 @@ local M = {
 
 function M.config()
   local mappings = {
-    ["q"] = { "<cmd>confirm q<CR>", "Quit" },
-    ["e"] = { "<cmd>NvimTreeFindFileToggle<CR>", "Explorer" },
-    ["E"] = { "<cmd>NvimTreeFindFileToggle!<CR>", "Explorer and change root" },
-    b = {
-      name = "Buffers",
-      b = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
-    },
-    f = {
-      name = "Find",
-      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-      c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-      f = { "<cmd>Telescope find_files hidden=true follow=true<cr>", "Find files" },
-      p = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-      t = { "<cmd>Telescope live_grep hidden=true<cr>", "Find Text" },
-      s = { "<cmd>Telescope grep_string hidden=true<cr>", "Find String" },
-      h = { "<cmd>Telescope help_tags<cr>", "Help" },
-      H = { "<cmd>Telescope highlights<cr>", "Highlights" },
-      i = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
-      l = { "<cmd>Telescope resume<cr>", "Last Search" },
-      M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-      r = { "<cmd>Telescope oldfiles hidden=true<cr>", "Recent File" },
-      R = { "<cmd>Telescope registers<cr>", "Registers" },
-      k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-      C = { "<cmd>Telescope commands<cr>", "Commands" },
-    },
     l = {
       name = "LSP",
       a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
@@ -54,7 +29,6 @@ function M.config()
         "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
         "Workspace Symbols",
       },
-      e = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
     },
   }
 

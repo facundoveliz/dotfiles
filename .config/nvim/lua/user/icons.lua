@@ -142,13 +142,4 @@ return {
 		Debug = "",
 		Trace = "✎",
 	},
-	misc = {
-		Robot = "󰚩 ",
-		Squirrel = "",
-		Tag = "",
-		Watch = "",
-		Smiley = "",
-		Package = "",
-		CircuitBoard = "",
-	},
 }

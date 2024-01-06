@@ -51,40 +51,11 @@ function M.config()
       },
     },
     pickers = {
-      live_grep = {
-        theme = "dropdown",
-      },
-
-      grep_string = {
-        theme = "dropdown",
-      },
-
       find_files = {
         theme = "dropdown",
-        previewer = false,
       },
-      colorscheme = {
-        enable_preview = true,
-      },
-
-      lsp_references = {
+      live_grep = {
         theme = "dropdown",
-        initial_mode = "normal",
-      },
-
-      lsp_definitions = {
-        theme = "dropdown",
-        initial_mode = "normal",
-      },
-
-      lsp_declarations = {
-        theme = "dropdown",
-        initial_mode = "normal",
-      },
-
-      lsp_implementations = {
-        theme = "dropdown",
-        initial_mode = "normal",
       },
     },
     extensions = {
