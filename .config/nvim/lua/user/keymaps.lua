@@ -32,7 +32,6 @@ keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 
 -- save with ctrl
-keymap("n", "<S-q>", ":q<CR>", opts)
 keymap("n", "<S-w>", ":w<CR>", opts)
 
 -- use C-c to toggle hlsearch in normal mode
@@ -41,6 +40,10 @@ keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
 -- stay in indent mode
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
+
+-- close buffer without closing the window
+keymap("n", "tc", "<cmd>bp|bd #<CR>", opts)
+keymap("n", "tx", "<cmd>bp|bd! #<CR>", opts)
 
 -- barbar
 keymap("n", "<S-l>", "<Cmd>BufferNext<CR>", opts)
