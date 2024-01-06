@@ -1,6 +1,8 @@
 local M = {
   "nvim-tree/nvim-tree.lua",
-  event = "VeryLazy",
+	keys = {
+		{ "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", desc = "Neotree toggle filesystem" },
+	},
 }
 
 function M.config()

@@ -49,15 +49,5 @@ keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
 keymap("n", "<C-A-l>", "<Cmd>BufferMoveNext<CR>", opts)
 keymap("n", "<C-A-h>", "<Cmd>BufferMovePrevious<CR>", opts)
 
--- telescope
-keymap("n", "<leader>ff", "<cmd>Telescope find_files hidden=true follow=true<cr>", opts)
-keymap("n", "<leader>fg", "<cmd>Telescope live_grep hidden=true<cr>", opts)
-keymap("n", "<leader>fh", "<cmd>Telescope help_tags<cr>", opts)
-keymap("n", "<leader>fr", "<cmd>Telescope resume<cr>", opts)
-keymap("n", "<leader>fo", "<cmd>Telescope oldfiles hidden=true<cr>", opts)
-
--- neotree
-keymap("n", "<leader>e", "<cmd>NvimTreeFindFileToggle<CR>", opts)
-
 -- lazy
-keymap("n", "<leader>l", "<cmd>:Lazy<cr>", opts)
+keymap("n", "<leader>ll", "<cmd>:Lazy<cr>", opts)
