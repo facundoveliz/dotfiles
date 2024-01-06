@@ -32,6 +32,7 @@ gcolor3
 gd
 git
 gnome-keyring
+gnome-tweaks
 google-chrome
 goverlay
 gparted
@@ -94,7 +95,7 @@ npm
 nscde
 ntfs-3g
 obs-studio
-obsidian
+obsidian-bin
 p7zip
 pacman-contrib
 pass
