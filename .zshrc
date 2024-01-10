@@ -170,11 +170,13 @@ function torrent() {
 # nodemon for java
 function watchjava() {
   local main_class="$1"
-  while inotifywait -r -e modify,create,delete $(find . -name "*.java" | grep -v "/target/") ; do
-      mvn compile exec:java -Dexec.mainClass="$main_class" | egrep -v "(^\[INFO\]|^\[DEBUG\])"
+  while true; do
+    changed_file=$(inotifywait -r -q -e modify,create,delete --exclude '/target/' --format '%w%f' $(find . -name "*.java" | grep -v "/target/"))
+    if [ -n "$changed_file" ]; then
+      mvn compile exec:java -Dexec.mainClass="$main_class" | grep -v "^\[INFO\]"
+    fi
   done
 }
-
 
 # Loads FZF keybindings, replacing native reverse search etc with FZF
 [[ -e "/usr/share/fzf/key-bindings.zsh" ]] \
