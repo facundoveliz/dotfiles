@@ -1,5 +1,5 @@
 # backup misc stuff to google drive
-*/15 * * * * ./local/bin/gdrive-rclone-backup
+*/15 * * * * ~/.local/bin/gdrive-rclone-backup
 
 # todoist notifier
 */15 * * * * node ./Dev/automation-scripts/todoist-notifier/index.js

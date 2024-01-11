@@ -12,7 +12,10 @@ setxkbmap -option caps:escape
 
 # scripts
 node ~/Dev/automation-scripts/todoist-notifier/index.js &
-# node ~/Dev/automation-scripts/todoist-creator/index.js &
+
+# update contents of cv repo to portfolio
+# */60 * * * * while inotifywait -e modify ~/Dev/cv/cv-eng.pdf; do rsync -av --update ~/Dev/cv/cv-eng.pdf ~/Dev/portfolio/public/cv-es.pdf; done
+# */60 * * * * while inotifywait -e modify ~/Dev/cv/cv-es.pdf; do rsync -av --update ~/Dev/cv/cv-es.pdf ~/Dev/portfolio/public/cv-es.pdf; done
 
 # some default apps
 xdg-mime default thunar.desktop inode/directory application/x-gnome-saved-search

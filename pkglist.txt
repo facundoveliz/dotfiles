@@ -84,6 +84,7 @@ man-pages
 mangohud
 mariadb
 maven
+mongodb-bin
 mpv
 neofetch
 neovim
