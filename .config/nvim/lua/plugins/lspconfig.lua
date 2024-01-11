@@ -2,9 +2,8 @@ local M = {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		{
-			"folke/neodev.nvim",
-		},
+		{ "folke/neodev.nvim" },
+		{ "mfussenegger/nvim-jdtls" },
 	},
 }
 
@@ -56,8 +55,6 @@ function M.config()
 		"cssls",
 		"html",
 		"tsserver",
-		"jdtls",
-		"astro",
 		"pyright",
 		"bashls",
 		"jsonls",
