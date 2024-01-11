@@ -1,13 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# theme
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
 # automatically update without prompting.
 DISABLE_UPDATE_PROMPT="true"
 
@@ -182,11 +172,10 @@ function watchjava() {
 [[ -e "/usr/share/fzf/key-bindings.zsh" ]] \
   && source "/usr/share/fzf/key-bindings.zsh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/facundo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/facundo/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/facundo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/facundo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+eval "$(starship init zsh)"

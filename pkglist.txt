@@ -123,6 +123,7 @@ slack-desktop
 spectrwm
 spotify
 sqlitebrowser
+starship
 steam
 stow
 stremio-beta
