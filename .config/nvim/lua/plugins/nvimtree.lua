@@ -22,7 +22,7 @@ function M.config()
     vim.keymap.set("n", "<S-k>", api.node.open.preview, opts "Open Preview")
   end
 
-  local icons = require "user.icons"
+  local icons = require "config.icons"
 
   require("nvim-tree").setup {
     on_attach = my_on_attach,
