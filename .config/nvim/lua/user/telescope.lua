@@ -8,6 +8,7 @@ local M = {
 		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Neotree toggle filesystem" },
 		{ "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Neotree toggle filesystem" },
 		{ "<leader>fo", "<cmd>Telescope oldfiles hidden=true<cr>", desc = "Neotree toggle filesystem" },
+		{ "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Neotree toggle filesystem" },
 	},
 }
 

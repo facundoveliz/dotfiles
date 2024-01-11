@@ -17,14 +17,14 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-	keymap(bufnr, "n", "gr", "vim.lsp.buf.references", opts)
-	keymap(bufnr, "n", "<space>D", "vim.lsp.buf.type_definition", opts)
-	keymap(bufnr, "n", "<space>rn", "vim.lsp.buf.rename", opts)
-	keymap(bufnr, "n", "<space>ca", "vim.lsp.buf.code_action", opts)
-	keymap(bufnr, "n", "<space>lf", "<cmd>lua vim.lsp.buf.format({timeout_ms = 1000000})<cr>", opts)
+	keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references<CR>", opts)
+	keymap(bufnr, "n", "<leader>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
+	keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+	keymap(bufnr, "n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+	keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({timeout_ms = 1000000})<CR>", opts)
 end
 
-M.on_attach = function(client, bufnr)
+M.on_attach = function(_, bufnr)
 	lsp_keymaps(bufnr)
 end
 
@@ -63,7 +63,7 @@ function M.config()
 		"jsonls",
 		"yamlls",
 		"marksman",
-		"tailwindcss",
+		"lemminx",
 	}
 
 	local default_diagnostic_config = {

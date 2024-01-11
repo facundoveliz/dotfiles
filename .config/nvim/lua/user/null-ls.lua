@@ -16,6 +16,7 @@ function M.config()
       }),
       formatting.eslint_d,
       formatting.black,
+      formatting.xmlformat,
       diagnostics.eslint_d
     },
   }
