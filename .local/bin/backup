@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# notes
+rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Notes" "gdrive-facundoveliz9@gmail.com:/Notes/"
+rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Notes" "protondrive-facundoveliz9@proton.me:/Notes/"
+rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Notes" "dropbox-facundoveliz9@gmail.com:/Notes/"
+
+# misc personal documents
+rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Documents" "gdrive-facundoveliz9@gmail.com:/Documents/"
+rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Documents" "protondrive-facundoveliz9@proton.me:/Documents/"
+rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Documents" "dropbox-facundoveliz9@gmail.com:/Documents/"
+
+# sync documents locally
+rsync -av --progress --delete ~/Documents /mnt/1TB
+rsync -av --progress --delete ~/Notes /mnt/1TB
