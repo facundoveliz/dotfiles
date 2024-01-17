@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Set the base directory where your .epub files are located
+BOOKS_DIR="/home/facundo/Books/"
+
+# Find all EPUB files in the directory and its subdirectories
+EPUB_FILES=$(find "$BOOKS_DIR" -type f -name "*.epub")
+echo $EPUB_FILES
+
+# Use dmenu to select a file
+selected_file=$(echo "$EPUB_FILES" | dmenu -l 10 -i -p "Select an EPUB file:")
+
+# Check if a file was selected
+if [ -n "$selected_file" ]; then
+    # Open the selected file with zathura
+    zathura "$selected_file"
+fi

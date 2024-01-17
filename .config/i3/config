@@ -63,6 +63,7 @@ mode "thunar-bookmarks"{
 
 # dmenu
 bindsym $mod+d                  exec --no-startup-id dmenu_run
+bindsym $mod+comma              exec --no-startup-id dmenu_books
 bindsym $mod+p                  exec --no-startup-id dmenu_power
 bindsym $mod+c                  exec --no-startup-id clipmenu -i
 bindsym $mod+Tab                exec --no-startup-id dmenu_window
