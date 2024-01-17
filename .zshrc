@@ -160,12 +160,11 @@ function torrent() {
 # nodemon for java
 function watchjava() {
   local main_class="$1"
-  while true; do
-    changed_file=$(inotifywait -r -q -e modify,create,delete --exclude '/target/' --format '%w%f' $(find . -name "*.java" | grep -v "/target/"))
-    if [ -n "$changed_file" ]; then
-      mvn compile exec:java -Dexec.mainClass="$main_class" | grep -v "^\[INFO\]"
-    fi
-  done
+  find . -name "*.java" | grep -v "/target/" | entr -r bash -c "mvn compile exec:java -Dexec.mainClass='$main_class' | grep -v '^\[INFO\]'"
+}
+
+function watchspring() {
+  find . -name "*.java" | grep -v "/target/" | entr -r mvn spring-boot:run
 }
 
 # Loads FZF keybindings, replacing native reverse search etc with FZF

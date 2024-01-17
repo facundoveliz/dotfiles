@@ -20,6 +20,7 @@ droidcam
 dunst
 dust
 easyeffects
+entr
 eza
 fd
 feh
@@ -75,7 +76,6 @@ librewolf-bin
 linux
 linux-firmware
 linux-headers
-linux-zen
 lsp-plugins
 lutris
 lxappearance
@@ -108,6 +108,7 @@ pipewire-pulse
 pipewire-zeroconf
 playerctl
 postgresql
+postgresql-old-upgrade
 prismlauncher-qt5-bin
 protontricks
 pyside2
@@ -126,7 +127,6 @@ sqlitebrowser
 starship
 steam
 stow
-stremio-beta
 syncplay
 syncthing
 telegram-desktop
@@ -151,6 +151,7 @@ unarchiver
 unrar
 unzip
 vim
+vinegar
 virtualbox
 virtualbox-guest-iso
 virtualbox-host-modules-arch
