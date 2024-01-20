@@ -33,11 +33,6 @@ function M.config()
 			number = true,
 			relativenumber = true,
 		},
-		actions = {
-			open_file = {
-				resize_window = false,
-			},
-		},
 		renderer = {
 			add_trailing = false,
 			group_empty = false,
