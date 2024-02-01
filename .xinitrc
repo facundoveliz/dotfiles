@@ -9,7 +9,6 @@ xset r rate 351 60
 xgamma -gamma 1.2
 xmodmap -e 'keycode 135 = Super_R' && xset -r 135
 setxkbmap -option caps:escape
-./.local/bin/display_overclock
 
 # scripts
 node ~/Dev/automation-scripts/todoist-notifier/index.js &
