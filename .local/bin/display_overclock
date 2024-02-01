@@ -1,5 +1,5 @@
 #!/bin/sh
 
-xrandr --newmode "1600x900_75.05" 151.50  1600 1704 1872 2144  900 903 908 942 -hsync +vsync
-xrandr --addmode DP-2 1600x900_75.05
-xrandr --output DP-2 --mode "1600x900_75.05"
+xrandr --newmode "1600x900_75.05"  151.50  1600 1704 1872 2144  900 903 908 942 -hsync +vsync
+xrandr --addmode HDMI-1 1600x900_75.05
+xrandr --output HDMI-1 --mode "1600x900_75.05"
