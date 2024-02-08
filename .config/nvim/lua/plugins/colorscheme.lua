@@ -1,49 +1,38 @@
 local M = {
-	"rebelot/kanagawa.nvim",
+	"Mofiqul/vscode.nvim",
 	lazy = false, -- make sure we load this during startup if it is your main colorscheme
 	priority = 1000, -- make sure to load this before all the other start plugins
 	build = "KanagawaCompile",
 }
 
 function M.config()
-	vim.cmd.colorscheme("kanagawa")
-	require("kanagawa").setup({
-		commentStyle = { italic = true },
-		statementStyle = { bold = true },
-		colors = {
-			palette = {
-				sumiInk0 = "#000000",
-				sumiInk1 = "#000000",
-				sumiInk2 = "#000000",
-				sumiInk3 = "#000000",
-				sumiInk4 = "#000000",
-				sumiInk5 = "#000000",
-			},
+	local c = require("vscode.colors").get_colors()
+	require("vscode").setup({
+		-- Alternatively set style in setup
+		-- style = 'light'
+
+		-- Enable transparent background
+		transparent = false,
+
+		-- Enable italic comment
+		italic_comments = true,
+
+		-- Disable nvim-tree background color
+		disable_nvimtree_bg = false,
+
+		-- Override colors (see ./lua/vscode/colors.lua)
+		color_overrides = {
+			vscLineNumber = "#FFFFFF",
 		},
-		-- 	overrides = function(colors)
-		-- 		local theme = colors.theme
-		-- 		return {
-		-- 			Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
-		-- 			PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-		-- 			PmenuSbar = { bg = theme.ui.bg_m1 },
-		-- 			-- PmenuThumb = { bg = theme.ui.bg_p2 },
-		-- 			NormalFloat = { bg = "none" },
-		-- 			FloatBorder = { bg = "none" },
-		-- 			FloatTitle = { bg = "none" },
-		--
-		-- 			-- Save an hlgroup with dark background and dimmed foreground
-		-- 			-- so that you can use it where your still want darker windows.
-		-- 			-- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
-		-- 			NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
-		--
-		-- 			-- Popular plugins that open floats will link to NormalFloat by default;
-		-- 			-- set their background accordingly if you wish to keep them dark and borderless
-		-- 			LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-		-- 			MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-		-- 		}
-		-- 	end,
+
+		-- Override highlight groups (see ./lua/vscode/theme.lua)
+		group_overrides = {
+			-- this supports the same val table as vim.api.nvim_set_hl
+			-- use colors from this colorscheme by requiring vscode.colors!
+			Cursor = { fg = c.vscDarkBlue, bg = c.vscLightGreen, bold = true },
+		},
 	})
-	vim.schedule(vim.cmd.KanagawaCompile)
+	require("vscode").load()
 end
 
 return M

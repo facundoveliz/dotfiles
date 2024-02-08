@@ -118,22 +118,22 @@ float alpha = 1.0;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-  "#000000",
-  "#C34043",
-  "#76946A",
-  "#C0A36E",
-  "#7E9CD8",
-  "#957FB8",
-  "#6A9589",
-  "#C8C093",
-  "#727169",
-  "#E82424",
-  "#98BB6C",
-  "#E6C384",
-  "#7FB4CA",
-  "#938AA9",
-  "#7AA89F",
-  "#DCD7BA"
+  "#1e1e1e",
+  "#f44747",
+  "#608b4e",
+  "#dcdcaa",
+  "#569cd6",
+  "#c678dd",
+  "#56b6c2",
+  "#d4d4d4",
+  "#808080",
+  "#f44747",
+  "#608b4e",
+  "#dcdcaa",
+  "#569cd6",
+  "#c678dd",
+  "#56b6c2",
+  "#d4d4d4"
 };
 
 /*
