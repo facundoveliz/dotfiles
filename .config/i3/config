@@ -24,17 +24,16 @@ for_window [window_role="pop-up"] floating enable, move position center
 # exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id source ~/.fehbg
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id picom
 exec_always --no-startup-id flameshot
 exec_always --no-startup-id clipmenud
 exec_always --no-startup-id dunst
 exec_always --no-startup-id easyeffects --gapplication-service
-exec_always --no-startup-id obs --startreplaybuffer
 
 # exec_always --no-startup-id node ~/Dev/automation-scripts/render-caffeine/index.js &
 
 # ================ autostart ================
 exec --no-startup-id discord
+exec --no-startup-id obs --startreplaybuffer
 
 # ================ keybindings ================
 
@@ -265,5 +264,5 @@ gaps bottom 0
 
 bar {
   status_command i3status
-  tray_output DP-2
+  tray_output HDMI-1
 }

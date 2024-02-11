@@ -2,7 +2,6 @@ local M = {
 	"Mofiqul/vscode.nvim",
 	lazy = false, -- make sure we load this during startup if it is your main colorscheme
 	priority = 1000, -- make sure to load this before all the other start plugins
-	build = "KanagawaCompile",
 }
 
 function M.config()
@@ -18,7 +17,7 @@ function M.config()
 		italic_comments = true,
 
 		-- Disable nvim-tree background color
-		disable_nvimtree_bg = false,
+		disable_nvimtree_bg = true,
 
 		-- Override colors (see ./lua/vscode/colors.lua)
 		color_overrides = {
