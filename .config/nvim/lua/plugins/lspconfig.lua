@@ -55,6 +55,7 @@ function M.config()
 		"cssls",
 		"html",
 		"tsserver",
+		"eslint",
 		"pyright",
 		"bashls",
 		"jsonls",

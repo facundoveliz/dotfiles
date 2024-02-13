@@ -32,6 +32,7 @@ function M.config()
     view = {
       number = true,
       relativenumber = true,
+      side = "right",
     },
     renderer = {
       add_trailing = false,
