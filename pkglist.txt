@@ -1,6 +1,9 @@
+adw-gtk-theme
+adw-gtk3-git
 amd-ucode
 android-file-transfer
 android-tools
+apache
 arc-gtk-theme
 audacity
 base
@@ -25,7 +28,6 @@ eza
 fd
 feh
 ffmpegthumbnailer
-file-roller
 flameshot
 fzf
 gamemode
@@ -33,17 +35,21 @@ gcolor3
 gd
 git
 gnome-keyring
+gnome-themes-extra
 gnome-tweaks
 google-chrome
 goverlay
 gparted
 gst-plugin-pipewire
 heroic-games-launcher-bin
+hoppscotch-bin
 htop
+i3-gnome
 i3-wm
 i3status
 inotify-tools
 intellij-idea-community-edition
+ipscan-bin
 jdk-openjdk
 jdk17-openjdk
 jdk8-openjdk
@@ -85,6 +91,7 @@ mangohud
 mariadb
 maven
 mongodb-bin
+morewaita-git
 mpv
 neofetch
 neovim
@@ -99,6 +106,7 @@ obs-studio
 obsidian-bin
 p7zip
 pacman-contrib
+parsec-bin
 pass
 pavucontrol
 pipewire
@@ -107,11 +115,13 @@ pipewire-audio
 pipewire-pulse
 pipewire-zeroconf
 playerctl
+podman
 postgresql
 postgresql-old-upgrade
 prismlauncher-qt5-bin
 protontricks
 pyside2
+python-discord
 python-pip
 python-spotdl
 qalculate-gtk
@@ -119,6 +129,7 @@ rclone
 redshift
 ripgrep
 rsync
+rust
 scrcpy
 slack-desktop
 spectrwm
@@ -164,6 +175,7 @@ wget
 wine-staging
 winetricks
 wireplumber
+wireshark-qt
 xclip
 xdg-user-dirs
 xf86-video-vesa
@@ -224,5 +236,6 @@ zathura
 zathura-cb
 zathura-pdf-mupdf
 zip
+zoneminder
 zoxide
 zsh
