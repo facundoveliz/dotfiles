@@ -52,6 +52,9 @@ export spotify="LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify"
 # pipewire sound crackling fix
 export PULSE_LATENCY_MSEC=60 set
 
+# fix java fonts
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
+
 # ================ auto start ================
 
 # auto startx
