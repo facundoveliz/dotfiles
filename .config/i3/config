@@ -28,6 +28,7 @@ exec_always --no-startup-id flameshot
 exec_always --no-startup-id clipmenud
 exec_always --no-startup-id dunst
 exec_always --no-startup-id easyeffects --gapplication-service
+exec_always --no-startup-id picom -b
 
 # exec_always --no-startup-id node ~/Dev/automation-scripts/render-caffeine/index.js &
 
