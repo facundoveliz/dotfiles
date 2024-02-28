@@ -96,7 +96,13 @@ alias mv='mv -vi'
 alias ls='exa --color=auto --group-directories-first'
 alias la='exa -ahl --color=always --group-directories-first --sort extension'
 
+# cat replacement
+alias cat='bat'
+
 alias discord='LIBVA_DRIVER_NAME=radeonsi discord --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy'
+
+# ================ keybinds ================
+bindkey -s "^k" 'zi\n'
 
 # ================ functions ================
 
@@ -168,6 +174,12 @@ function watchjava() {
 
 function watchspring() {
   find . -name "*.java" | grep -v "/target/" | entr -r mvn spring-boot:run
+}
+
+function fzf-cd-incl-hidden() {
+  local dir
+  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+  ls
 }
 
 # Loads FZF keybindings, replacing native reverse search etc with FZF
