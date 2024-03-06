@@ -8,6 +8,10 @@ xset -dpms
 xset r rate 351 60
 xgamma -gamma 1.2
 xmodmap -e 'keycode 135 = Super_R' && xset -r 135
+xmodmap -e 'keycode 115 = less'
+xmodmap -e 'keycode 94 = z'
+xmodmap -e 'keycode 110 = 6'
+xmodmap -e 'keycode 78 = F6'
 setxkbmap -option caps:escape
 
 # scripts
