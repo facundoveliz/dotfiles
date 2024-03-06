@@ -96,7 +96,7 @@ mongodb-bin
 morewaita-git
 mpv
 neofetch
-neovim
+neovim-nightly-bin
 networkmanager
 nodejs
 noto-fonts-cjk
@@ -158,8 +158,10 @@ thunar-archive-plugin
 thunar-media-tags-plugin
 tmux
 transmission-gtk
+trickle
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
+ttf-ms-fonts
 tumbler
 udiskie
 udisks2
