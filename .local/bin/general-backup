@@ -5,7 +5,7 @@ notify-send "Backup started"
 # sync documents locally
 rsync -av --progress --delete ~/Documents /mnt/1TB
 rsync -av --progress --delete ~/Notes /mnt/1TB
-rsync -av --progress --delete ~/.local/share/PrismLauncher/instances/Create-\ Perfect\ World/ /mnt/1TB/Games/Saves/
+rsync -av --progress --delete ~/.local/share/PrismLauncher/instances/Create-\ Perfect\ World/ /mnt/1TB/Games/Saves/Avalonia
 
 # notes
 rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Notes" "gdrive-facundoveliz9@gmail.com:/Notes/"
