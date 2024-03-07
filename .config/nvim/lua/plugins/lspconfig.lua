@@ -3,7 +3,6 @@ local M = {
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		{ "folke/neodev.nvim" },
-		{ "mfussenegger/nvim-jdtls" },
 	},
 }
 

@@ -3,7 +3,6 @@ local M = {
   dependencies = {
     "williamboman/mason.nvim",
     "nvim-lua/plenary.nvim",
-    "jay-babu/mason-nvim-dap.nvim",
   },
 }
 
@@ -26,11 +25,6 @@ function M.config()
       "yamlls",
       "marksman",
       "tailwindcss",
-    },
-  })
-  require("mason-nvim-dap").setup({
-    ensure_installed = {
-      "js",
     },
   })
 end
