@@ -193,3 +193,10 @@ if [ -f '/home/facundo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 if [ -f '/home/facundo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/facundo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/home/facundo/.bun/_bun" ] && source "/home/facundo/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

@@ -18,8 +18,6 @@ function M.config()
       "cssls",
       "html",
       "tsserver",
-      "biome",
-      "astro",
       "pyright",
       "bashls",
       "jsonls",

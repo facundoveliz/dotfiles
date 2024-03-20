@@ -15,19 +15,8 @@ function M.config()
       --     return utils.has_file({ ".prettierrc", ".prettierrc.js", ".prettierrc.json" })
       --   end,
       -- }),
-      formatting.biome.with({
-        args = {
-          "check",
-          "--apply",
-          "--linter-enabled=true",
-          "--formatter-enabled=true",
-          "--organize-imports-enabled=true",
-          "--skip-errors",
-          "$FILENAME",
-        },
-      }),
+      formatting.biome,
       formatting.black,
-      formatting.xmlformat,
     },
   })
 end

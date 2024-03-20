@@ -1,9 +1,6 @@
 local M = {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
-  dependencies = {
-    { "folke/neodev.nvim" },
-  },
 }
 
 function M.keymaps(bufnr)
@@ -56,14 +53,12 @@ function M.config()
     "cssls",
     "html",
     "tsserver",
-    "biome",
-    -- "eslint",
     "pyright",
     "bashls",
-    "jsonls",
+    "emmet_language_server",
+    "tailwindcss",
     "yamlls",
     "marksman",
-    "lemminx",
   }
 
   local default_diagnostic_config = {
@@ -110,10 +105,6 @@ function M.config()
     local require_ok, settings = pcall(require, "user.lspsettings." .. server)
     if require_ok then
       opts = vim.tbl_deep_extend("force", settings, opts)
-    end
-
-    if server == "lua_ls" then
-      require("neodev").setup({})
     end
 
     lspconfig[server].setup(opts)
