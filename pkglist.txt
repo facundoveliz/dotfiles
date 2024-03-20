@@ -47,6 +47,7 @@ gst-plugin-pipewire
 gtk-engine-murrine
 heroic-games-launcher-bin
 htop
+httpie
 i3-wm
 i3status
 inotify-tools
@@ -124,6 +125,7 @@ postgresql
 postgresql-old-upgrade
 prismlauncher-qt5-bin
 protontricks
+protonup-qt
 pyside2
 python-discord
 python-pip
@@ -138,11 +140,12 @@ scientifica-font
 scrcpy
 slack-desktop
 spectrwm
-spotify
+spotify-launcher
 sqlitebrowser
 starship
 steam
 stow
+stremio-beta
 syncplay
 syncthing
 telegram-desktop
