@@ -224,7 +224,7 @@ bindsym $mod+Shift+minus scratchpad show
 # ================ windows ================
 
 # hide window title bar
-for_window [class="^.*"] border pixel 2
+# for_window [class="^.*"] border pixel 2
 
 # will disable borders when there is only one window in screen
 smart_borders on
