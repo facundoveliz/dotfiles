@@ -29,6 +29,7 @@ function M.config()
     prefer_startup_root = true,
     hijack_netrw = true,
     hijack_unnamed_buffer_when_opening = true,
+    sync_root_with_cwd = true,
     view = {
       number = true,
       relativenumber = true,
@@ -91,7 +92,7 @@ function M.config()
     update_focused_file = {
       enable = true,
       debounce_delay = 15,
-      update_root = false,
+      update_root = true,
       ignore_list = {},
     },
     diagnostics = {
