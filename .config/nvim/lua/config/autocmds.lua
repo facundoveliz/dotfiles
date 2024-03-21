@@ -59,11 +59,3 @@ vim.cmd([[
   autocmd FileChangedShellPost *
     \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 ]])
-
-vim.cmd([[
-  augroup remember_folds
-    autocmd!
-    autocmd BufWinLeave *.* mkview
-    autocmd BufWinEnter *.* silent! loadview
-  augroup END
-]])
