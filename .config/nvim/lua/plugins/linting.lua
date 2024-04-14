@@ -1,7 +1,7 @@
 local M = {
   "mfussenegger/nvim-lint",
   lazy = true,
-  event = { "BufReadPre", "BufNewFile" }, -- to disable, comment this out
+  event = { "BufReadPre", "BufNewFile" },
 }
 
 function M.config()
@@ -15,13 +15,13 @@ function M.config()
     python = { "pylint" },
   }
 
-  local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
-  vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+local lint_augroup = vim.api.nvim_create_augroup('lint', { clear = true })
+vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
     group = lint_augroup,
     callback = function()
-      lint.try_lint(nil, { ignore_errors = true })
+        lint.try_lint(nil, { ignore_errors = true })
     end,
-  })
+})
 
   vim.keymap.set("n", "<leader>ll", function()
     lint.try_lint()

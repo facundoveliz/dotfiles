@@ -1,11 +1,4 @@
-# ================ vars ================
 set $mod Mod4
-set $term st
-
-# ================ apps ================
-
-# open applications on specific workspaces
-assign [title="(?i)discord"] → $ws3
 
 # open specific applications in floating mode
 for_window [class="(?i)feh"] floating enable, move position center
@@ -39,40 +32,27 @@ exec_always --no-startup-id xmodmap -e 'keycode 78 = F6'
 # ================ autostart ================
 exec --no-startup-id discord
 exec --no-startup-id obs --startreplaybuffer
+exec --no-startup-id dex --autostart --environment i3
 
 # ================ keybindings ================
-
-# utils
-# copy current selection without saving it in clipmenu
-bindsym $mod+Shift+c            exec --no-startup-id clipctl disable && xclip -out -selection primary | xclip -in -selection clipboard && clipctl enable
 
 # use mouse+$mod to drag floating windows
 floating_modifier $mod
 
-bindsym $mod+Return             exec --no-startup-id $term
+bindsym $mod+Return             exec --no-startup-id st
 bindsym $mod+b                  exec --no-startup-id brave
 bindsym $mod+Shift+b            exec --no-startup-id brave --incognito
-bindsym $mod+x                  exec --no-startup-id code
 bindsym $mod+F9                 exec --no-startup-id pavucontrol
 bindsym $mod+g                  exec --no-startup-id qalculate-gtk
 
 # file manager
 bindsym $mod+t                  exec --no-startup-id thunar
-bindsym $mod+period mode "thunar-bookmarks"
-mode "thunar-bookmarks"{
-  bindsym m                     exec --no-startup-id thunar /mnt/1TB/Media; mode "default"
-  bindsym w                     exec --no-startup-id thunar /mnt/1TB/Images/Wallpapers; mode "default"
-  bindsym s                     exec --no-startup-id thunar /mnt/1TB/Images/Screenshots; mode "default"
-  bindsym Escape mode "default"
-}
 
 # dmenu
 bindsym $mod+d                  exec --no-startup-id dmenu_run
 bindsym $mod+comma              exec --no-startup-id dmenu_books
 bindsym $mod+p                  exec --no-startup-id dmenu_power
 bindsym $mod+c                  exec --no-startup-id clipmenu -i
-bindsym $mod+Tab                exec --no-startup-id dmenu_window
-bindsym $mod+Menu               exec --no-startup-id dmenu_menus
 bindsym $mod+Delete             exec --no-startup-id dmenu_kill
 bindsym $mod+BackSpace          exec --no-startup-id sh -c 'passmenu && clipdel -d "$(xsel -b)"'
 
@@ -87,22 +67,12 @@ bindsym $mod+F12                exec --no-startup-id setxkbmap latam
 bindsym $mod+F11                exec --no-startup-id setxkbmap us
 
 # focus
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # move focused window
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
@@ -111,29 +81,17 @@ bindsym $mod+Shift+l move right
 # focus on opened window
 focus_on_window_activation focus
 
-# navigate through workspaces
-bindsym Mod1+Tab workspace back_and_forth
-
 # fullscren
 bindsym $mod+f fullscreen toggle
 
 # enter fullscreen mode for the focused container
 bindsym $mod+Shift+f fullscreen disable; floating enable; resize set 640 360; sticky enable; move window to position 0 0
 
-# enable window sticky, it follows you through all workspaces
-bindsym $mod+o sticky enable;
-bindsym $mod+Shift+o sticky disable;
-
 # change container layout (tabbed, toggle split)
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # resizing
-bindsym $mod+Mod1+Down  resize grow   height 2 px or 2 ppt
-bindsym $mod+Mod1+Up    resize shrink height 2 px or 2 ppt
-bindsym $mod+Mod1+Left  resize grow   width  2 px or 2 ppt
-bindsym $mod+Mod1+Right resize shrink width  2 px or 2 ppt
-
 bindsym $mod+Mod1+j     resize grow   height 2 px or 2 ppt
 bindsym $mod+Mod1+k     resize shrink height 2 px or 2 ppt
 bindsym $mod+Mod1+h     resize grow   width  2 px or 2 ppt
@@ -142,8 +100,6 @@ bindsym $mod+Mod1+l     resize shrink width  2 px or 2 ppt
 # kill focused window
 bindsym $mod+q kill
 
-bindsym $mod+a focus parent
-bindsym $mod+z focus child
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -206,17 +162,6 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
-# move workspaces to other windows
-bindsym $mod+Ctrl+Left  move workspace to output left
-bindsym $mod+Ctrl+Up    move workspace to output up
-bindsym $mod+Ctrl+Right move workspace to output right
-bindsym $mod+Ctrl+Down  move workspace to output down
-
-bindsym $mod+Ctrl+l     move workspace to output left
-bindsym $mod+Ctrl+k     move workspace to output up
-bindsym $mod+Ctrl+h     move workspace to output right
-bindsym $mod+Ctrl+j     move workspace to output down
-
 # scratchpad
 bindsym $mod+minus move scratchpad
 bindsym $mod+Shift+minus scratchpad show
@@ -230,7 +175,10 @@ bindsym $mod+Shift+minus scratchpad show
 smart_borders on
 
 # disable mouse following focus
-# mouse_warping none
+mouse_warping none
+
+# navigate through workspaces
+bindsym Mod1+Tab workspace back_and_forth
 
 # toggle tiling / floating
 bindsym $mod+s floating toggle; move position center
@@ -241,31 +189,6 @@ bindsym $mod+Shift+z reload
 bindsym $mod+Shift+r restart
 # exit i3
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
-
-# ================ styling ================
-set $background1 #151515
-set $background2 #202020
-set $foreground #dedede
-set $red #b85335
-set $orange #cf6a4c
-set $yellow #ffb964
-set $green #99ad6a
-set $blue #8fbfdc
-set $cyan #8197bf
-set $magenta #c6b6ee
-
-# class                 border       bground      text         indicator    child_border
-# client.focused          $background1 $background1 $foreground1 $yellow      $yellow
-# client.focused_inactive $background1 $background1 $foreground1 $background2 $background2
-# client.unfocused        $background1 $background1 $foreground2 $background2 $background2
-# client.urgent           $background1 $background1 $foreground1 $yellow      $foreground2
-# client.placeholder      $background1 $background1 $foreground1 $yellow      $foreground2
-# client.background       $background1
-
-# window gaps, the bottom gaps are dependly of the bar
-gaps outer 0
-gaps inner 0
-gaps bottom 0
 
 bar {
   status_command i3status
