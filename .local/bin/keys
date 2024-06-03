@@ -3,10 +3,8 @@
 xset s off
 xset -dpms
 xset r rate 351 60
-xgamma -gamma 1.2
-xmodmap -e 'keycode 116 = less'
+setxkbmap -option caps:escape
+setxkbmap -option compose:menu
 xmodmap -e 'keycode 94 = z'
 xmodmap -e 'keycode 110 = 6'
 xmodmap -e 'keycode 78 = F6'
-xmodmap -e 'keycode 135 = Super_R' && xset -r 135
-setxkbmap -option caps:escape

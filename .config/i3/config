@@ -1,6 +1,4 @@
-# ================ vars ================
 set $mod Mod4
-set $term st
 
 # ================ apps ================
 
@@ -16,23 +14,30 @@ for_window [title="Friends List"] floating enable, move position center
 for_window [title="(?i)Steam - News"] floating enable, move position center
 for_window [window_role="pop-up"] floating enable, move position center
 
-# autostart
+# ================ autostart ================
+
+# background image
 exec_always --no-startup-id source ~/.fehbg
+# networkmanager-applet
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id flameshot
-exec_always --no-startup-id clipmenud
+# notifications
 exec_always --no-startup-id dunst
+# equalizer
 exec_always --no-startup-id easyeffects --gapplication-service
+# composer
 exec_always --no-startup-id picom -b
-exec_always --no-startup-id xmodmap -e 'keycode 115 = less greater'
+
+# keys (sometimes Xmodmap breaks and i need to manually do it)
 exec_always --no-startup-id xmodmap -e 'keycode 94 = z'
 exec_always --no-startup-id xmodmap -e 'keycode 110 = 6'
 exec_always --no-startup-id xmodmap -e 'keycode 78 = F6'
 
-# ================ autostart ================
+# apps
+
 exec --no-startup-id discord
 
 # open applications on specific workspaces
+
 assign [title="(?i)discord"] → $ws3
 
 # ================ keybindings ================
@@ -40,9 +45,8 @@ assign [title="(?i)discord"] → $ws3
 # use mouse+$mod to drag floating windows
 floating_modifier $mod
 
-bindsym $mod+Return             exec --no-startup-id $term
+bindsym $mod+Return             exec --no-startup-id st
 bindsym $mod+b                  exec --no-startup-id brave
-bindsym $mod+Shift+b            exec --no-startup-id brave --incognito
 bindsym $mod+g                  exec --no-startup-id qalculate-gtk
 
 # file manager
@@ -51,7 +55,7 @@ bindsym $mod+t                  exec --no-startup-id thunar
 # dmenu
 bindsym $mod+d                  exec --no-startup-id dmenu_run
 bindsym $mod+comma              exec --no-startup-id dmenu_books
-bindsym $mod+p                  exec --no-startup-id dmenu_power
+bindsym $mod+Shift+e            exec --no-startup-id dmenu_power
 bindsym $mod+c                  exec --no-startup-id clipmenu -i
 bindsym $mod+Tab                exec --no-startup-id dmenu_window
 bindsym $mod+Menu               exec --no-startup-id dmenu_menus
@@ -118,6 +122,8 @@ bindsym $mod+q kill
 
 bindsym $mod+a focus parent
 bindsym $mod+z focus child
+# toggle tiling/floating
+bindsym $mod+s floating toggle; move position center
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -133,6 +139,14 @@ bindsym XF86AudioNext           exec --no-startup-id playerctl next
 bindsym XF86AudioPrev           exec --no-startup-id playerctl previous
 bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume 0 +2%
 bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume 0 -2%
+# mute
+bindsym XF86AudioMute           exec --no-startup-id amixer sset Master toggle
+# use meta keys showing osc using dunst
+# bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
+
+# mic mute toggle
+bindsym XF86AudioMicMute exec amixer sset Capture toggle
+
 
 # ================ workspaces ================
 
@@ -197,15 +211,11 @@ bindsym $mod+Shift+minus scratchpad show
 
 # ================ windows ================
 
-# hide window title bar
-# for_window [class="^.*"] border pixel 2
-
 # will disable borders when there is only one window in screen
 smart_borders on
 
-# toggle tiling / floating
-bindsym $mod+s floating toggle; move position center
-
+#reload i3
+bindsym $mod+Shift+c reload
 # restart i3
 bindsym $mod+Shift+r restart
 # exit i3
@@ -214,6 +224,7 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # ================ styling ================
 
 bar {
-  status_command i3status
-  tray_output HDMI-1
+  # status_command i3status
+  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+  tray_output DP-2
 }
