@@ -25,6 +25,13 @@ export ZSH="$HOME/.oh-my-zsh"
 export UPDATE_ZSH_DAYS=7
 source $ZSH/oh-my-zsh.sh
 
+# theme
+export GTK_THEME=Adwaita:dark
+export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
+export QT_STYLE_OVERRIDE=Adwaita-Dark
+# overclock monitor
+
+
 # default apps
 export EDITOR="nvim"
 
@@ -96,7 +103,13 @@ alias mv='mv -vi'
 alias ls='exa --color=auto --group-directories-first'
 alias la='exa -ahl --color=always --group-directories-first --sort extension'
 
+# cat replacement
+alias cat='bat'
+
 alias discord='LIBVA_DRIVER_NAME=radeonsi discord --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy'
+
+# ================ keybinds ================
+bindkey -s "^k" 'zi\n'
 
 # ================ functions ================
 
@@ -170,6 +183,12 @@ function watchspring() {
   find . -name "*.java" | grep -v "/target/" | entr -r mvn spring-boot:run
 }
 
+function fzf-cd-incl-hidden() {
+  local dir
+  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
+  ls
+}
+
 # Loads FZF keybindings, replacing native reverse search etc with FZF
 [[ -e "/usr/share/fzf/key-bindings.zsh" ]] \
   && source "/usr/share/fzf/key-bindings.zsh"
@@ -181,3 +200,10 @@ if [ -f '/home/facundo/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home
 if [ -f '/home/facundo/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/facundo/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 eval "$(starship init zsh)"
+
+# bun completions
+[ -s "/home/facundo/.bun/_bun" ] && source "/home/facundo/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

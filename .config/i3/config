@@ -1,17 +1,11 @@
-# ================ vars ================
 set $mod Mod4
-set $term st
 
 # ================ apps ================
-
-# open applications on specific workspaces
-assign [title="(?i)discord"] → $ws3
 
 # open specific applications in floating mode
 for_window [class="(?i)feh"] floating enable, move position center
 for_window [class="(?i)Pavucontrol"] floating enable, move position center
 for_window [class="(?i)Lxappearance"] floating enable, move position center
-for_window [class="Galculator"] floating enable, move position center
 for_window [class="Qalculate-gtk"] floating enable, move position center
 for_window [class="(?i)gcolor3"] floating enable, move position center
 for_window [class="Chromium-browser"] floating enable, move position center
@@ -20,35 +14,39 @@ for_window [title="Friends List"] floating enable, move position center
 for_window [title="(?i)Steam - News"] floating enable, move position center
 for_window [window_role="pop-up"] floating enable, move position center
 
-# autostart
-# exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec_always --no-startup-id source ~/.fehbg
-exec_always --no-startup-id nm-applet
-exec_always --no-startup-id flameshot
-exec_always --no-startup-id clipmenud
-exec_always --no-startup-id dunst
-exec_always --no-startup-id easyeffects --gapplication-service
-
-# exec_always --no-startup-id node ~/Dev/automation-scripts/render-caffeine/index.js &
-
 # ================ autostart ================
-# exec --no-startup-id discord
-# exec --no-startup-id obs --startreplaybuffer
+
+# background image
+exec_always --no-startup-id source ~/.fehbg
+# networkmanager-applet
+exec_always --no-startup-id nm-applet
+# notifications
+exec_always --no-startup-id dunst
+# equalizer
+exec_always --no-startup-id easyeffects --gapplication-service
+# composer
+exec_always --no-startup-id picom -b
+
+# keys (sometimes Xmodmap breaks and i need to manually do it)
+exec_always --no-startup-id xmodmap -e 'keycode 94 = z'
+exec_always --no-startup-id xmodmap -e 'keycode 110 = 6'
+exec_always --no-startup-id xmodmap -e 'keycode 78 = F6'
+
+# apps
+
+exec --no-startup-id discord
+
+# open applications on specific workspaces
+
+assign [title="(?i)discord"] → $ws3
 
 # ================ keybindings ================
-
-# utils
-# copy current selection without saving it in clipmenu
-bindsym $mod+Shift+c            exec --no-startup-id clipctl disable && xclip -out -selection primary | xclip -in -selection clipboard && clipctl enable
 
 # use mouse+$mod to drag floating windows
 floating_modifier $mod
 
-bindsym $mod+Return             exec --no-startup-id $term
+bindsym $mod+Return             exec --no-startup-id st
 bindsym $mod+b                  exec --no-startup-id brave
-bindsym $mod+Shift+b            exec --no-startup-id brave --incognito
-bindsym $mod+x                  exec --no-startup-id code
-bindsym $mod+F9                 exec --no-startup-id pavucontrol
 bindsym $mod+g                  exec --no-startup-id qalculate-gtk
 
 # file manager
@@ -57,7 +55,7 @@ bindsym $mod+t                  exec --no-startup-id thunar
 # dmenu
 bindsym $mod+d                  exec --no-startup-id dmenu_run
 bindsym $mod+comma              exec --no-startup-id dmenu_books
-bindsym $mod+p                  exec --no-startup-id dmenu_power
+bindsym $mod+Shift+e            exec --no-startup-id dmenu_power
 bindsym $mod+c                  exec --no-startup-id clipmenu -i
 bindsym $mod+Tab                exec --no-startup-id dmenu_window
 bindsym $mod+Menu               exec --no-startup-id dmenu_menus
@@ -71,10 +69,6 @@ bindsym Print                   exec flameshot gui -c -p "/home/facundo/Images/S
 bindsym Shift+Print             exec flameshot screen -c -p "/home/facundo/Images/Screenshots/"
 # copy screenshot text to clipboard with OCR
 bindsym Ctrl+Shift+Print        exec flameshot gui -r -s | tesseract - - -l spa+eng | xclip -selection clipboard
-
-# change keyboard layout
-bindsym $mod+F12                exec --no-startup-id setxkbmap latam
-bindsym $mod+F11                exec --no-startup-id setxkbmap us
 
 # focus
 bindsym $mod+Left focus left
@@ -107,12 +101,8 @@ bindsym Mod1+Tab workspace back_and_forth
 # fullscren
 bindsym $mod+f fullscreen toggle
 
-# enter fullscreen mode for the focused container
+# enter fullscreen and floating window for the focused container
 bindsym $mod+Shift+f fullscreen disable; floating enable; resize set 640 360; sticky enable; move window to position 0 0
-
-# enable window sticky, it follows you through all workspaces
-bindsym $mod+o sticky enable;
-bindsym $mod+Shift+o sticky disable;
 
 # change container layout (tabbed, toggle split)
 bindsym $mod+w layout tabbed
@@ -134,6 +124,8 @@ bindsym $mod+q kill
 
 bindsym $mod+a focus parent
 bindsym $mod+z focus child
+# toggle tiling/floating
+bindsym $mod+s floating toggle; move position center
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
@@ -149,6 +141,14 @@ bindsym XF86AudioNext           exec --no-startup-id playerctl next
 bindsym XF86AudioPrev           exec --no-startup-id playerctl previous
 bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume 0 +2%
 bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume 0 -2%
+# mute
+bindsym XF86AudioMute           exec --no-startup-id amixer sset Master toggle
+# use meta keys showing osc using dunst
+# bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
+
+# mic mute toggle
+bindsym XF86AudioMicMute exec amixer sset Capture toggle
+
 
 # ================ workspaces ================
 
@@ -213,51 +213,20 @@ bindsym $mod+Shift+minus scratchpad show
 
 # ================ windows ================
 
-# hide window title bar
-for_window [class="^.*"] border pixel 2
-
 # will disable borders when there is only one window in screen
 smart_borders on
 
-# disable mouse following focus
-# mouse_warping none
-
-# toggle tiling / floating
-bindsym $mod+s floating toggle; move position center
-
-# reload the configuration file
-bindsym $mod+Shift+z reload
+#reload i3
+bindsym $mod+Shift+c reload
 # restart i3
 bindsym $mod+Shift+r restart
 # exit i3
 bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # ================ styling ================
-set $background1 #151515
-set $background2 #202020
-set $foreground #dedede
-set $red #b85335
-set $orange #cf6a4c
-set $yellow #ffb964
-set $green #99ad6a
-set $blue #8fbfdc
-set $cyan #8197bf
-set $magenta #c6b6ee
-
-# class                 border       bground      text         indicator    child_border
-# client.focused          $background1 $background1 $foreground1 $yellow      $yellow
-# client.focused_inactive $background1 $background1 $foreground1 $background2 $background2
-# client.unfocused        $background1 $background1 $foreground2 $background2 $background2
-# client.urgent           $background1 $background1 $foreground1 $yellow      $foreground2
-# client.placeholder      $background1 $background1 $foreground1 $yellow      $foreground2
-# client.background       $background1
-
-# window gaps, the bottom gaps are dependly of the bar
-gaps outer 0
-gaps inner 0
-gaps bottom 0
 
 bar {
-  status_command i3status
-  tray_output HDMI-1
+  # status_command i3status
+  status_command i3blocks -c ~/.config/i3/i3blocks.conf
+  tray_output DP-2
 }

@@ -1,67 +1,75 @@
-set zoom-step 5
-set scroll-step 75
-set scroll-hstep 75
-set first-page-column 1:2:1:2:1:2
-set pages-per-row 2
-set page-padding 1
-set advance-pages-per-row true
-set guioptions  ""
-set n-completion-items 25
-set window-title-basename true
-set recolor-keephue false
-set scroll-page-aware true
-set adjust-open best-fit
-set statusbar-home-tilde true
-set incremental-search true
-# global clipboard
-set selection-clipboard clipboard
-# fix for follow link
-set sandbox none
+# place in ~/.config/zathura/
+# Zathura configuration file
+# See man `man zathurarc'
+#-----------------------------
 
+# enable clipboard
+set selection-clipboard clipboard
+
+# mapings
 map k navigate previous
 map j navigate next
-map <S-k> scroll down
-map w adjust_window best-fit
-map t toggle_page_mode
-map T feedkeys ":set pages-per-row "
 map C recolor
 
-set font "JetBrainsMono Nerd Font 12"
+# Open document in fit-width mode by default
+set window-height 1000
+set adjust-open "best-fit"
 
-# vscode dark zathura colorscheme
+# scrollbars
+set show-scrollbars "true"
+set window-title-basename "true"
+set window-title-page "true"
 
-set default-bg                  "#1e1e1e"
-set default-fg                  "#d4d4d4"
+# One page per row by default
+set pages-per-row 1
 
-set statusbar-bg                "#1e1e1e"
-set statusbar-fg                "#d4d4d4"
+#zoom settings
+set zoom-min 10
+set guioptions ""
 
-set inputbar-bg                 "#1e1e1e"
-set inputbar-fg                 "#d4d4d4"
+# zathurarc-dark
+set default-bg "#1e1e1e" #00
+set default-fg "#F7F7F6" #01
 
-set notification-error-bg       "#1e1e1e"
-set notification-error-fg       "#f44747"
+set statusbar-fg "#B0B0B0" #04
+set statusbar-bg "#202020" #01
 
-set notification-warning-bg     "#1e1e1e"
-set notification-warning-fg     "#d7ba7d"
+set inputbar-bg "#151515" #00 currently not used
+set inputbar-fg "#FFFFFF" #02
 
-set highlight-color             "#007acc"
-set highlight-active-color      "#d4d4d4"
+set notification-error-bg       "#586e75" # base01  # seem not work
+set notification-error-fg       "#dc322f" # red
+set notification-warning-bg     "#586e75" # base01
+set notification-warning-fg     "#dc322f" # red
+set notification-bg             "#586e75" # base01
+set notification-fg             "#b58900" # yellow
 
-set completion-highlight-fg     "#56b6c2"
-set completion-highlight-bg     "#1e1e1e"
+set completion-group-bg         "#002b36" # base03
+set completion-group-fg         "#839496" # base0
+set completion-bg               "#1e1e1e" # base02
+set completion-fg               "#93a1a1" # base1
 
-set completion-bg               "#1e1e1e"
-set completion-fg               "#d4d4d4"
+# Recolor book content's color
+set recolor "true"
+set recolor-lightcolor "#1e1e1e" #00
+set recolor-darkcolor "#E0E0E0" #06
+set recolor-reverse-video "true"
+set recolor-keephue "true"
 
-set notification-bg             "#1e1e1e"
-set notification-fg             "#d4d4d4"
+# Define the color in index mode
+set index-bg                   "#1e1e1e" # base02
+set index-fg                   "#93a1a1" # base1
+set index-active-bg             "#586e75" # base01
+set index-active-fg             "#eee8d5" # base2
 
-set recolor-lightcolor          "#1e1e1e"
-set recolor-darkcolor           "#d4d4d4"
+set inputbar-bg                 "#586e75" # base01
+set inputbar-fg                 "#eee8d5" # base2
 
-set index-fg                    "#d4d4d4"
-set index-bg                    "#1e1e1e"
+set statusbar-bg                "#1e1e1e" # base02
+set statusbar-fg                "#93a1a1" # base1
 
-set index-active-fg             "#56b6c2"
-set index-active-bg             "#1e1e1e"
+set default-bg                  "#1e1e1e" # base02
+set default-fg                  "#93a1a1" # base1
+set render-loading              true
+set render-loading-fg           "#1e1e1e" # base02
+set render-loading-bg           "#1e1e1e" # base02

@@ -29,10 +29,10 @@ function M.config()
     prefer_startup_root = true,
     hijack_netrw = true,
     hijack_unnamed_buffer_when_opening = true,
+    sync_root_with_cwd = true,
     view = {
       number = true,
       relativenumber = true,
-      side = "right",
     },
     renderer = {
       add_trailing = false,

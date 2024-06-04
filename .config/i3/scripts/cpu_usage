@@ -1,0 +1,38 @@
+#!/bin/sh
+# shellcheck disable=1090,2154
+
+notif_identifier="i3b$(echo "$0" | tr '/' '\n' | tail -1)"
+notif="notify-send -h string:x-canonical-private-synchronous:$notif_identifier"
+. "${XDG_CACHE_HOME-$HOME/.cache}/wal/colors.sh"
+
+# icon=
+icon=
+
+blockcolor=$color2
+txtcolor=$color8
+
+case $BLOCK_BUTTON in
+    1) # Left Click
+        $notif -i ~/.local/bin/i3blocks/img/cpu.png \
+            "My $(neofetch cpu | awk '{$1="";print}' | xargs)" "$(sensors |
+                grep die -B2 -A6)";;
+    3) # Right Click
+        $notif -i ~/.local/bin/i3blocks/img/cpu.png \
+            "$(neofetch cpu | awk '{$1="";print}' | awk -F@ '{print $1}' |
+                xargs) Usage" "$(ps axch -o cmd:15,%cpu --sort=-%cpu | head)";;
+            esac
+
+usage=$(echo "$(ps aux |
+    awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')/$(nproc)" | bc)
+
+clock=$(awk '/cpu MHz/ {sum += $4/1000; ++ncol} END {printf "%.1f\n", sum/ncol}' /proc/cpuinfo)
+
+power_usage=$(sensors | awk '/P_Core/{$1=""; print}' | sed 's/ //g')
+
+temp=$(sensors | awk '/die/ {print $2}' | sed 's/+//')
+
+printf "\
+<b><span foreground='$blockcolor' background='$color0'></span>\
+<span foreground='$txtcolor' background='$blockcolor'> %s </span>\
+<span foreground='$color0' background='$blockcolor'></span></b>\n" \
+"${icon} ${usage}% ${clock}GHz ${power_usage} ${temp}"
