@@ -22,6 +22,7 @@ droidcam
 dunst
 dust
 easyeffects
+entr
 eog
 evince
 eza
@@ -31,6 +32,7 @@ ffmpegthumbnailer
 file-roller
 firefox
 flameshot
+fpc
 fzf
 gcolor3
 gd
@@ -123,6 +125,7 @@ webtorrent-cli
 wget
 wine-staging
 winetricks
+wondershaper-git
 xclip
 xf86-video-vesa
 xkeycaps

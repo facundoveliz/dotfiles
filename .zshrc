@@ -29,8 +29,6 @@ source $ZSH/oh-my-zsh.sh
 export GTK_THEME=Adwaita:dark
 export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
 export QT_STYLE_OVERRIDE=Adwaita-Dark
-# overclock monitor
-
 
 # default apps
 export EDITOR="nvim"
@@ -107,6 +105,9 @@ alias la='exa -ahl --color=always --group-directories-first --sort extension'
 alias cat='bat'
 
 alias discord='LIBVA_DRIVER_NAME=radeonsi discord --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy'
+
+# pinentry use gtk3
+alias pinentry=pinentry-gnome3
 
 # ================ keybinds ================
 bindkey -s "^k" 'zi\n'
