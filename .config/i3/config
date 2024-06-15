@@ -47,6 +47,7 @@ floating_modifier $mod
 
 bindsym $mod+Return             exec --no-startup-id st
 bindsym $mod+b                  exec --no-startup-id brave
+bindsym $mod+Shift+b            exec --no-startup-id brave --incognito
 bindsym $mod+g                  exec --no-startup-id qalculate-gtk
 
 # file manager
