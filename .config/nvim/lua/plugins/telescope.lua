@@ -13,30 +13,16 @@ local M = {
 }
 
 function M.config()
-  local actions = require("telescope.actions")
-
   pcall(require("telescope").load_extension, "fzf")
-  pcall(require("telescope").load_extension, "smart_history")
-  pcall(require("telescope").load_extension, "ui-select")
   require("telescope").setup({
     defaults = {
       mappings = {
         i = {
-          ["<C-n>"] = actions.cycle_history_next,
-          ["<C-p>"] = actions.cycle_history_prev,
-
-          ["<C-j>"] = actions.move_selection_next,
-          ["<C-k>"] = actions.move_selection_previous,
-        },
-        n = {
-          ["<esc>"] = actions.close,
-          ["j"] = actions.move_selection_next,
-          ["k"] = actions.move_selection_previous,
-          ["q"] = actions.close,
+          ["<C-j>"] = require("telescope.actions").move_selection_next,
+          ["<C-k>"] = require("telescope.actions").move_selection_previous,
         },
       },
     },
-    wrap_results = true,
     extensions = {
       fzf = {},
     },
