@@ -27,11 +27,6 @@ exec_always --no-startup-id easyeffects --gapplication-service
 # composer
 exec_always --no-startup-id picom -b
 
-# keys (sometimes Xmodmap breaks and i need to manually do it)
-exec_always --no-startup-id xmodmap -e 'keycode 94 = z'
-exec_always --no-startup-id xmodmap -e 'keycode 110 = 6'
-exec_always --no-startup-id xmodmap -e 'keycode 78 = F6'
-
 # apps
 
 exec --no-startup-id discord

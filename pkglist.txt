@@ -1,7 +1,6 @@
 adwaita-qt5-git
 adwaita-qt6-git
 alacritty
-amd-ucode
 android-file-transfer
 android-tools
 base
@@ -10,6 +9,7 @@ bat
 biome-bin
 booster
 brave-bin
+clblast
 clipmenu
 cronie
 cups
@@ -55,6 +55,7 @@ linux
 linux-firmware
 linux-lts
 linux-lts-headers
+linux-zen
 losslesscut-bin
 lsp-plugins
 lutris
@@ -67,6 +68,7 @@ neofetch
 neovim
 networkmanager
 nodejs
+noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 npm
@@ -74,6 +76,7 @@ ntfs-3g
 obs-studio
 obsidian-bin
 p7zip
+parsec-bin
 paru
 paru-debug
 pass
@@ -84,6 +87,7 @@ pipewire-pulse
 playerctl
 prismlauncher-qt5-bin
 protontricks
+protonup-qt-bin
 python-pip
 qalculate-gtk
 rclone
@@ -92,6 +96,7 @@ ripgrep
 rsync
 sassc
 spotify-launcher
+sqlitebrowser
 starship
 steam
 stow

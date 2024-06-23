@@ -5,6 +5,3 @@ xset -dpms
 xset r rate 351 60
 setxkbmap -option caps:escape
 setxkbmap -option compose:menu
-xmodmap -e 'keycode 94 = z'
-xmodmap -e 'keycode 110 = 6'
-xmodmap -e 'keycode 78 = F6'
