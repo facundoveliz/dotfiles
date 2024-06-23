@@ -27,17 +27,7 @@ local M = {
 }
 function M.config()
   require("nvim-treesitter.configs").setup({
-    ensure_installed = {
-      "lua",
-      "javascript",
-      "typescript",
-      "tsx",
-      "markdown",
-      "markdown_inline",
-      "bash",
-      "python",
-      "yaml",
-    }, -- put the language you want in this array
+    auto_install = true,
     context_commentstring = {
       config = {
         javascript = {
@@ -50,16 +40,11 @@ function M.config()
         typescript = { __default = "// %s", __multiline = "/* %s */" },
       },
     },
-    sync_install = false,
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false,
     },
     indent = { enable = true },
-    matchup = {
-      enable = { "astro" },
-      disable = { "lua" },
-    },
     autotag = { enable = true },
     autopairs = { enable = true },
   })

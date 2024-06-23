@@ -31,7 +31,7 @@ keymap("n", "#", "#zz", opts)
 keymap("n", "g*", "g*zz", opts)
 keymap("n", "g#", "g#zz", opts)
 
--- save with ctrl
+-- save with shift
 keymap("n", "<S-w>", ":w<CR>", opts)
 
 -- use C-c to toggle hlsearch in normal mode
@@ -41,16 +41,8 @@ keymap("n", "<C-c>", ":nohlsearch<CR>", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
--- close buffer without closing the window
+-- buffers
 keymap("n", "tc", "<cmd>bp|bd #<CR>", opts)
 keymap("n", "tx", "<cmd>bp|bd! #<CR>", opts)
-
--- barbar
-keymap("n", "<S-l>", "<Cmd>BufferNext<CR>", opts)
-keymap("n", "<S-h>", "<Cmd>BufferPrevious<CR>", opts)
--- reorder buffers
-keymap("n", "<C-A-l>", "<Cmd>BufferMoveNext<CR>", opts)
-keymap("n", "<C-A-h>", "<Cmd>BufferMovePrevious<CR>", opts)
-
--- lazy
-keymap("n", "<leader>ll", "<cmd>:Lazy<cr>", opts)
+keymap("n", "<S-l>", "<cmd>bn<CR>", opts)
+keymap("n", "<S-h>", "<cmd>bp<CR>", opts)
