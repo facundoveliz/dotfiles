@@ -56,6 +56,7 @@ linux-firmware
 linux-lts
 linux-lts-headers
 linux-zen
+linux-zen-headers
 losslesscut-bin
 lsp-plugins
 lutris
