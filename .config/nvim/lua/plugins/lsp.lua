@@ -103,7 +103,7 @@ return {
 					capabilities = common_capabilities(),
 				}
 
-				local require_ok, settings = pcall(require, "user.lspsettings." .. server)
+				local require_ok, settings = pcall(require, "plugins.lspsettings." .. server)
 				if require_ok then
 					opts = vim.tbl_deep_extend("force", settings, opts)
 				end
