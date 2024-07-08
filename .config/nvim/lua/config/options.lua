@@ -33,6 +33,7 @@ vim.opt.cursorline = true -- highlight the current line
 vim.opt.number = true -- set numbered lines
 vim.opt.laststatus = 3
 vim.opt.list = true -- show some invisible characters
+vim.o.listchars = "trail:-,nbsp:+,tab:> ,leadmultispace:> "
 vim.opt.showcmd = false
 vim.opt.ruler = false
 vim.opt.relativenumber = true -- set relative numbered lines
@@ -44,6 +45,8 @@ vim.opt.sidescrolloff = 8
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.title = false
 vim.opt.fillchars = vim.opt.fillchars + "eob: "
-vim.opt.fillchars:append {
-  stl = " ",
-}
+vim.opt.fillchars:append({
+	stl = " ",
+})
+
+vim.o.statusline = [[%<%f %h%m%r %y%=%{v:register} %-14.(%l,%c%V%)]]
