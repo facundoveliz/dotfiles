@@ -9,6 +9,7 @@ bat
 biome-bin
 booster
 brave-bin
+btrfs-progs
 clblast
 clipmenu
 cronie
@@ -47,6 +48,7 @@ i3-wm
 i3blocks
 i3status
 jdk21-openjdk
+kdiskmark
 keepassxc
 lazygit
 leafpad
@@ -94,8 +96,8 @@ qalculate-gtk
 rclone
 redshift
 ripgrep
+rocm-opencl-sdk
 rsync
-sassc
 spotify-launcher
 sqlitebrowser
 starship
