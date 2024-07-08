@@ -61,6 +61,7 @@ linux-zen
 linux-zen-headers
 losslesscut-bin
 lsp-plugins
+lua-language-server
 lutris
 lxappearance-gtk3
 man-db

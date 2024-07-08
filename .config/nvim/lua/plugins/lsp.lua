@@ -48,18 +48,12 @@ return {
 
 			local servers = {
 				"lua_ls",
-				"cssls",
-				"html",
 				"tsserver",
 				"biome",
-				-- "eslint",
+				"eslint",
 				"pyright",
-				"bashls",
 				"svelte",
-				"emmet_language_server",
 				"tailwindcss",
-				"yamlls",
-				"marksman",
 			}
 
 			local default_diagnostic_config = {
@@ -110,34 +104,6 @@ return {
 
 				lspconfig[server].setup(opts)
 			end
-		end,
-	},
-	{
-		"williamboman/mason-lspconfig.nvim",
-		dependencies = {
-			"williamboman/mason.nvim",
-			"nvim-lua/plenary.nvim",
-		},
-		config = function()
-			require("mason").setup({
-				ui = {
-					border = "rounded",
-				},
-			})
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"lua_ls",
-					"cssls",
-					"html",
-					"tsserver",
-					"pyright",
-					"bashls",
-					"jsonls",
-					"yamlls",
-					"marksman",
-					"tailwindcss",
-				},
-			})
 		end,
 	},
 }

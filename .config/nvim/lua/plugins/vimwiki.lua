@@ -1,5 +1,6 @@
 return {
 	"vimwiki/vimwiki",
+	event = { "BufReadPost", "BufNewFile" },
 	config = function()
 		vim.cmd([[
     let g:vimwiki_list = [{'path': '~/vimwiki/',

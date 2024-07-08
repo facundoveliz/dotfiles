@@ -6,11 +6,11 @@ return {
 		dependencies = {
 			{
 				"nvim-treesitter/nvim-treesitter-textobjects",
-				event = "VeryLazy",
+				event = { "BufReadPost", "BufNewFile" },
 			},
 			{
 				"nvim-tree/nvim-web-devicons",
-				event = "VeryLazy",
+				event = { "BufReadPost", "BufNewFile" },
 			},
 			{
 				"windwp/nvim-autopairs",
@@ -43,7 +43,7 @@ return {
 	},
 	{
 		"kylechui/nvim-surround",
-		event = "VeryLazy",
+		event = { "BufReadPost", "BufNewFile" },
 		config = true,
 	},
 }
