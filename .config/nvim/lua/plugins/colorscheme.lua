@@ -14,6 +14,9 @@ return {
 				Whitespace = {
 					fg = c.vscDimHighlight,
 				},
+				NonText = {
+					fg = c.vscDimHighlight,
+				},
 			},
 		})
 		require("vscode").load()
