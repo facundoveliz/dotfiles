@@ -46,4 +46,9 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		config = true,
 	},
+	{ -- lightweight plugin to improve foldings
+		"chrisgrieser/nvim-origami",
+		event = "BufReadPost",
+		opts = {},
+	},
 }
