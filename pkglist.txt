@@ -104,6 +104,7 @@ sqlitebrowser
 starship
 steam
 stow
+stylua
 syncthing
 telegram-desktop-bin
 tesseract-data-eng
