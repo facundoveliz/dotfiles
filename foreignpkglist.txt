@@ -1,9 +1,0 @@
-discord_arch_electron
-google-chrome
-librewolf-bin
-parsec-bin
-prismlauncher-qt5-bin
-python-spotdl
-spotify
-webtorrent-cli
-yay-bin
