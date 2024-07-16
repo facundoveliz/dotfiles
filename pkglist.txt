@@ -58,7 +58,9 @@ lxappearance
 man-db
 man-pages
 mangohud
+markdown-oxide-git
 mpv
+ncdu
 neofetch
 neovim
 networkmanager
@@ -89,6 +91,7 @@ qalculate-gtk
 rclone
 redshift
 ripgrep
+rmlint
 rsync
 seahorse
 spotify-launcher
@@ -119,6 +122,7 @@ visual-studio-code-bin
 vkd3d-proton-bin
 vlc
 vulkan-radeon
+webkitgtk-6.0
 webtorrent-cli
 wget
 wine-staging
