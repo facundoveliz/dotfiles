@@ -8,4 +8,14 @@ window decoration {
     margin: 0;
     border: none;
     padding: 0;
+    box-shadow: none;
+}
+
+decoration:backdrop {
+    box-shadow: none;
+}
+
+.titlebar,
+.titlebar .background {
+    border-radius: 0;
 }

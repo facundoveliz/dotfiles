@@ -210,6 +210,9 @@ bindsym $mod+Shift+minus scratchpad show
 # will disable borders when there is only one window in screen
 smart_borders on
 
+# force window decoration
+for_window [class=.*] border normal 1
+
 #reload i3
 bindsym $mod+Shift+c reload
 # restart i3
