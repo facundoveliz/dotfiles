@@ -1,7 +1,7 @@
 return {
 	{
 		"hrsh7th/nvim-cmp",
-		event = { "InsertEnter", "CmdlineEnter" },
+		event = "InsertEnter",
 		dependencies = {
 			{
 				"hrsh7th/cmp-nvim-lsp",
@@ -38,7 +38,8 @@ return {
 			local cmp = require("cmp")
 			local luasnip = require("luasnip")
 			require("luasnip/loaders/from_vscode").lazy_load()
-			require("luasnip").filetype_extend("typescriptreact", { "html" })
+			require("luasnip").filetype_extend("typescript", { "typescript" })
+			require("luasnip").filetype_extend("svelte", { "svelte" })
 
 			cmp.setup({
 				snippet = {
@@ -99,13 +100,15 @@ return {
 
 			require("conform").setup({
 				formatters_by_ft = {
-					lua = { "stylua" },
 					javascript = { "biome" },
 					javascriptreact = { "biome" },
 					typescript = { "biome" },
 					typescriptreact = { "biome" },
 					svelte = { "biome" },
 					json = { "biome" },
+					lua = { "stylua" },
+					markdown = { "markdownlint" },
+					vimwiki = { "markdownlint" },
 				},
 				format_on_save = {
 					lsp_format = "fallback",

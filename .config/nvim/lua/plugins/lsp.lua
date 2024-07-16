@@ -5,6 +5,14 @@ return {
 		config = function()
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+			-- necesary for markdown_oxide
+			capabilities.workspace = {
+				didChangeWatchedFiles = {
+					dynamicRegistration = true,
+				},
+			}
+
 			local on_attach = function(_, bufnr)
 				local opts = { noremap = true, silent = true }
 				local keymap = vim.api.nvim_buf_set_keymap
@@ -35,6 +43,7 @@ return {
 				"eslint",
 				"pyright",
 				"svelte",
+				"markdown_oxide",
 				"tailwindcss",
 			}
 
