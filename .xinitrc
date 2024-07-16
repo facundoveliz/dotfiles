@@ -16,6 +16,9 @@ node ~/Dev/automation-scripts/todoist-notifier/index.js &
 # execute Xmodmap
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
+# polkit
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 udiskie &
 clipmenud &
 exec i3

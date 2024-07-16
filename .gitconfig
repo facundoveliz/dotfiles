@@ -27,3 +27,6 @@
   diff = auto
   interactive = auto
   status = auto
+
+[credential]
+	helper = /usr/lib/git-core/git-credential-libsecret
