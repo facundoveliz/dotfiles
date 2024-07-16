@@ -41,7 +41,6 @@ htop
 i3-wm
 i3blocks
 jdk21-openjdk
-kdiskmark
 lazygit
 leafpad
 libreoffice-fresh
@@ -124,7 +123,6 @@ webtorrent-cli
 wget
 wine-staging
 winetricks
-wondershaper-git
 xclip
 xf86-video-vesa
 xkeycaps
@@ -177,7 +175,6 @@ xorg-xwininfo
 xorg-xwud
 xsel
 xterm
-yarn
 yt-dlp
 zathura
 zathura-cb
