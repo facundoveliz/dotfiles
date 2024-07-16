@@ -5,7 +5,7 @@ return {
 		view_options = {
 			show_hidden = false,
 			is_hidden_file = function(name, bufnr)
-				return vim.endswith(".", name)
+				return vim.startswith(name, ".")
 			end,
 			is_always_hidden = function(name)
 				return name == ".."
