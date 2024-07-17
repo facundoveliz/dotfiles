@@ -40,7 +40,7 @@ return {
 				"lua_ls",
 				"tsserver",
 				"biome",
-				"eslint",
+				-- "eslint",
 				"pyright",
 				"svelte",
 				"markdown_oxide",
