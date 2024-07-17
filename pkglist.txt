@@ -31,8 +31,10 @@ fzf
 gcolor3
 gd
 git
+glib2-devel
 gnome-keyring
 gnome-themes-extra
+gnome-tweaks
 go
 goverlay
 gparted
@@ -100,6 +102,7 @@ steam
 stow
 stylua
 syncthing
+sysstat
 telegram-desktop-bin
 tesseract-data-eng
 tesseract-data-spa
@@ -149,7 +152,6 @@ xorg-setxkbmap
 xorg-smproxy
 xorg-x11perf
 xorg-xauth
-xorg-xbacklight
 xorg-xcmsdb
 xorg-xcursorgen
 xorg-xdpyinfo
