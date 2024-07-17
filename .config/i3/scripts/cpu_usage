@@ -1,38 +1,66 @@
-#!/bin/sh
-# shellcheck disable=1090,2154
+#!/usr/bin/env perl
+#
+# Copyright 2014 Pierre Mavro <deimos@deimos.fr>
+# Copyright 2014 Vivien Didelot <vivien@didelot.org>
+# Copyright 2014 Andreas Guldstrand <andreas.guldstrand@gmail.com>
+#
+# Licensed under the terms of the GNU GPL v3, or any later version.
 
-notif_identifier="i3b$(echo "$0" | tr '/' '\n' | tail -1)"
-notif="notify-send -h string:x-canonical-private-synchronous:$notif_identifier"
-. "${XDG_CACHE_HOME-$HOME/.cache}/wal/colors.sh"
+use strict;
+use warnings;
+use utf8;
+use Getopt::Long;
 
-# icon=
-icon=
+# default values
+my $t_warn = $ENV{T_WARN} // 50;
+my $t_crit = $ENV{T_CRIT} // 80;
+my $cpu_usage = -1;
+my $decimals = $ENV{DECIMALS} // 2;
+my $label = $ENV{LABEL} // "";
+my $color_normal = $ENV{COLOR_NORMAL} // "#EBDBB2";
+my $color_warn = $ENV{COLOR_WARN} // "#FFFC00";
+my $color_crit = $ENV{COLOR_CRIT} // "#FF0000";
 
-blockcolor=$color2
-txtcolor=$color8
+sub help {
+    print "Usage: cpu_usage [-w <warning>] [-c <critical>] [-d <decimals>]\n";
+    print "-w <percent>: warning threshold to become yellow\n";
+    print "-c <percent>: critical threshold to become red\n";
+    print "-d <decimals>:  Use <decimals> decimals for percentage (default is $decimals) \n"; 
+    exit 0;
+}
 
-case $BLOCK_BUTTON in
-    1) # Left Click
-        $notif -i ~/.local/bin/i3blocks/img/cpu.png \
-            "My $(neofetch cpu | awk '{$1="";print}' | xargs)" "$(sensors |
-                grep die -B2 -A6)";;
-    3) # Right Click
-        $notif -i ~/.local/bin/i3blocks/img/cpu.png \
-            "$(neofetch cpu | awk '{$1="";print}' | awk -F@ '{print $1}' |
-                xargs) Usage" "$(ps axch -o cmd:15,%cpu --sort=-%cpu | head)";;
-            esac
+GetOptions("help|h" => \&help,
+           "w=i"    => \$t_warn,
+           "c=i"    => \$t_crit,
+           "d=i"    => \$decimals,
+);
 
-usage=$(echo "$(ps aux |
-    awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')/$(nproc)" | bc)
+# Get CPU usage
+$ENV{LC_ALL}="en_US"; # if mpstat is not run under en_US locale, things may break, so make sure it is
+open (MPSTAT, 'mpstat 1 1 |') or die;
+while (<MPSTAT>) {
+    if (/^.*\s+(\d+\.\d+)[\s\x00]?$/) {
+        $cpu_usage = 100 - $1; # 100% - %idle
+        last;
+    }
+}
+close(MPSTAT);
 
-clock=$(awk '/cpu MHz/ {sum += $4/1000; ++ncol} END {printf "%.1f\n", sum/ncol}' /proc/cpuinfo)
+$cpu_usage eq -1 and die 'Can\'t find CPU information';
 
-power_usage=$(sensors | awk '/P_Core/{$1=""; print}' | sed 's/ //g')
+# Print short_text, full_text
+print "${label}";
+printf "%.${decimals}f%%\n", $cpu_usage;
+print "${label}";
+printf "%.${decimals}f%%\n", $cpu_usage;
 
-temp=$(sensors | awk '/die/ {print $2}' | sed 's/+//')
+# Print color, if needed
+if ($cpu_usage >= $t_crit) {
+    print "${color_crit}\n";
+} elsif ($cpu_usage >= $t_warn) {
+    print "${color_warn}\n";
+} else {
+    print "${color_normal}\n";
+}
 
-printf "\
-<b><span foreground='$blockcolor' background='$color0'></span>\
-<span foreground='$txtcolor' background='$blockcolor'> %s </span>\
-<span foreground='$color0' background='$blockcolor'></span></b>\n" \
-"${icon} ${usage}% ${clock}GHz ${power_usage} ${temp}"
+exit 0;
