@@ -1,5 +1,5 @@
 # backup misc
-0 */3 * * * ~/.local/bin/general-backup
+0 */15 * * * ~/.local/bin/general-backup
 
 # todoist notifier
 */15 * * * * node ~/Development/automation-scripts/todoist-notifier/index.js
