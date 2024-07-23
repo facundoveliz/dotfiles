@@ -230,7 +230,7 @@ def getUnencryptedPartitionOutput(path):
             spaceAvail = READONLY_INDICATOR
         else:
             spaceAvail = pangoEscape(getSpaceAvailable(path))
-        mountPoint = "{}:".format(pangoEscape(mountPoint))
+        mountPoint = "".format(pangoEscape(mountPoint))
     else:
         color = PLUGGED_COLOR
         spaceAvail = ""
