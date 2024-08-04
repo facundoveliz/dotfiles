@@ -46,6 +46,3 @@ keymap("n", "tc", "<cmd>bp|bd #<CR>", opts)
 keymap("n", "tx", "<cmd>bp|bd! #<CR>", opts)
 keymap("n", "<S-l>", "<cmd>bn<CR>", opts)
 keymap("n", "<S-h>", "<cmd>bp<CR>", opts)
-
--- zenmode
-keymap("n", "<leader>zz", "<cmd>ZenMode<cr>", opts)

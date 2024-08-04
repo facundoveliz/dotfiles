@@ -41,19 +41,6 @@ vim.api.nvim_create_autocmd({ "TextYankPost" }, {
 	end,
 })
 
-vim.api.nvim_create_autocmd({ "BufRead" }, {
-	once = true,
-	pattern = {
-		"*.vimwiki",
-		"*.md",
-	},
-	callback = function()
-		vim.cmd([[
-      ZenMode
-    ]])
-	end,
-})
-
 -- reload file if contets changed
 vim.cmd([[
   set autoread
