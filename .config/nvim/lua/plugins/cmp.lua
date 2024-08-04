@@ -109,6 +109,7 @@ return {
 					lua = { "stylua" },
 					markdown = { "markdownlint" },
 					vimwiki = { "markdownlint" },
+					typst = { "typstfmt" },
 				},
 				format_on_save = {
 					lsp_format = "fallback",
