@@ -105,11 +105,12 @@ return {
 					typescript = { "biome" },
 					typescriptreact = { "biome" },
 					svelte = { "biome" },
-					json = { "biome" },
+					json = { "biome", "yq" },
 					lua = { "stylua" },
 					markdown = { "markdownlint" },
 					vimwiki = { "markdownlint" },
 					typst = { "typstfmt" },
+					yaml = { "yq" },
 				},
 				format_on_save = {
 					lsp_format = "fallback",
