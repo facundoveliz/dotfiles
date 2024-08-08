@@ -44,7 +44,6 @@ return {
 				"pyright",
 				"svelte",
 				"markdown_oxide",
-				"tailwindcss",
 			}
 
 			for _, server in pairs(servers) do
