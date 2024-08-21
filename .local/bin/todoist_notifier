@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Load environment variables from .env file
+export $(grep -v '^#' ~/.local/bin/.env | xargs)
+
+# Fetch tasks from Todoist using curl
+response=$(curl -s -X GET https://api.todoist.com/rest/v2/tasks \
+  -H "Authorization: Bearer $TODOIST_TOKEN")
+
+# Count the number of incomplete tasks
+task_count=$(echo $response | jq '[.[] | select(.is_completed == false)] | length')
+
+# Check if there are any tasks
+if [ $task_count -ge 1 ]; then
+  # Send a notification with the task count
+  DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus \
+  notify-send "Todoist" "There are currently <b>$task_count tasks</b> pending."
+else
+  # No tasks, no notification needed
+  exit 0
+fi
+
+# Handle potential errors
+if [ $? -ne 0 ]; then
+  DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus \
+  notify-send "Todoist" "An error occurred."
+fi
