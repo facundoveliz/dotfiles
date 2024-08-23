@@ -1,2 +1,16 @@
-[gcloud]
-disabled = true
+format = "$os[$username](yellow)[@](cyan)[$hostname](green) $directory$character"
+
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+
+[username]
+show_always = true
+format = "[$user]($style)"
+
+[hostname]
+ssh_only = false
+format = "[$hostname]($style)"
+
+[directory]
+read_only = ""
