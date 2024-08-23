@@ -2,7 +2,7 @@
 0 */15 * * * ~/.local/bin/general-backup
 
 # todoist notifier
-*/15 * * * * node ~/Development/automation-scripts/todoist-notifier/index.js
+*/15 * * * * ~/.local/bin/todoist_notifier
 
 # backup crontab
 */60 * * * * crontab -l > ~/.dotfiles/crontab.txt
