@@ -1,4 +1,4 @@
-dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
+# dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY
 
 # misc
 xset s off # turn off screensaver
@@ -11,14 +11,14 @@ setxkbmap -option caps:escape
 setxkbmap -option compose:menu
 
 # scripts
-node ~/Dev/automation-scripts/todoist-notifier/index.js &
+# node ~/Dev/automation-scripts/todoist-notifier/index.js &
 
 # execute Xmodmap
-[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+# [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 
 # polkit
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 udiskie &
 clipmenud &
-exec i3
+# exec i3
