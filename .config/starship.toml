@@ -1,4 +1,4 @@
-format = "$os[$username](yellow)[@](cyan)[$hostname](green) $directory$character"
+format = "[$username](yellow)[@](cyan)[$hostname](green) $directory$character "
 
 [character]
 success_symbol = '[➜](bold green)'
