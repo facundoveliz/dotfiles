@@ -30,6 +30,7 @@ exec_always --no-startup-id picom -b
 # apps
 
 exec --no-startup-id discord
+exec --no-startup-id keepassxc
 
 # open applications on specific workspaces
 
@@ -43,9 +44,6 @@ floating_modifier $mod
 bindsym $mod+Return             exec --no-startup-id st
 bindsym $mod+b                  exec --no-startup-id brave
 bindsym $mod+Shift+b            exec --no-startup-id brave --incognito
-bindsym $mod+g                  exec --no-startup-id qalculate-gtk
-
-# file manager
 bindsym $mod+t                  exec --no-startup-id thunar
 
 # dmenu
@@ -142,7 +140,6 @@ bindsym XF86AudioMute           exec --no-startup-id amixer sset Master toggle
 
 # mic mute toggle
 bindsym XF86AudioMicMute exec amixer sset Capture toggle
-
 
 # ================ workspaces ================
 
