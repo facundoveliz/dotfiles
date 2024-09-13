@@ -10,15 +10,7 @@ setxkbmap -layout us
 setxkbmap -option caps:escape
 setxkbmap -option compose:menu
 
-# scripts
-# node ~/Dev/automation-scripts/todoist-notifier/index.js &
-
-# execute Xmodmap
-# [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+export QT_QPA_PLATFORMTHEME=qt6ct
 
 # polkit
 # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-udiskie &
-clipmenud &
-# exec i3
