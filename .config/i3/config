@@ -26,6 +26,10 @@ exec_always --no-startup-id dunst
 exec_always --no-startup-id easyeffects --gapplication-service
 # composer
 exec_always --no-startup-id picom -b
+# automounter
+exec_always --no-startup-id udiskie
+# clipboard manager
+exec_always --no-startup-id clipmenud
 
 # apps
 
@@ -48,12 +52,9 @@ bindsym $mod+t                  exec --no-startup-id thunar
 
 # dmenu
 bindsym $mod+d                  exec --no-startup-id dmenu_run
-bindsym $mod+comma              exec --no-startup-id dmenu_books
-bindsym $mod+Shift+e            exec --no-startup-id dmenu_power
+bindsym $mod+p                  exec --no-startup-id ~/.local/bin/dmenu_power
 bindsym $mod+c                  exec --no-startup-id clipmenu -i
-bindsym $mod+Tab                exec --no-startup-id dmenu_window
-bindsym $mod+Menu               exec --no-startup-id dmenu_menus
-bindsym $mod+Delete             exec --no-startup-id dmenu_kill
+bindsym $mod+Delete             exec --no-startup-id ~/.local/bin/dmenu_kill
 bindsym $mod+BackSpace          exec --no-startup-id sh -c 'passmenu && clipdel -d "$(xsel -b)"'
 
 # screenshots
