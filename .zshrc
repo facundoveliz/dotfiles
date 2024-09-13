@@ -80,7 +80,9 @@ alias clipboard='xclip -selection clipboard' # copy command output when used on 
 alias tmp='cd $(mktemp -d)' # create temporal folder and cd into it
 alias please='sudo $(history -p !!)'
 alias lg='lazygit'
-alias update='sudo pacman -Syyu --noconfirm && paru -Syyu --noconfirm'
+alias update='sudo pacman -Syyu && paru -Syyu'
+alias maintenance='sudo reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist; sudo pacman -Syu; sudo pacman -Qtdq | sudo pacman -Rns -; sudo pacman -Scc && paru -Syyu' # get fastest mirrors, upgrade packages, remove orphans, clear cache
+
 alias paru='paru --skipreview'
 
 # listen mic
