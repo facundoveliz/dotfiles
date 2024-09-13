@@ -42,8 +42,6 @@ return {
 				"biome",
 				"typst_lsp",
 				"pyright",
-				"svelte",
-				"markdown_oxide",
 			}
 
 			for _, server in pairs(servers) do
