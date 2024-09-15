@@ -118,6 +118,7 @@ snap-pac
 snapper
 snapper-rollback
 snx-rs-git
+spectacle
 spotify
 starship
 steam
