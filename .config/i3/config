@@ -45,7 +45,7 @@ assign [title="(?i)discord"] → $ws3
 # use mouse+$mod to drag floating windows
 floating_modifier $mod
 
-bindsym $mod+Return             exec --no-startup-id st
+bindsym $mod+Return             exec --no-startup-id alacritty
 bindsym $mod+b                  exec --no-startup-id brave
 bindsym $mod+Shift+b            exec --no-startup-id brave --incognito
 bindsym $mod+t                  exec --no-startup-id thunar

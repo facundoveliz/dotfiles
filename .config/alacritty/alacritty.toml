@@ -1,0 +1,110 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.primary]
+background = '#1F1F1F'
+foreground = '#D4D4D4'
+
+[colors.cursor]
+text = "#1F1F1F"
+cursor = "#D4D4D4"
+
+[colors.normal]
+black = "#1F1F1F"
+red = "#F44747"
+green = "#6A9955"
+yellow = "#795E26"
+blue = "#007ACC"
+magenta = "#C586C0"
+cyan = "#4FC1FF"
+white = "#D4D4D4"
+
+[colors.bright]
+black = "#808080"
+
+[cursor]
+unfocused_hollow = false
+
+[cursor.style]
+blinking = "On"
+shape = "Beam"
+
+[font]
+size = 11.5
+
+[font.bold]
+style = "Semibold"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "B"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bd"
+key = "D"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "F"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bh"
+key = "H"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bj"
+key = "J"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bk"
+key = "K"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bl"
+key = "L"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Ba"
+key = "A"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u0000"
+key = "Space"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Space"
+mods = "Shift|Control"
+
+[[keyboard.bindings]]
+chars = "\u001E"
+key = "Key6"
+mods = "Control"
+
+[scrolling]
+history = 50000
+multiplier = 3
+
+[shell]
+args = ["--login"]
+program = "/bin/zsh"
+
+[window]
+dynamic_padding = true
+
+[window.padding]
+x = 4
+y = 4
