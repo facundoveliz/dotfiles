@@ -26,8 +26,8 @@ black = "#808080"
 unfocused_hollow = false
 
 [cursor.style]
-blinking = "On"
-shape = "Beam"
+blinking = "Off"
+shape = "Block"
 
 [font]
 size = 11.5
