@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Define LOCKER in .xprofile to set to different LOCKER program
-: "${LOCKER:=slock}"
-
 # use notify-send if run in dumb term
 OUTPUT="echo"
 if [[ ${TERM} == 'dumb' ]]; then
@@ -57,7 +54,7 @@ case $choice in
       ;;
     'Reboot to Windows')
       if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
-          systemctl reboot --boot-loader-entry=auto-windows
+          lockscreen || systemctl reboot --boot-loader-entry=auto-windows
       else
           output "User chose not to reboot." && exit 0
       fi
@@ -72,10 +69,11 @@ case $choice in
         fi
         ;;
     'Lock screen')
-        ${LOCKER}
+        lockscreen
         ;;
     'Suspend')
         if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
+            lockscreen ||
             systemctl suspend
         else
             output "User chose not to suspend." && exit 0
@@ -83,14 +81,14 @@ case $choice in
         ;;
     'Hibernate')
       if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
-          systemctl hibernate
+          lockscreen || systemctl hibernate
       else
           output "User chose not to hibernate." && exit 0
       fi
       ;;
     'Hibernate to Windows')
       if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
-          systemctl hibernate --boot-loader-entry=auto-windows
+          lockscreen || systemctl hibernate --boot-loader-entry=auto-windows
       else
           output "User chose not to hibernate." && exit 0
       fi
