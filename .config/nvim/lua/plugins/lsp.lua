@@ -38,7 +38,7 @@ return {
 
 			local servers = {
 				"lua_ls",
-				"tsserver",
+				"ts_ls",
 				"biome",
 				"typst_lsp",
 				"pyright",
