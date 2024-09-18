@@ -42,15 +42,13 @@ exec_always --no-startup-id picom -b
 exec_always --no-startup-id udiskie
 # clipboard manager
 exec_always --no-startup-id clipmenud
-# activity watch
-exec_always --no-startup-id aw-qt
-# screen locker
-exec_always --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 360 "i3lock" "" &
 
 # apps
 
 exec --no-startup-id discord
 exec --no-startup-id keepassxc
+exec --no-startup-id xidlehook --not-when-audio --not-when-fullscreen --timer 360 "betterlockscreen -l" "" &
+exec --no-startup-id aw-qt
 
 # open applications on specific workspaces
 
@@ -80,7 +78,7 @@ bindsym Shift+Print             exec flameshot screen -c -p "/mnt/1TB/Images/Scr
 bindsym Ctrl+Shift+Print        exec flameshot gui -r -s | tesseract - - -l spa+eng | xclip -selection clipboard
 
 # lock screen
-bindsym Mod1+l exec i3lock
+bindsym Mod1+l exec betterlockscreen -l
 
 # focus
 bindsym $mod+Left focus left
