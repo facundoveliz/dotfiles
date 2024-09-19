@@ -110,7 +110,7 @@ alias cat='bat'
 alias discord='LIBVA_DRIVER_NAME=radeonsi discord --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy'
 
 # pinentry use gtk3
-alias pinentry=pinentry-gnome3
+# alias pinentry=pinentry-gnome3
 
 # ================ keybinds ================
 bindkey -s "^k" 'zi\n'

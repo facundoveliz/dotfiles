@@ -3,6 +3,7 @@ alacritty
 base
 base-devel
 bat
+betterlockscreen
 bind
 biome-bin
 booster
@@ -35,7 +36,6 @@ helm
 htop
 i3-wm
 i3blocks
-i3lock
 jq
 jre17-openjdk
 jre21-openjdk
