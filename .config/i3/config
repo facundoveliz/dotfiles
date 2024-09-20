@@ -30,8 +30,6 @@ for_window [title="Preferences$"] floating enable
 
 # background image
 exec_always --no-startup-id source ~/.fehbg
-# networkmanager-applet
-exec_always --no-startup-id nm-applet
 # notifications
 exec_always --no-startup-id dunst
 # equalizer
@@ -45,20 +43,16 @@ exec_always --no-startup-id clipmenud
 
 # apps
 
-exec --no-startup-id brave
-exec --no-startup-id alacritty
-exec --no-startup-id discord
-exec --no-startup-id spotify-launcher
 exec --no-startup-id keepassxc
 exec --no-startup-id aw-qt
-exec --no-startup-id xidlehook --not-when-fullscreen --timer 300 "betterlockscreen -l" "" --timer 900 "systemctl suspend-then-hibernate" ""
+# exec --no-startup-id xidlehook --not-when-fullscreen --timer 300 "betterlockscreen -l" ""
 
 # open applications on specific workspaces
 
-assign [title="(?i)brave"] → $ws1
-assign [title="(?i)alacritty"] → $ws2
-assign [title="(?i)Spotify"] → $ws4
-assign [title="(?i)discord"] → $ws3
+# assign [title="(?i)brave"] → $ws1
+# assign [title="(?i)alacritty"] → $ws2
+# assign [title="(?i)Spotify"] → $ws4
+# assign [title="(?i)discord"] → $ws3
 
 # ================ keybindings ================
 
@@ -84,7 +78,7 @@ bindsym Shift+Print             exec flameshot screen -c -p "/mnt/1TB/Images/Scr
 bindsym Ctrl+Shift+Print        exec flameshot gui -r -s | tesseract - - -l spa+eng | xclip -selection clipboard
 
 # lock screen
-bindsym Mod1+l exec betterlockscreen -l & sleep 900 && systemctl suspend-then-hibernate
+bindsym $mod+u exec betterlockscreen -l
 
 # focus
 bindsym $mod+Left focus left
