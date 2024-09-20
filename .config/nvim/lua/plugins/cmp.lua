@@ -111,6 +111,7 @@ return {
 					vimwiki = { "markdownlint" },
 					typst = { "typstfmt" },
 					yaml = { "yq" },
+          python = { "ruff_format" },
 				},
 				-- format_on_save = {
 				-- 	lsp_format = "fallback",
@@ -141,6 +142,7 @@ return {
 				typescriptreact = { "biomejs" },
 				markdown = { "markdownlint" },
 				vimwiki = { "markdownlint" },
+				python = { "ruff" },
 			}
 
 			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

@@ -83,6 +83,8 @@ playerctl
 postgresql
 prismlauncher-qt5-bin
 protontricks-git
+pyright
+python-black
 qalculate-gtk
 qbittorrent
 rclone
@@ -93,6 +95,7 @@ ristretto
 rmlint
 rofi
 rsync
+ruff
 snap-pac
 snapper
 snx-rs-git
