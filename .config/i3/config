@@ -59,10 +59,13 @@ exec --no-startup-id aw-qt
 # use mouse+$mod to drag floating windows
 floating_modifier $mod
 
+# apps
 bindsym $mod+Return             exec --no-startup-id alacritty
 bindsym $mod+b                  exec --no-startup-id brave
 bindsym $mod+Shift+b            exec --no-startup-id brave --incognito
 bindsym $mod+t                  exec --no-startup-id thunar
+bindsym $mod+g                  exec --no-startup-id qalculate-gtk
+bindsym $mod+m                  exec --no-startup-id keepassxc
 
 # dmenu
 bindsym $mod+d                  exec --no-startup-id dmenu_run
@@ -239,6 +242,6 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bar {
   status_command i3blocks -c ~/.config/i3/i3blocks.conf
-  tray_output DP-1
+  # tray_output DP-1
   font pango:DejaVu 8
 }
