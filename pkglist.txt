@@ -32,6 +32,7 @@ fzf
 garcon
 gd
 git
+gnome-keyring
 helm
 htop
 i3-wm
@@ -55,11 +56,14 @@ linux-zen
 linux-zen-headers
 lsp-plugins
 lua-language-server
+lutris
 lxappearance-gtk3
 man-db
 mangohud
 markdownlint-cli
 minikube
+mongodb-bin
+mongodb-compass
 mousepad
 mpv
 neofetch
@@ -85,6 +89,9 @@ prismlauncher-qt5-bin
 protontricks-git
 pyright
 python-black
+python-pandas
+python-prettytable
+python-pymongo
 qalculate-gtk
 qbittorrent
 rclone
