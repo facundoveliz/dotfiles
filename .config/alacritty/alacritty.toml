@@ -30,7 +30,7 @@ blinking = "Off"
 shape = "Block"
 
 [font]
-size = 11.5
+size = 10
 
 [font.bold]
 style = "Semibold"
