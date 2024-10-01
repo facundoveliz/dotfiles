@@ -26,6 +26,7 @@ eza
 fd
 feh
 ffmpegthumbs
+file-roller
 firefox
 flameshot
 fzf
@@ -118,6 +119,7 @@ thunar-archive-plugin
 thunar-media-tags-plugin
 thunar-volman
 tmux
+ttf-carlito
 ttf-jetbrains-mono-nerd
 tumbler
 typescript-language-server
@@ -194,6 +196,8 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+xss-lock
+yq
 zam-plugins
 zathura
 zathura-cb
