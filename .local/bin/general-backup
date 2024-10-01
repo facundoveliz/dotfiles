@@ -3,7 +3,7 @@
 # sync documents locally
 rsync -av --progress --delete ~/Documents /mnt/1TB
 rsync -av --progress --delete ~/Notes /mnt/1TB
-rsync -av --progress --delete ~/Books /mnt/1TB
+# rsync -av --progress --delete ~/Books /mnt/1TB
 
 # notes
 rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Notes" "gdrive-facundoveliz9@gmail.com:/Notes/"
