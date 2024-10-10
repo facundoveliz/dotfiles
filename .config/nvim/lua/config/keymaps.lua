@@ -46,3 +46,6 @@ keymap("n", "tc", "<cmd>bp|bd #<CR>", opts)
 keymap("n", "tx", "<cmd>bp|bd! #<CR>", opts)
 keymap("n", "<S-l>", "<cmd>bn<CR>", opts)
 keymap("n", "<S-h>", "<cmd>bp<CR>", opts)
+
+-- nvim-tree
+keymap("n", "<C-b>", "<cmd>NvimTreeFindFileToggle<CR>", opts)
