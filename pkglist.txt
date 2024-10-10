@@ -1,5 +1,6 @@
 activitywatch-bin
 alacritty
+android-studio
 base
 base-devel
 bat
@@ -14,6 +15,7 @@ clipmenu
 cronie
 cups
 cups-pdf
+dbeaver
 discord
 dnsmasq
 docker
@@ -27,6 +29,7 @@ fd
 feh
 ffmpegthumbs
 file-roller
+filezilla
 firefox
 flameshot
 fzf
@@ -34,6 +37,7 @@ garcon
 gd
 git
 gnome-keyring
+gvfs
 helm
 htop
 i3-wm
@@ -107,12 +111,13 @@ ruff
 snap-pac
 snapper
 snx-rs-git
-spotify-launcher
+spotify
 starship
 steam
 stow
 stylua
 syncthing
+teams
 terraform
 thunar
 thunar-archive-plugin
@@ -140,6 +145,7 @@ webtorrent-cli
 wget
 wine-staging
 winetricks
+winscp
 xf86-video-vesa
 xfce4-appfinder
 xfce4-battery-plugin
