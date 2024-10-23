@@ -30,6 +30,8 @@ for_window [title="Preferences$"] floating enable
 
 # background image
 exec_always --no-startup-id source ~/.fehbg
+# networkmanager-applet
+exec_always --no-startup-id nm-applet
 # notifications
 exec_always --no-startup-id dunst
 # equalizer
@@ -242,7 +244,8 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bar {
   status_command i3blocks -c ~/.config/i3/i3blocks.conf
-  tray_output DP-1
+  tray_output none
+  # tray_output primary
   wheel_up_cmd nop
   wheel_down_cmd nop
   font pango:DejaVu 8
