@@ -24,6 +24,7 @@ droidcam
 dunst
 dust
 easyeffects
+eovpn
 eza
 fd
 feh
@@ -73,7 +74,9 @@ mousepad
 mpv
 neofetch
 neovim
+network-manager-applet
 networkmanager
+networkmanager-openvpn
 nodejs
 noto-fonts
 noto-fonts-cjk
@@ -83,6 +86,7 @@ npm
 ntfs-3g
 obsidian-bin
 openssh
+openvpn
 pass
 pavucontrol
 picom
@@ -111,7 +115,7 @@ ruff
 snap-pac
 snapper
 snx-rs-git
-spotify
+spotify-launcher
 starship
 steam
 stow
@@ -202,6 +206,7 @@ xorg-xwayland
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+xpadneo-dkms
 xss-lock
 yq
 zam-plugins
