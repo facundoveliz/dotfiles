@@ -9,6 +9,8 @@ return {
 			italic_comments = true,
 			color_overrides = {
 				vscLineNumber = "#FFFFFF",
+				vscBack = "#0f0f0f",
+        vscDimHighlight = "NONE"
 			},
 			group_overrides = {
 				Whitespace = {
