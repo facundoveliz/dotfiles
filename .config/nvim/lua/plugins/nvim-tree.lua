@@ -11,7 +11,7 @@ return {
 			view = {
 				number = true,
 				relativenumber = true,
-        side = "right",
+        -- side = "right",
 				signcolumn = "yes",
 				width = 45,
 				preserve_window_proportions = true,
