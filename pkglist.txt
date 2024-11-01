@@ -24,6 +24,7 @@ droidcam
 dunst
 dust
 easyeffects
+entr
 eovpn
 eza
 fd
@@ -37,6 +38,7 @@ fzf
 garcon
 gd
 git
+gitkraken
 gnome-keyring
 gvfs
 helm
@@ -85,6 +87,7 @@ noto-fonts-extra
 npm
 ntfs-3g
 obsidian-bin
+okular
 openssh
 openvpn
 pass
@@ -209,6 +212,7 @@ xorg-xwud
 xpadneo-dkms
 xss-lock
 yq
+yt-dlp
 zam-plugins
 zathura
 zathura-cb
