@@ -36,6 +36,7 @@ firefox
 flameshot
 fzf
 garcon
+gcolor3
 gd
 git
 gitkraken
