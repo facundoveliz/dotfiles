@@ -244,8 +244,8 @@ bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bar {
   status_command i3blocks -c ~/.config/i3/i3blocks.conf
-  tray_output none
-  # tray_output primary
+  # tray_output none
+  tray_output primary
   wheel_up_cmd nop
   wheel_down_cmd nop
   font pango:DejaVu 8
