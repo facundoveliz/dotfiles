@@ -2,7 +2,7 @@
 draw_bold_text_with_bright_colors = true
 
 [colors.primary]
-background = '#090909'
+background = '#1c1c1c'
 foreground = '#D4D4D4'
 
 [colors.cursor]
@@ -30,7 +30,7 @@ blinking = "Off"
 shape = "Block"
 
 [font]
-size = 10
+size = 9
 
 [font.bold]
 style = "Semibold"
