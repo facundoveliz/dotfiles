@@ -193,6 +193,23 @@ function fzf-cd-incl-hidden() {
   ls
 }
 
+# throttle bandwidth
+addThrottle() {
+    local kbs="kbps"
+    echo $kbs
+    echo "About to throttle to $1 $kbs"
+    echo "sudo tc qdisc add dev enp6s0 handle 1: root htb default 11"
+    echo "sudo tc class add dev enp6s0 parent 1: classid 1:1 htb rate $1$kbs"
+    echo "sudo tc class add dev enp6s0 parent 1:1 classid 1:11 htb rate $1$kbs"
+    sudo tc qdisc add dev enp6s0 handle 1: root htb default 11
+    sudo tc class add dev enp6s0 parent 1: classid 1:1 htb rate $1$kbs
+    sudo tc class add dev enp6s0 parent 1:1 classid 1:11 htb rate $1$kbs
+}
+
+removeThrottle() {
+    sudo tc qdisc del dev enp6s0 root
+}
+
 # Loads FZF keybindings, replacing native reverse search etc with FZF
 [[ -e "/usr/share/fzf/key-bindings.zsh" ]] \
   && source "/usr/share/fzf/key-bindings.zsh"
