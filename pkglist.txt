@@ -1,6 +1,7 @@
 activitywatch-bin
 alacritty
 android-studio
+arandr
 base
 base-devel
 bat
@@ -38,6 +39,7 @@ fzf
 garcon
 gcolor3
 gd
+gimp
 git
 gitkraken
 gnome-keyring
@@ -53,6 +55,7 @@ jre8-openjdk
 keepassxc
 kubectl
 lazygit
+lib32-vulkan-radeon
 libreoffice-fresh
 lightdm
 lightdm-gtk-greeter
@@ -98,7 +101,7 @@ pipewire-alsa
 pipewire-pulse
 playerctl
 postgresql
-prismlauncher-qt5-bin
+prismlauncher
 protontricks-git
 pyright
 python-black
@@ -116,6 +119,7 @@ rmlint
 rofi
 rsync
 ruff
+skypeforlinux-bin
 snap-pac
 snapper
 snx-rs-git
@@ -131,6 +135,7 @@ thunar
 thunar-archive-plugin
 thunar-media-tags-plugin
 thunar-volman
+thunderbird
 tmux
 ttf-carlito
 ttf-jetbrains-mono-nerd
