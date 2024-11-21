@@ -7,6 +7,7 @@ return {
 		require("telescope").setup({
 			defaults = {
 				file_ignore_patterns = { "*.stfolder/", "*.stversions/" },
+				layout_strategy = "vertical",
 				mappings = {
 					i = {
 						["<C-j>"] = require("telescope.actions").move_selection_next,
