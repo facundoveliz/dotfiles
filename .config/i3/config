@@ -48,7 +48,13 @@ exec_always --no-startup-id clipmenud
 
 exec --no-startup-id keepassxc
 exec --no-startup-id aw-qt
-# exec --no-startup-id xidlehook --not-when-fullscreen --timer 300 "betterlockscreen -l" ""
+exec --no-startup-id xidlehook \
+--detect-sleep \
+--not-when-audio \
+--not-when-fullscreen \
+--timer 300 'xset dpms force standby' '' \
+--timer 120 'i3lock -c 1c1c1c' '' \
+--timer 3600 'systemctl hybrid-sleep' ''
 
 # open applications on specific workspaces
 
@@ -157,13 +163,9 @@ bindsym XF86AudioNext           exec --no-startup-id playerctl next
 bindsym XF86AudioPrev           exec --no-startup-id playerctl previous
 bindsym XF86AudioRaiseVolume    exec --no-startup-id pactl set-sink-volume 0 +2%
 bindsym XF86AudioLowerVolume    exec --no-startup-id pactl set-sink-volume 0 -2%
-# mute
-bindsym XF86AudioMute           exec --no-startup-id amixer sset Master toggle
-# use meta keys showing osc using dunst
-# bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/scripts/volume_brightness.sh volume_mute
 
-# mic mute toggle
-bindsym XF86AudioMicMute exec amixer sset Capture toggle
+# lockscreen
+bindsym $mod+o exec --no-startup-id i3lock -c 1c1c1c
 
 # ================ workspaces ================
 
