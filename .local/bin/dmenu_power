@@ -21,6 +21,7 @@ declare -a options=(
 "Shutdown"
 "Suspend"
 "Hibernate"
+"Hybrid Hibernation"
 "Hibernate to Windows"
 "Lock screen"
 "Logout"
@@ -54,7 +55,7 @@ case $choice in
       ;;
     'Reboot to Windows')
       if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
-          lockscreen || systemctl reboot --boot-loader-entry=auto-windows
+          i3lock -c 1c1c1c && systemctl reboot --boot-loader-entry=auto-windows
       else
           output "User chose not to reboot." && exit 0
       fi
@@ -69,26 +70,32 @@ case $choice in
         fi
         ;;
     'Lock screen')
-        lockscreen
+        i3lock -c 1c1c1c
         ;;
     'Suspend')
         if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
-            lockscreen ||
-            systemctl suspend
+            i3lock -c 1c1c1c && systemctl suspend
         else
             output "User chose not to suspend." && exit 0
         fi
         ;;
     'Hibernate')
       if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
-          lockscreen || systemctl hibernate
+          i3lock -c 1c1c1c && systemctl hibernate
+      else
+          output "User chose not to hibernate." && exit 0
+      fi
+      ;;
+    'Hybrid Hibernation')
+      if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
+          i3lock -c 1c1c1c && systemctl hybrid-sleep
       else
           output "User chose not to hibernate." && exit 0
       fi
       ;;
     'Hibernate to Windows')
       if [[ "$(echo -e "No\nYes" | dmenu -i -p "${choice}?" "${@}" )" == "Yes" ]]; then
-          lockscreen || systemctl hibernate --boot-loader-entry=auto-windows
+          i3lock -c 1c1c1c && systemctl hibernate --boot-loader-entry=auto-windows
       else
           output "User chose not to hibernate." && exit 0
       fi

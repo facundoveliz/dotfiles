@@ -80,6 +80,7 @@ alias clipboard='xclip -selection clipboard' # copy command output when used on 
 alias tmp='cd $(mktemp -d)' # create temporal folder and cd into it
 alias please='sudo $(history -p !!)'
 alias lg='lazygit'
+alias print-changes='git --no-pager diff --staged'
 alias update='sudo pacman -Syyu && paru -Syyu'
 alias maintenance='sudo reflector --verbose --latest 10 --sort rate --save /etc/pacman.d/mirrorlist; sudo pacman -Syu; sudo pacman -Qtdq | sudo pacman -Rns -; sudo pacman -Scc && paru -Syyu' # get fastest mirrors, upgrade packages, remove orphans, clear cache
 
@@ -103,9 +104,6 @@ alias mv='mv -vi'
 # ls replacement
 alias ls='exa --color=auto --group-directories-first'
 alias la='exa -ahl --color=always --group-directories-first --sort extension'
-
-# cat replacement
-alias cat='bat'
 
 alias discord='LIBVA_DRIVER_NAME=radeonsi discord --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy'
 
@@ -174,7 +172,7 @@ function dl-music() {
 
 # movie/tv-show torrenting
 function torrent() {
-  webtorrent "$@" -o /mnt/1TB/Media -d 6000 -u 700 --on-done "notify-send 'Webtorrent' 'The torrent finished downloading'"
+  webtorrent "$@" -o /mnt/1TB/Media --on-done "notify-send 'Webtorrent' 'The torrent finished downloading'"
 }
 
 # nodemon for java

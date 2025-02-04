@@ -9,3 +9,9 @@ xset r rate 351 60 # keyboard repeat rate
 setxkbmap -layout us
 setxkbmap -option caps:escape
 setxkbmap -option compose:menu
+
+# monitor setup
+~/.screenlayout/sidescreen_izquierda.sh
+
+# automated partitions in i3blocks
+~/.config/i3/scripts/data_partitions.sh

@@ -3,14 +3,19 @@
 # sync documents locally
 rsync -av --progress --delete ~/Documents /mnt/1TB
 rsync -av --progress --delete ~/Notes /mnt/1TB
-# rsync -av --progress --delete ~/Books /mnt/1TB
+rsync -av --progress --delete ~/.local/share/PrismLauncher/instances/1.20.1 /mnt/1TB/Games/Saves/
 
 # notes
-rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Notes" "gdrive-facundoveliz9@gmail.com:/Notes/"
-rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Notes" "protondrive-facundoveliz9@proton.me:/Notes/"
-rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Notes" "dropbox-facundoveliz9@gmail.com:/Notes/"
+rclone sync --verbose --bwlimit 3M:300k "/home/fveliz/Notes" "gdrive-facundoveliz9@gmail.com:/Notes/"
+rclone sync --verbose --bwlimit 3M:300k "/home/fveliz/Notes" "protondrive-facundoveliz9@proton.me:/Notes/"
+rclone sync --verbose --bwlimit 3M:300k "/home/fveliz/Notes" "dropbox-facundoveliz9@gmail.com:/Notes/"
 
 # misc personal documents
-rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Documents" "gdrive-facundoveliz9@gmail.com:/Documents/"
-rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Documents" "protondrive-facundoveliz9@proton.me:/Documents/"
-rclone sync --verbose --bwlimit 3M:300k "/home/facundo/Documents" "dropbox-facundoveliz9@gmail.com:/Documents/"
+rclone sync --verbose --bwlimit 3M:300k "/home/fveliz/Documents" "gdrive-facundoveliz9@gmail.com:/Documents/"
+rclone sync --verbose --bwlimit 3M:300k "/home/fveliz/Documents" "protondrive-facundoveliz9@proton.me:/Documents/"
+rclone sync --verbose --bwlimit 3M:300k "/home/fveliz/Documents" "dropbox-facundoveliz9@gmail.com:/Documents/"
+
+# savegames
+# rclone sync --verbose --bwlimit 3M:300k "/home/fveliz/.local/share/PrismLauncher/instances/1.20.1/.minecraft/saves/Temerant" "gdrive-facundoveliz9@gmail.com:/Temerant/"
+# rclone sync --verbose --bwlimit 3M:300k "/home/fveliz/.local/share/PrismLauncher/instances/1.20.1/.minecraft/saves/Temerant" "protondrive-facundoveliz9@proton.me:/Temerant/"
+# rclone sync --verbose --bwlimit 3M:300k "/home/fveliz/.local/share/PrismLauncher/instances/1.20.1/.minecraft/saves/Temerant" "dropbox-facundoveliz9@gmail.com:/Temerant/"

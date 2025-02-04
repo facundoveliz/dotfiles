@@ -3,7 +3,6 @@ return {
 	dependencies = { { "nvim-telescope/telescope-fzf-native.nvim", build = "make", lazy = true } },
 	cmd = "Telescope",
 	config = function()
-		pcall(require("telescope").load_extension, "fzf")
 		require("telescope").setup({
 			defaults = {
 				file_ignore_patterns = { "*.stfolder/", "*.stversions/" },
@@ -19,6 +18,7 @@ return {
 				fzf = {},
 			},
 		})
+		pcall(require("telescope").load_extension, "fzf")
 	end,
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files hidden=true follow=true<cr>" },
