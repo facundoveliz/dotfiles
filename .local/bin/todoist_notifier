@@ -12,9 +12,19 @@ task_count=$(echo $response | jq '[.[] | select(.is_completed == false)] | lengt
 
 # Check if there are any tasks
 if [ $task_count -ge 1 ]; then
-  # Send a notification with the task count
-  DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus \
-  notify-send "Todoist" "There are currently <b>$task_count tasks</b> pending."
+  # Get the user ID
+  USER_ID=$(id -u fveliz)
+  
+  # Set up audio environment variables
+  export XDG_RUNTIME_DIR="/run/user/$USER_ID"
+  export PULSE_SERVER="unix:/run/user/$USER_ID/pulse/native"
+  export DISPLAY=:0 
+  export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$USER_ID/bus"
+
+  # Send notification and play sound
+  notify-send "Todoist" "There are currently <b>$task_count tasks</b> pending." && \
+  /usr/bin/mplayer "/home/fveliz/.local/bin/half_life_2_low_ammo.mp3" -volume 100
+
 else
   # No tasks, no notification needed
   exit 0
@@ -22,6 +32,6 @@ fi
 
 # Handle potential errors
 if [ $? -ne 0 ]; then
-  DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus \
+  DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$USER_ID/bus \
   notify-send "Todoist" "An error occurred."
 fi

@@ -1,8 +1,8 @@
 # backup misc
 0 */15 * * * ~/.local/bin/general-backup
 
-# todoist notifier
-*/5 * * * * ~/.local/bin/todoist_notifier
+# todoist notifier with sound
+*/1 * * * * DISPLAY=:0 XDG_RUNTIME_DIR=/run/user/$(id -u) /bin/bash -l -c '~/.local/bin/todoist_notifier'
 
 # backup crontab
 */60 * * * * crontab -l > ~/.dotfiles/crontab.txt

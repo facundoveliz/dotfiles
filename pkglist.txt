@@ -1,5 +1,6 @@
 activitywatch-bin
 alacritty
+anydesk-bin
 arandr
 base
 base-devel
@@ -23,6 +24,7 @@ docker-compose
 droidcam
 dunst
 dust
+dwarfs-bin
 easyeffects
 entr
 eovpn
@@ -35,6 +37,7 @@ filezilla
 firefox
 flameshot
 fluent-reader
+fuse-overlayfs
 fzf
 garcon
 gcolor3
@@ -84,6 +87,7 @@ mongodb-bin
 mongodb-compass
 motrix-bin
 mousepad
+mplayer
 mpv
 neofetch
 neovim
@@ -104,6 +108,8 @@ openrgb
 openssh
 openvpn
 parsec-bin
+paru
+paru-debug
 pass
 pavucontrol
 picom
@@ -128,15 +134,18 @@ ripgrep
 ristretto
 rmlint
 rofi
+rpcs3-bin
 rsync
 ruff
 rustdesk-bin
 snap-pac
 snapper
 snx-rs-git
+sox
 spotify-launcher
 starship
 steam
+steamcmd
 stow
 stylua
 syncthing
@@ -172,6 +181,7 @@ wget
 wine-staging
 winetricks
 winscp
+xboxdrv
 xf86-video-vesa
 xfce4-appfinder
 xfce4-battery-plugin
