@@ -56,6 +56,8 @@ exec --no-startup-id udiskie
 exec --no-startup-id clipmenud
 # automated partitions in i3blocks
 exec --no-startup-id ~/.config/i3/scripts/data_partitions.sh
+exec --no-startup-id ~/.screenlayout/normal.sh
+exec_always --no-startup-id ~/.local/bin/keys
 
 # open applications on specific workspaces
 # assign [title="(?i)brave"] → $ws1
@@ -70,8 +72,8 @@ floating_modifier $mod
 
 # apps
 bindsym $mod+Return             exec --no-startup-id alacritty
-bindsym $mod+b                  exec --no-startup-id brave
-bindsym $mod+Shift+b            exec --no-startup-id brave --incognito
+bindsym $mod+b                  exec --no-startup-id firefox
+bindsym $mod+Shift+b            exec --no-startup-id firefox --private-window
 bindsym $mod+t                  exec --no-startup-id thunar
 bindsym $mod+g                  exec --no-startup-id qalculate-gtk
 bindsym $mod+m                  exec --no-startup-id keepassxc

@@ -60,6 +60,15 @@ export PULSE_LATENCY_MSEC=60 set
 # fix java fonts
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 
+# rocm setup
+export ROCM_PATH=/opt/rocm
+export HSA_OVERRIDE_GFX_VERSION=10.3.0
+
+# pyenv setup
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+
 # ================ auto start ================
 
 # auto startx
@@ -226,3 +235,7 @@ eval "$(starship init zsh)"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# ssh-agent
+# eval "$(ssh-agent -s)"
+# ssh-add ~/.ssh/servarica
