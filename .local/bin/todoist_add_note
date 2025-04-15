@@ -1,0 +1,110 @@
+#!/bin/bash
+
+# Todoist Task Creation Script
+# Adds a task to Todoist if it doesn't already exist
+
+# Fail on any error
+set -eo pipefail
+
+# Load environment variables securely
+load_env() {
+    local env_file="${HOME}/.local/bin/.env"
+    if [ ! -f "$env_file" ]; then
+        echo "Error: Environment file not found at $env_file" >&2
+        exit 1
+    fi
+    export $(grep -v '^#' "$env_file" | xargs)
+}
+
+# Validate API token
+validate_token() {
+    if [ -z "$TODOIST_TOKEN" ]; then
+        echo "Error: Todoist API token is missing" >&2
+        exit 1
+    fi
+}
+
+# Fetch projects with error handling
+get_projects() {
+    local projects
+    projects=$(curl -sS -X GET "https://api.todoist.com/rest/v2/projects" \
+        -H "Authorization: Bearer $TODOIST_TOKEN")
+    
+    # Validate JSON response
+    if ! echo "$projects" | jq empty >/dev/null 2>&1; then
+        echo "Error: Invalid projects API response" >&2
+        exit 1
+    fi
+    
+    echo "$projects"
+}
+
+# Check if task already exists
+task_exists() {
+    local project_id="$1"
+    local task_text="$2"
+    
+    local existing_tasks
+    existing_tasks=$(curl -sS -X GET "https://api.todoist.com/rest/v2/tasks?project_id=$project_id" \
+        -H "Authorization: Bearer $TODOIST_TOKEN")
+    
+    # Use jq to check for existing uncompleted tasks
+    echo "$existing_tasks" | jq -r --arg task "$task_text" \
+        '[.[] | select(.content == $task and .is_completed == false)] | length'
+}
+
+# Create a new task
+create_task() {
+    local project_id="$1"
+    local task_text="$2"
+    
+    local create_response
+    create_response=$(curl -sS -X POST "https://api.todoist.com/rest/v2/tasks" \
+        -H "Authorization: Bearer $TODOIST_TOKEN" \
+        -H "Content-Type: application/json" \
+        -d "{\"project_id\": \"$project_id\", \"content\": \"$task_text\"}")
+    
+    # Check if task was created successfully
+    if [ -n "$create_response" ]; then
+        return 0
+    else
+        echo "Failed to create task" >&2
+        return 1
+    fi
+}
+
+# Main script execution
+main() {
+    # Configuration - use first argument if provided, otherwise use default
+    local TASK_TEXT="${1:-Weekly project review and planning}"
+    
+    # Setup and validation
+    load_env
+    validate_token
+    
+    # Get projects and select first (Inbox)
+    local projects
+    projects=$(get_projects)
+    
+    local PROJECT_ID
+    PROJECT_ID=$(echo "$projects" | jq -r '.[0].id')
+    
+    # Check if task exists
+    local task_count
+    task_count=$(task_exists "$PROJECT_ID" "$TASK_TEXT")
+    
+    # Create task if it doesn't exist
+    if [ "$task_count" -eq 0 ]; then
+        if create_task "$PROJECT_ID" "$TASK_TEXT"; then
+            # Optional desktop notification
+            notify-send "Todoist" "New task added: $TASK_TEXT"
+            echo "Task created successfully"
+        fi
+    else
+        echo "Task already exists. Skipping creation."
+        notify-send "Todoist" "Task already exists: $TASK_TEXT"
+    fi
+}
+
+# Run the script
+main "$@"

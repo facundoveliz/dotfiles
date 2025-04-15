@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Switch to workspace 9
+i3-msg "workspace 9"
+
+# Kill any existing mpv instances with camera window class/instances
+# First try using i3 commands which is more reliable for i3-managed windows
+for camera_id in "camera01" "camera02" "camera03" "camera04"; do
+  i3-msg "[instance=\"$camera_id\"] kill" 
+done
+
+# As a backup, also try to kill by process
+pkill -f "mpv --x11-name=camera0[1-4]"
+
+# Give the system time to clean up before starting new instances
+sleep 1
+# Restore the layout
+i3-msg "append_layout ~/.config/i3/layouts/cameras-vertical.json"
+
+# Launch mpv with named instances for each camera
+# Using the cameras from your image (01, 02, and 04)
+mpv --x11-name=camera01 --mute=yes rtsp://admin:calambur451@192.168.0.234:554/Streaming/Channels/101 &
+mpv --x11-name=camera02 --mute=yes rtsp://admin:calambur451@192.168.0.234:554/Streaming/Channels/201 &
+mpv --x11-name=camera04 --mute=yes rtsp://admin:calambur451@192.168.0.234:554/Streaming/Channels/401 &

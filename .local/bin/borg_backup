@@ -1,0 +1,139 @@
+#!/bin/bash
+# Borg Backup Script - Optimized version
+
+# Configuration
+BORG_PASSPHRASE='.%M2?]{r.im6d="z'
+EXCLUDE_FILE="$HOME/.config/borg-excludes"
+LOCAL_REPO="/mnt/1TB/borg_backup"
+REMOTE_HOST="root@38.102.84.90"
+REMOTE_REPO="$REMOTE_HOST:/root/borg_backup"
+SSH_KEY="/home/fveliz/.ssh/backup_key"
+BACKUP_SOURCE="/home/fveliz"
+
+# Create exclude file if it doesn't exist
+if [ ! -f "$EXCLUDE_FILE" ]; then
+    mkdir -p "$(dirname "$EXCLUDE_FILE")"
+    cat > "$EXCLUDE_FILE" << 'EOF'
+*/cache/*
+*/.cache/*
+*/Cache/*
+*/chromium/*
+*/.config/chromium/*
+*/.mozilla/firefox/*/cache/*
+*/.mozilla/firefox/*/cache2/*
+*/.config/google-chrome/*
+*/.config/BraveSoftware/*
+*/.config/vivaldi/*
+*/.config/opera/*
+*/npm-cache/*
+*/.yarn/cache/*
+*/.cargo/registry/*
+*/.gradle/caches/*
+*/.nuget/packages/*
+*/.m2/repository/*
+*/.vscode/*
+*/.idea/*
+*/.vs/*
+*/__pycache__/*
+*.pyc
+*/.ipynb_checkpoints/*
+*/venv/*
+*/env/*
+*/node_modules/*
+*/bower_components/*
+*/vendor/*
+*/target/*
+*/build/*
+*/dist/*
+*/tmp/*
+*/temp/*
+*/logs/*
+*.log
+*.tmp
+*.temp
+*/VirtualBox VMs/*
+*/.vagrant/*
+*.vdi
+*.vmdk
+*.qcow2
+*/.steam/*
+*/Steam/*
+*/.local/share/Steam/*
+*/.wine/*
+*/.local/share/lutris/*
+*/Games/*
+*/hiberfil.sys
+*/pagefile.sys
+*/swapfile
+*/.config/yay/*
+*/.cache/yay/*
+*/.cache/paru/*
+*/.cache/pacman/*
+*/.local/share/paru/*
+*/Development/*
+*/Downloads/*
+EOF
+fi
+
+# Helper function to check borg exit code
+check_borg_status() {
+    local exit_code=$1
+    local operation=$2
+    
+    if [ $exit_code -eq 1 ]; then
+        echo "Warning: $operation completed with warnings, continuing"
+        return 0
+    elif [ $exit_code -gt 1 ]; then
+        echo "Error: $operation failed with exit code $exit_code"
+        return 1
+    fi
+    return 0
+}
+
+# Generate archive name with timestamp
+ARCHIVE_NAME="desktop-$(date +%Y-%m-%d_%H-%M-%S)"
+
+# Export environment variables for all borg commands
+export BORG_PASSPHRASE
+export BORG_RSH="ssh -i $SSH_KEY -p 22"
+
+echo "Starting local backup..."
+borg create --progress --stats --exclude-from "$EXCLUDE_FILE" \
+    "$LOCAL_REPO::$ARCHIVE_NAME" "$BACKUP_SOURCE"
+
+check_borg_status $? "Local backup" || exit 1
+
+echo "Running local prune..."
+borg prune --progress --stats --glob-archives 'desktop-*' \
+    --keep-weekly 7 --keep-monthly 1 --keep-yearly 1 "$LOCAL_REPO"
+
+check_borg_status $? "Local prune" || exit 1
+
+echo "Testing SSH connection..."
+SSH_OUTPUT=$(timeout 5 ssh -i "$SSH_KEY" -p 22 "$REMOTE_HOST" "echo test" 2>&1)
+
+if echo "$SSH_OUTPUT" | grep -q "argument <command>: invalid choice:"; then
+    echo "SSH connection successful (with restricted command)"
+else
+    echo "Error: Cannot establish SSH connection to remote server"
+    echo "Skipping remote backup. Local backup was successful."
+    exit 0
+fi
+
+echo "Starting remote backup..."
+timeout 3600 borg create --progress --stats --exclude-from "$EXCLUDE_FILE" \
+    "$REMOTE_REPO::$ARCHIVE_NAME" "$BACKUP_SOURCE"
+
+check_borg_status $? "Remote backup" || { 
+    echo "Local backup was successful, but remote backup failed."
+    exit 1
+}
+
+echo "Running remote prune..."
+timeout 600 borg prune --progress --stats --glob-archives 'desktop-*' \
+    --keep-weekly 7 --keep-monthly 1 --keep-yearly 1 "$REMOTE_REPO"
+
+check_borg_status $? "Remote prune" || exit 1
+
+echo "Backup completed successfully!"
+exit 0

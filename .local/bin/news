@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Save this file as ~/scripts/youtube-streams.sh
+# Make it executable with: chmod +x ~/scripts/youtube-streams.sh
+
+# Define the YouTube streams
+STREAM1="https://www.youtube.com/watch?v=cb12KmMMDJA"
+STREAM2="https://www.youtube.com/watch?v=OR9MH16MKrg"
+STREAM3="https://www.youtube.com/watch?v=avly0uwZzOE"
+STREAM4="https://www.youtube.com/watch?v=QGpHLgRnrx4"
+
+# Path to the layout file
+LAYOUT_FILE="$HOME/.config/i3/layouts/news.json"
+
+# Switch to workspace 9
+i3-msg "workspace 8"
+
+# Kill any existing mpv instances with stream window class/instances
+# First try using i3 commands which is more reliable for i3-managed windows
+for stream_id in "stream01" "stream02" "stream03" "stream04"; do
+  i3-msg "[instance=\"$stream_id\"] kill" 
+done
+
+# As a backup, also try to kill by process
+pkill -f "mpv --x11-name=stream0[1-4]"
+
+# Restore the layout
+i3-msg "append_layout $LAYOUT_FILE"
+
+# Wait a moment for the layout to be applied
+sleep 0.5
+
+# Launch mpv with named instances for each stream with high quality
+# Using ytdl-format for best quality
+    MPV_OPTS="--ytdl-format=bestvideo[height<=720]+bestaudio/best --cache=yes --cache-secs=30 --volume=75"
+
+# Start all streams muted initially to prevent sound overload
+mpv $MPV_OPTS --x11-name=stream01 --mute=yes "$STREAM1" &
+mpv $MPV_OPTS --x11-name=stream02 --mute=yes "$STREAM2" &
+mpv $MPV_OPTS --x11-name=stream03 --mute=yes "$STREAM3" &
+mpv $MPV_OPTS --x11-name=stream04 --mute=yes "$STREAM4" &
+
+echo "All streams started. Use keyboard shortcuts to control individual streams."
+echo "You can unmute a stream by clicking on it and pressing 'm'"

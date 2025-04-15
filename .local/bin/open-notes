@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Script para abrir Neovim en una ventana flotante de Alacritty en i3wm usando tmux
+# Crea o se une a una sesión tmux llamada "notes"
+# Evita abrir múltiples ventanas si ya existe una
+
+# Nombre de la sesión tmux
+SESSION_NAME="notes"
+WINDOW_CLASS="floating_window"
+
+# Comprobar si la ventana ya existe
+if xdotool search --class "$WINDOW_CLASS" > /dev/null; then
+    # Si la ventana ya existe, enfócala
+    xdotool search --class "$WINDOW_CLASS" windowactivate
+    exit 0
+fi
+
+# Comprobar si la sesión tmux ya existe
+if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+    # Si la sesión existe, conéctate a ella
+    alacritty --class "$WINDOW_CLASS" -e tmux attach-session -t "$SESSION_NAME"
+else
+    # Si la sesión no existe, créala y abre Neovim
+    alacritty --class "$WINDOW_CLASS" -e tmux new-session -s "$SESSION_NAME" "nvim ~/Notes/Weekly\ entry\ planning.md"
+fi

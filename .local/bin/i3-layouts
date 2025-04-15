@@ -1,0 +1,144 @@
+#!/bin/bash
+
+# Step 1: Create the layout file
+mkdir -p ~/.config/i3/layouts
+
+# Create a 2x2 grid layout for the cameras
+cat > ~/.config/i3/layouts/cameras.json << 'EOL'
+{
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 1,
+    "type": "con",
+    "nodes": [
+        {
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "splith",
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "normal",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 540,
+                       "width": 960,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "Camera 01",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                          "class": "^mpv$",
+                          "instance": "^camera01$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "normal",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 540,
+                       "width": 960,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "Camera 02",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                          "class": "^mpv$",
+                          "instance": "^camera02$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        },
+        {
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "splith",
+            "percent": 0.5,
+            "type": "con",
+            "nodes": [
+                {
+                    "border": "normal",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 540,
+                       "width": 960,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "Camera 03",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                          "class": "^mpv$",
+                          "instance": "^camera03$"
+                       }
+                    ],
+                    "type": "con"
+                },
+                {
+                    "border": "normal",
+                    "current_border_width": 2,
+                    "floating": "auto_off",
+                    "geometry": {
+                       "height": 540,
+                       "width": 960,
+                       "x": 0,
+                       "y": 0
+                    },
+                    "name": "Camera 04",
+                    "percent": 0.5,
+                    "swallows": [
+                       {
+                          "class": "^mpv$",
+                          "instance": "^camera04$"
+                       }
+                    ],
+                    "type": "con"
+                }
+            ]
+        }
+    ]
+}
+EOL
+
+# Step 2: Create a script to launch the cameras
+cat > ~/.local/bin/cameras << 'EOL'
+#!/bin/bash
+
+# Switch to workspace 9
+i3-msg "workspace 9"
+
+# Restore the layout
+i3-msg "append_layout ~/.config/i3/layouts/cameras.json"
+
+# Launch mpv with named instances for each camera
+mpv --x11-name=camera01 rtsp://admin:calambur451@192.168.0.234:554/Streaming/Channels/101 &
+mpv --x11-name=camera02 rtsp://admin:calambur451@192.168.0.234:554/Streaming/Channels/201 &
+mpv --x11-name=camera03 rtsp://admin:calambur451@192.168.0.234:554/Streaming/Channels/301 &
+mpv --x11-name=camera04 rtsp://admin:calambur451@192.168.0.234:554/Streaming/Channels/401 &
+EOL
+
+# Make the script executable
+mkdir -p ~/.local/bin
+chmod +x ~/.local/bin/cameras
+
+# Step 3: Add to i3 config (optional)
+echo '# Camera hotkey' >> ~/.config/i3/config
+echo 'bindsym $mod+c exec --no-startup-id ~/.local/bin/cameras' >> ~/.config/i3/config
+
+echo "Setup complete. You can now run 'cameras' to launch the camera grid."
+echo "Or press Mod+c if you enabled the hotkey."
+echo "Make sure ~/.local/bin is in your PATH or use the full path to run the script."
