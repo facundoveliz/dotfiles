@@ -1,10 +1,13 @@
 activitywatch-bin
 alacritty
+amd-disable-c6
+ansible
 anydesk-bin
 arandr
 base
 base-devel
 bat
+betterdiscord-installer
 bind
 biome
 borg
@@ -80,6 +83,7 @@ linux-firmware
 linux-headers
 linux-lts
 linux-lts-headers
+lmstudio-beta
 lsp-plugins
 lua-language-server
 lutris
@@ -110,6 +114,7 @@ npm
 ntfs-3g
 obs-studio
 obsidian
+okular
 openssh
 openvpn
 os-prober
@@ -171,6 +176,7 @@ typescript-language-server
 typst
 typstfmt-bin
 ufw
+unityhub
 unrar
 vim
 visual-studio-code-bin

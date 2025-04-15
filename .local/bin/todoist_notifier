@@ -23,7 +23,7 @@ if [ $task_count -ge 1 ]; then
 
   # Send notification and play sound
   notify-send "Todoist" "There are currently <b>$task_count tasks</b> pending." && \
-  /usr/bin/mplayer "/home/fveliz/.local/bin/half_life_wpn_select.mp3"
+  /usr/bin/mplayer "/home/fveliz/.local/bin/notification_sound.mp3"
 
 else
   # No tasks, no notification needed

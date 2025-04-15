@@ -239,3 +239,6 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # ssh-agent
 # eval "$(ssh-agent -s)"
 # ssh-add ~/.ssh/servarica
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/fveliz/.lmstudio/bin"

@@ -10,6 +10,7 @@ for_window [class="Qalculate-gtk"] floating enable, move position center
 for_window [class="(?i)gcolor3"] floating enable, move position center
 for_window [class="Chromium-browser"] floating enable, move position center
 for_window [class="(?i)Minecraft"] floating enable, move position center
+for_window [class="floating_window"] floating enable, move position center
 for_window [title="Friends List"] floating enable, move position center
 for_window [title="(?i)Steam - News"] floating enable, move position center
 for_window [class="(?i)keepassxc"] floating enable, move position center
@@ -77,7 +78,7 @@ bindsym $mod+Shift+b            exec --no-startup-id firefox --private-window
 bindsym $mod+t                  exec --no-startup-id thunar
 bindsym $mod+g                  exec --no-startup-id qalculate-gtk
 bindsym $mod+m                  exec --no-startup-id keepassxc
-bindsym $mod+n                  exec --no-startup-id mousepad
+bindsym $mod+n                  exec --no-startup-id open-notes
 
 # dmenu
 bindsym $mod+d                  exec --no-startup-id dmenu_run
