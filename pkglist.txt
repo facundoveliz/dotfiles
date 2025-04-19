@@ -38,6 +38,7 @@ ethtool
 expect
 eza
 fail2ban
+fastanime-git
 fd
 feh
 ffmpegthumbs

@@ -40,7 +40,7 @@ return {
 				"lua_ls",
 				"ts_ls",
 				"biome",
-				"typst_lsp",
+				-- "typst_lsp",
 				"pyright",
 			}
 

@@ -5,7 +5,7 @@
 */1 * * * * DISPLAY=:0 XDG_RUNTIME_DIR=/run/user/$(id -u) /bin/bash -l -c '~/.local/bin/todoist_notifier'
 
 # todoist add note to remember to check weekly notes
-0 */6 * * * DISPLAY=:0 XDG_RUNTIME_DIR=/run/user/$(id -u) /bin/bash -l -c '~/.local/bin/todoist_add_note'
+# 0 */6 * * * DISPLAY=:0 XDG_RUNTIME_DIR=/run/user/$(id -u) /bin/bash -l -c '~/.local/bin/todoist_add_note'
 
 # backup crontab
 */60 * * * * crontab -l > ~/.dotfiles/crontab.txt
@@ -14,6 +14,3 @@
 # install PACMAN with 'pacman -S --needed $(comm -12 <(pacman -Slq | sort) <(sort pkglist.txt))'
 # install AUR with 'yay -S --needed - < pkglist.txt'
 */60 * * * * pacman -Qqe > ~/.dotfiles/pkglist.txt
-
-# borg backup
-# 0 */12 * * * ~/.local/bin/borg_backup
