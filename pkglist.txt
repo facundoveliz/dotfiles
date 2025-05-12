@@ -1,6 +1,7 @@
 activitywatch-bin
 alacritty
 amd-disable-c6
+anki-bin
 ansible
 anydesk-bin
 arandr
@@ -32,6 +33,7 @@ dunst
 dust
 easyeffects
 efibootmgr
+emacs-nox
 entr
 eovpn
 ethtool
@@ -53,6 +55,7 @@ gcolor3
 gd
 gimp
 git
+gitwatch-git
 gnome-keyring
 goverlay
 gparted
@@ -139,6 +142,7 @@ python-prettytable
 python-pymongo
 qalculate-gtk
 qbittorrent
+qt5ct
 qt6ct-kde
 rclone
 redshift
@@ -189,7 +193,7 @@ wine-staging
 winetricks
 winscp
 xboxdrv
-xdg-desktop-portal-shana
+xdg-desktop-portal-gtk
 xf86-video-vesa
 xidlehook
 xorg-bdftopcf

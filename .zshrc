@@ -26,9 +26,10 @@ export UPDATE_ZSH_DAYS=7
 source $ZSH/oh-my-zsh.sh
 
 # theme
-export GTK_THEME=Adwaita:dark
-export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
-export QT_STYLE_OVERRIDE=Adwaita-Dark
+# export GTK_THEME=Adwaita:dark
+export QT_QPA_PLATFORMTHEME=qt5ct
+# export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
+# export QT_STYLE_OVERRIDE=Adwaita-Dark
 
 # default apps
 export EDITOR="nvim"
@@ -68,6 +69,15 @@ export HSA_OVERRIDE_GFX_VERSION=10.3.0
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
+
+# xdg-desktop-portal setup
+export XDG_SESSION_TYPE=x11
+export XDG_CURRENT_DESKTOP=i3
+export GTK_THEME=Breeze-Dark
+# export QT_STYLE_OVERRIDE=Adwaita-Dark
+# export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_QPA_PLATFORMTHEME=qt6ct
+
 
 # ================ auto start ================
 
@@ -115,6 +125,8 @@ alias ls='exa --color=auto --group-directories-first'
 alias la='exa -ahl --color=always --group-directories-first --sort extension'
 
 alias discord='LIBVA_DRIVER_NAME=radeonsi discord --ignore-gpu-blocklist --disable-features=UseOzonePlatform --enable-features=VaapiVideoDecoder --use-gl=desktop --enable-gpu-rasterization --enable-zero-copy'
+
+alias anki='QTWEBENGINE_CHROMIUM_FLAGS='--disable-gpu' anki'
 
 # pinentry use gtk3
 # alias pinentry=pinentry-gnome3
