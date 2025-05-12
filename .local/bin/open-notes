@@ -21,5 +21,5 @@ if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
     alacritty --class "$WINDOW_CLASS" -e tmux attach-session -t "$SESSION_NAME"
 else
     # Si la sesión no existe, créala y abre Neovim
-    alacritty --class "$WINDOW_CLASS" -e tmux new-session -s "$SESSION_NAME" "nvim ~/Notes/Weekly\ entry\ planning.md"
+    alacritty --class "$WINDOW_CLASS" -e tmux new-session -s "$SESSION_NAME" "cd ~/Notes && nvim ~/Notes/Inbox.md"
 fi

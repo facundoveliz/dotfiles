@@ -1,13 +1,10 @@
 #!/bin/bash
-# Borg Backup Script - Optimized version
-
-# Configuration
 BORG_PASSPHRASE='.%M2?]{r.im6d="z'
 EXCLUDE_FILE="$HOME/.config/borg-excludes"
 LOCAL_REPO="/mnt/1TB/borg_backup"
 REMOTE_HOST="root@38.102.84.90"
 REMOTE_REPO="$REMOTE_HOST:/root/borg_backup"
-SSH_KEY="/home/fveliz/.ssh/backup_key"
+SSH_KEY="/home/fveliz/.ssh/servarica"
 BACKUP_SOURCE="/home/fveliz"
 
 # Create exclude file if it doesn't exist
@@ -108,17 +105,6 @@ borg prune --progress --stats --glob-archives 'desktop-*' \
     --keep-weekly 7 --keep-monthly 1 --keep-yearly 1 "$LOCAL_REPO"
 
 check_borg_status $? "Local prune" || exit 1
-
-echo "Testing SSH connection..."
-SSH_OUTPUT=$(timeout 5 ssh -i "$SSH_KEY" -p 22 "$REMOTE_HOST" "echo test" 2>&1)
-
-if echo "$SSH_OUTPUT" | grep -q "argument <command>: invalid choice:"; then
-    echo "SSH connection successful (with restricted command)"
-else
-    echo "Error: Cannot establish SSH connection to remote server"
-    echo "Skipping remote backup. Local backup was successful."
-    exit 0
-fi
 
 echo "Starting remote backup..."
 timeout 3600 borg create --progress --stats --exclude-from "$EXCLUDE_FILE" \

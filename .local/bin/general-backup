@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # sync documents locally
-rsync -av --progress --delete ~/Documents /mnt/1TB
-rsync -av --progress --delete ~/Notes /mnt/1TB
-rsync -av --progress --delete ~/.local/share/PrismLauncher/instances/1.20.1 /mnt/1TB/Games/Saves/
+# rsync -av --progress --delete ~/Documents /mnt/1TB
+# rsync -av --progress --delete ~/Notes /mnt/1TB
+# rsync -av --progress --delete ~/.local/share/PrismLauncher/instances/1.20.1 /mnt/1TB/Games/Saves/
 
 # notes
 rclone sync --verbose --bwlimit 3M:300k "/home/fveliz/Notes" "gdrive-facundoveliz9@gmail.com:/Notes/"
