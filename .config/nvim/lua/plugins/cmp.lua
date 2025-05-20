@@ -100,14 +100,13 @@ return {
 
 			require("conform").setup({
 				formatters_by_ft = {
-					javascript = { "biome" },
-					javascriptreact = { "biome" },
-					typescript = { "biome" },
-					typescriptreact = { "biome" },
-					svelte = { "biome" },
-					json = { "biome", "yq" },
+					typescript = { "deno_fmt" },
+					javascript = { "deno_fmt" },
+					typescriptreact = { "deno_fmt" },
+					javascriptreact = { "deno_fmt" },
+					json = { "deno_fmt" },
+					markdown = { "deno_fmt" },
 					lua = { "stylua" },
-					markdown = { "markdownlint" },
 					vimwiki = { "markdownlint" },
 					typst = { "typstfmt" },
 					yaml = { "yq" },
